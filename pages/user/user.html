@@ -52,14 +52,15 @@
         </div>
         <div class="overlay-container">
             <div class="overlay">
+                <img src="https://i.pinimg.com/564x/4b/88/8d/4b888d3d7f7c67f64cf4a9124d9e92d0.jpg" alt="" class="overlay-image" id="overlay-image">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal infor</p>
+                    <p class="italic">To keep connected with us please login with your personal infor</p>
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <p class="italic">Enter your personal details and start journey with us</p>
                     <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
@@ -73,12 +74,14 @@
         const $signUpButton = byId('signUp');
         const $signInButton = byId('signIn');
         const $container = byId('container');
+        const $image = byId('overlay-image');
 
         $signUpButton.addEventListener(
             'click',
             () => {
                 $container.classList.add
                 ('right-panel-active');
+                $image.src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
             },
         );
 
@@ -87,6 +90,7 @@
             () => {
                 $container.classList.remove
                 ('right-panel-active');
+                $image.src = 'https://i.pinimg.com/564x/4b/88/8d/4b888d3d7f7c67f64cf4a9124d9e92d0.jpg';
             },
         );
     </script>
