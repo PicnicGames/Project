@@ -130,7 +130,12 @@ ul {
     cursor: pointer;
 }
 
+.user:hover .user-dropdown {
+    display: block;
+}
+
 .user-dropdown {
+    display: none;
     position: absolute;
     top: 79%;
     left: 0;
@@ -183,7 +188,7 @@ ul {
     margin-top: 20px;
 }
 
-.main__img {
+.main-img {
     position: absolute;
     right: 0;
     width: 100%;
@@ -191,25 +196,21 @@ ul {
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
 }
 
-.main-content .image__left {
+.main-content .arrow-left, .main-content .arrow-right {
     width: 30%;
     background: linear-gradient(to right, #a2a2a2, #a2a2a2 10%, transparent 100%);
 }
 
-.main-content .image__right {
-    width: 30%;
-    background: linear-gradient(to left, #a2a2a2, #a2a2a2 10%, transparent 100%);
-}
-
-.image__left {
+.arrow-left {
     width: 10%;
-    height: 60svh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;   
     justify-content: flex-start;
+    color: #fff;
     background-color: transparent;
     opacity: 0;
     border: none;
@@ -217,15 +218,16 @@ ul {
     z-index: 1;
 }
 
-.image__right {
+.arrow-right {
     width: 10%;
-    height: 60svh;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: #fff;
     background-color: transparent;
     opacity: 0;
     border: none;
@@ -233,20 +235,12 @@ ul {
     z-index: 1;
 }
 
-.hover:hover {
+.arrow-left:hover, .arrow-right:hover {
     cursor: pointer;
-}
-
-.image__arrow-icon {
-    color: #fff;
-    margin: 10px;
-}
-
-.image__left:hover, .image__right:hover {
     opacity: 1;
 }
 
-.trending__text {
+.trending-text {
     width: 50%;
     color: black;
     background-color: white;
@@ -274,7 +268,7 @@ ul {
     background: linear-gradient(to left, black, black 30%, transparent);
 }
 
-.trending__image {
+.trending-content .trending-image {
     width: 70%;
     height: 60svh;
 }
@@ -323,6 +317,31 @@ ul {
     border-radius: 40px;
 }
 
+.trending-list {
+    position: relative;
+    margin: 40px;
+}
+
+.trending-list .arrow-left, .trending-list .arrow-right {
+    height: 50%;
+    color: #000;
+}
+
+.trending-list .arrow-left {
+    left: -2%;
+}
+
+.trending-list .arrow-right {
+    right: -2%;
+}
+
+.trending-list-items img {
+    object-fit: cover;
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+}
+
 .footer {
     display: flex;
     border: solid 1px #000;
@@ -333,11 +352,11 @@ ul {
     margin-left: 5%;
 }
 
-.contact__link {
+.contact-link {
     color: black;
 }
 
-.contact-social__link {
+.contact-social-link {
     color: black;
     text-decoration: none;
     margin-bottom: 10px;
