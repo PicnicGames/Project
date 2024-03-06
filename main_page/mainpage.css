@@ -1,5 +1,3 @@
-@import url("http://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-
 * {
     margin: 0;
     font-family: "Poppins", sans-serif;
@@ -17,6 +15,10 @@ body {
 ul {
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.container {
+    margin-bottom: 0;
 }
 
 .header {
@@ -247,21 +249,21 @@ ul {
     opacity: 1;
 }
 
-.trending-text {
+.heading {
     width: 50%;
     color: black;
     background-color: white;
     text-align: center;
     text-transform: uppercase;
     border-bottom: solid 1px #000;
-    margin: 5% auto 0 auto;
+    margin: 3% auto;
     padding: 1%;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
     border-radius: 4.5px;
 }
 
 .trending-content {
-    width: 70%;
+    width: 60%;
     position: relative;
     margin: 2.5% auto 0 auto;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
@@ -271,18 +273,18 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50svh;
+    height: 60svh;
     background: linear-gradient(to left, black, black 30%, transparent);
 }
 
 .trending-content .trending-image {
     width: 70%;
-    height: 50svh;
+    height: 60svh;
 }
 
 .image-hover {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     position: absolute;
     top: 0;
     opacity: 0;
@@ -324,35 +326,53 @@ ul {
     border-radius: 40px;
 }
 
-.trending-list {
-    position: relative;
-    margin: 40px;
+.image-button:hover {
+    background-color: rgba(201, 51, 55, 0.8);
 }
 
-.trending-list .arrow-left, .trending-list .arrow-right {
+.game-list {
+    position: relative;
+    margin: 3%;   
+}
+
+.game-list .arrow-left, .game-list .arrow-right {
     height: 70%;
     color: #000;
 }
 
-.trending-list .arrow-left {
+.game-list .arrow-left {
     left: -2%;
+    top: 28%;
 }
 
-.trending-list .arrow-right {
+.game-list .arrow-right {
     right: -2%;
+    top: 28%;
 }
 
-.trending-list-items img {
+.game-list-items {
+    height: 15vh;
+}
+
+.game-list-items img {
     object-fit: cover;
     width: 100%;
-    height: 70%;
-    padding: 5px;
+    height: 100%;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+    transition: scale 0.25s linear;
+}
+
+.game-list-heading {
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 3% 0 1% 0;
 }
 
 .footer {
     display: flex;
     border: solid 1px #000;
     padding-top: 10px;
+    margin-top: 5%;
 }
 
 .contact {
