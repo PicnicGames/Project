@@ -271,18 +271,18 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 60svh;
+    height: 50svh;
     background: linear-gradient(to left, black, black 30%, transparent);
 }
 
 .trending-content .trending-image {
     width: 70%;
-    height: 60svh;
+    height: 50svh;
 }
 
 .image-hover {
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     position: absolute;
     top: 0;
     opacity: 0;
@@ -330,7 +330,7 @@ ul {
 }
 
 .trending-list .arrow-left, .trending-list .arrow-right {
-    height: 50%;
+    height: 70%;
     color: #000;
 }
 
@@ -345,7 +345,7 @@ ul {
 .trending-list-items img {
     object-fit: cover;
     width: 100%;
-    height: 50%;
+    height: 70%;
     padding: 5px;
 }
 
