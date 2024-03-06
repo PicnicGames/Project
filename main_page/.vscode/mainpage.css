@@ -271,18 +271,18 @@ ul {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50svh;
+    height: 60svh;
     background: linear-gradient(to left, black, black 30%, transparent);
 }
 
 .trending-content .trending-image {
     width: 70%;
-    height: 50svh;
+    height: 60svh;
 }
 
 .image-hover {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     position: absolute;
     top: 0;
     opacity: 0;
@@ -330,7 +330,7 @@ ul {
 }
 
 .trending-list .arrow-left, .trending-list .arrow-right {
-    height: 70%;
+    height: 50%;
     color: #000;
 }
 
@@ -345,7 +345,7 @@ ul {
 .trending-list-items img {
     object-fit: cover;
     width: 100%;
-    height: 70%;
+    height: 50%;
     padding: 5px;
 }
 
@@ -516,7 +516,7 @@ ul {
     transition: transform 80ms ease-in;
 }
 
-.form-container button:hover, .overlay-container button:hover, .form-container button:hover.ghost, .overlay-container button:hover.ghost {
+.form-container button:hover, .overlay-container button:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000;
@@ -532,7 +532,7 @@ ul {
 
 .form-container button.ghost, .overlay-container button.ghost  {
     background: transparent;
-    color: #fff;
+    color: black;
     border-color: #333;
 }
 
@@ -559,7 +559,7 @@ ul {
     width: 200%;
     left: -100%;
     object-fit: contain;
-    color: #fff;
+    color: black;
     transform: translateY(0);
     transition: transform 0.6s ease-in-out;
 }
