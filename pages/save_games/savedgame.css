@@ -188,12 +188,18 @@ a {
 .heading {
     text-transform: uppercase;
     margin-bottom: 3%;
+    font-weight: bolder;
 }
 
 .heading-link {
     color: #000;
     text-decoration: none;
     opacity: 0.5;
+    font-weight: 400;
+}
+
+.heading-link:hover {
+    opacity: 1;
 }
 
 .game-list-item {

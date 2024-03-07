@@ -190,13 +190,19 @@ a {
 
 .heading {
     text-transform: uppercase;
+    font-weight: bolder;
     margin-bottom: 3%;
 }
 
 .heading-link {
     color: #000;
     text-decoration: none;
+    font-weight: 400;
     opacity: 0.5;
+}
+
+.heading-link:hover {
+    opacity: 1;
 }
 
 .game-container {
@@ -248,8 +254,7 @@ a {
 }
 
 .nav-group button:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #ccc;
 }
 
 .game-content {
