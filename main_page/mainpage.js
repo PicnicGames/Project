@@ -10,6 +10,12 @@ function signIn() {
     document.getElementById('close-button').style.color = "#fff"
 };
 
+function getSearchInput() {
+    let input = document.getElementById("search").value;
+    input = input.toLowerCase();
+    console.log(input);
+}
+
 function openModal() {
     document.getElementById('user-modal').style.display = "flex";
 };
