@@ -18,31 +18,33 @@
         <div class="container">
             <div class="wrap">
                 <ul class="navigation">
-                    <li><a href="#" class="logo">
+                    <li><a href="../main_page/mainpage_none.html" class="logo">
                             <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1210625479258677338/image.png?ex=65eb3dd6&is=65d8c8d6&hm=333ea11ea0af76eab8ef671e7813790123c02a145e7affd090ab4f17ecc0089d&" alt="" class="logo-img">
                         </a>
                     </li>
-                    <li><a href="#" class="underline">Home</a></li>
-                    <li><a href="#" class="underline">Game</a></li>
-                    <li><a href="#" class="underline">Tour</a></li>
-                    <li><a href="#" class="underline">Blog</a></li>
+                    <li><a href="../main_page/mainpage_none.html" class="underline">Home</a></li>
+                    <li><a href="../pages/games/games.html" class="underline">Game</a></li>
+                    <li><a href="../pages/tour/tour.html" class="underline">Tour</a></li>
+                    <li><a href="" class="underline">Blog</a></li>
                 </ul>
                 <ul class="navigation">
                     <div class="search">
-                        <input type="text" class="search-bar" placeholder="Search...">
-                        <button class="search-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                              </svg>
-                        </button>
+                        <form>
+                            <input name="input" type="text" class="search-bar" id="search" placeholder="Search...">
+                            <button class="search-button" onclick="getSearchInput()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                     <div class="saved-games">
-                        <a href="" class="nav-link">
+                        <button onclick="openModal()" class="nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box2-heart nav-icon" viewBox="0 0 16 16">
                                 <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
                                 <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
                               </svg>
-                        </a>
+                        </button>
                     </div>
                     <div class="user">
                         <button onclick="openModal()">
