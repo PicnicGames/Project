@@ -7,5 +7,6 @@ function showMenu() {
 };
 
 function searchButton() {
-    document.getElementById("search").style.width == '100vw';
+    document.getElementById("mb-search-bar").style.opacity == '1';
+    document.getElementById("mb-search-bar").style.transform == 'none';
 }
