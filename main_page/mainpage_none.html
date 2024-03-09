@@ -10,55 +10,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="mainpage.js"></script>
+    <script src="responsive.js"></script>
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="wrap">
-                <div class="group">
-                    <ul class="navigation">
-                        <li><a href="#" class="logo">
-                                <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1210625479258677338/image.png?ex=65eb3dd6&is=65d8c8d6&hm=333ea11ea0af76eab8ef671e7813790123c02a145e7affd090ab4f17ecc0089d&" alt="" class="logo-img">
-                            </a>
-                        </li>
-                        <li><a href="#" class="underline">Home</a></li>
-                        <li><a href="#" class="underline">Game</a></li>
-                        <li><a href="#" class="underline">Tour</a></li>
-                        <li><a href="#" class="underline">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="group">
-                    <ul class="navigation">
-                        <div class="search">
-                            <input type="text" class="search-bar" placeholder="Search...">
-                            <button class="search-button">
+                <ul class="navigation">
+                    <li><a href="../main_page/mainpage_none.html" class="logo">
+                            <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1210625479258677338/image.png?ex=65eb3dd6&is=65d8c8d6&hm=333ea11ea0af76eab8ef671e7813790123c02a145e7affd090ab4f17ecc0089d&" alt="" class="logo-img">
+                        </a>
+                    </li>
+                    <li><a href="../main_page/mainpage_none.html" class="underline">Home</a></li>
+                    <li><a href="../pages/games/games.html" class="underline">Game</a></li>
+                    <li><a href="../pages/tour/tour.html" class="underline">Tour</a></li>
+                    <li><a href="" class="underline">Blog</a></li>
+                </ul>
+                <ul class="navigation">
+                    <div class="search">
+                        <form>
+                            <input name="input" type="text" class="search-bar" id="search" placeholder="Search...">
+                            <button class="search-button" onclick="getSearchInput()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                                  </svg>
+                                </svg>
                             </button>
-                        </div>
-                        <div class="saved-games">
-                            <a href="" class="nav-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box2-heart nav-icon" viewBox="0 0 16 16">
-                                    <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
-                                    <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
-                                  </svg>
-                            </a>
-                        </div>
-                        <div class="user">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle nav-icon" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                            </svg>
-                            <div class="user-dropdown">
-                                <ul class="user-list">
-                                    <li class="user-list-items"><button onclick="openModal()">Sign In</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </ul>
-                    
-                </div>
+                        </form>
+                    </div>
+                    <div class="saved-games">
+                        <button onclick="openModal()" class="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box2-heart nav-icon" viewBox="0 0 16 16">
+                                <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
+                                <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
+                              </svg>
+                        </button>
+                    </div>
+                    <div class="user">
+                        <button onclick="openModal()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-box-arrow-in-right nav-icon" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                              </svg>
+                        </button>
+                    </div>
+                </ul>
             </div>
         </div>
     </div>
@@ -97,25 +93,25 @@
                     <button class="image-button">see more</button>
                 </div>
             </div>
-            <div class="game-list container">
+            <div class="trending-list game-list container">
                 <div class="row">
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
                 </div>
                 <button class="arrow-left">
@@ -129,26 +125,28 @@
                       </svg>
                 </button>
             </div>
+        </div>
+        <div class="game">
             <div class="game-list container">
                 <h3 class="game-list-heading" style="margin-top: 5%;">beach</h3>
                 <div class="row">
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
-                    <div class="game-list-items col-sm-2">
-                        <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
                     </div>
                 </div>
                 <button class="arrow-left">
@@ -162,72 +160,72 @@
                       </svg>
                 </button>
             </div>
-        </div>
-        <div class="game-list container">
-            <h3 class="game-list-heading">beach</h3>
-            <div class="row">
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+            <div class="game-list container">
+                <h3 class="game-list-heading">beach</h3>
+                <div class="row">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
                 </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
+                <button class="arrow-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-left image-arrow-icon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                      </svg>
+                </button>
+                <button class="arrow-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-right image-arrow-icon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
+                      </svg>
+                </button>
             </div>
-            <button class="arrow-left">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-left image-arrow-icon" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
-                  </svg>
-            </button>
-            <button class="arrow-right">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-right image-arrow-icon" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
-                  </svg>
-            </button>
-        </div>
-        <div class="game-list container">
-            <h3 class="game-list-heading">beach</h3>
-            <div class="row">
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+            <div class="game-list container">
+                <h3 class="game-list-heading">beach</h3>
+                <div class="row">
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="game-list-items col">
+                        <img class="game-list-image" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
+                    </div>
                 </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
-                <div class="game-list-items col-sm-2">
-                    <img id="game-list-image"  onmouseover="imageOverBorder(this)" onmouseout="imageOutBorder(this)" src="https://th.bing.com/th/id/OIP.NdMIR8bLaZGekvr8mpK-BgHaHa?rs=1&pid=ImgDetMain" alt="">
-                </div>
+                <button class="arrow-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-left image-arrow-icon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                      </svg>
+                </button>
+                <button class="arrow-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-right image-arrow-icon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
+                      </svg>
+                </button>
             </div>
-            <button class="arrow-left">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-left image-arrow-icon" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
-                  </svg>
-            </button>
-            <button class="arrow-right">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-compact-right image-arrow-icon" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
-                  </svg>
-            </button>
         </div>
     </div>
 
@@ -328,35 +326,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function signUp() {
-            document.getElementById('modal-container').classList.add('right-panel-active');
-            document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
-            document.getElementById('close-button').style.color = "#000"
-        };
-        function signIn() {
-            document.getElementById('modal-container').classList.remove('right-panel-active');
-            document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
-            document.getElementById('close-button').style.color = "#fff"
-        };
-        function openModal() {
-            document.getElementById('user-modal').style.display = "flex";
-        };
-        function closeModal() {
-            document.getElementById('user-modal').style.display = "none";
-        };
-        function imageOverBorder(image) {
-            image.style.scale = "1.1"
-        };
-        function imageOutBorder(image) {
-            image.style.scale = "none"
-        };
-        function OpenModal() {
-            document.getElementById('user-modal').style.display = "flex";
-        };
-        function CloseModal() {
-            document.getElementById('user-modal').style.display = "none";
-        };
-    </script>
 </body>
 </html>

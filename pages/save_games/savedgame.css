@@ -13,16 +13,13 @@ body {
 }
 
 ul {
+    list-style: none;
     padding: 0 !important;
     margin: 0 !important;
 }
 
 a {
     text-decoration: none !important;
-}
-
-.container {
-    margin-bottom: 0;
 }
 
 .header {
@@ -40,9 +37,15 @@ a {
     justify-content: space-between;
 }
 
+.mb-menu {
+    display: none;
+    margin: 0 10px;
+}
+
 .logo-img {
     width: 40px;
     height: 40px;
+    margin-right: 30px;
 }
 
 .group {
@@ -89,6 +92,10 @@ a {
     transform-origin: left;
 }
 
+.mb-user {
+    display: none;
+}
+
 .header .search {
     position: relative;
     display: flex;
@@ -132,40 +139,31 @@ a {
     position: relative;
 }
 
-.user:hover {
-    cursor: pointer;
-}
-
-.user:hover .user-dropdown {
-    display: block;
-}
-
-.user-dropdown {
-    display: none;
-    position: absolute;
-    top: 79%;
-    left: 0;
+.user button {
+    border: none;
 }
 
 .user-list {
-    width: 100px;
+    display: none;
     border-radius: 4px;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
 }
 
-.user-list::before {
-    content: "";
-    position: absolute;
-    bottom: 90%;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0px 12px 15px 12px;
-    border-color: transparent transparent #fff transparent;  
+.user-list-items {
+    width: 100%;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
 }
 
-.user-list-items {
-    line-height: 40px;
+.user-list-items a {
+    font-size: 1.2rem !important;
+    letter-spacing: normal !important;
+    text-transform: unset !important;
+}
+
+.user-list-items:last-child {
+    border-bottom: none
 }
 
 .user-list-items button {
@@ -173,13 +171,18 @@ a {
     background-color: #fff;
     line-height: 0;
     border: none;
-    border-radius: 4px;
     padding: 20px 23.5px;
     z-index: 1;
 }
 
-.user-list-items button:hover {
-    background-color: #ccc;
+.user-list-items:first-child button {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.user-list-items:last-child button {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .content {
@@ -190,15 +193,15 @@ a {
 
 .heading {
     text-transform: uppercase;
-    font-weight: bolder;
     margin-bottom: 3%;
+    font-weight: bolder;
 }
 
 .heading-link {
     color: #000;
     text-decoration: none;
-    font-weight: 400;
     opacity: 0.5;
+    font-weight: 400;
 }
 
 .heading-link:hover {
@@ -219,30 +222,6 @@ a {
     flex: 1;
 }
 
-.game {
-    height: fit-content;
-    overflow: hidden;
-    border: solid 1px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
-}
-
-.game:hover {
-    scale: 1.05;
-    padding: 0 20px;
-}
-
-.game:hover .game-desc {
-    opacity: 1;
-    height: auto;
-    border-top: solid 1px rgba(0, 0, 0, 0.3);
-}
-
-.game img {
-    object-fit: contain;
-    width: 100%;
-    margin: 10px 0;
-}
-
 .nav-group {
     margin: 20px 0;
 }
@@ -257,6 +236,37 @@ a {
     background-color: #ccc;
 }
 
+.game-list-item {
+    margin: 3% 0;
+}
+
+.game {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.game img {
+    margin: 10px 0;
+}
+
+.nav-group {
+    margin: 20px 0;
+}
+
+.nav-group button {
+    background-color: transparent;
+    padding: 5px;
+    margin: 2px;
+}
+
+.nav-group button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 .game-content {
     color: #000;
 }
@@ -266,12 +276,8 @@ a {
 }
 
 .game-desc {
-    transition: opacity 2s ease;
-    opacity: 0;
-    height: 0;
     color: #000;
     border-top: none;
-    margin: 0;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin: 10px;
 }
