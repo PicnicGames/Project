@@ -15,7 +15,7 @@
     <script src="responsive.js"></script>
 </head>
 <body>
-    <div class="header" id="header" style="overflow: hidden;">
+    <div class="header" id="header">
         <div class="container">
             <div class="wrap">
                 <div class="group">
@@ -25,7 +25,7 @@
                             </svg>
                     </button>
                     <a href="../main_page/mainpage_user.html">
-                        <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1210625479258677338/image.png?ex=65eb3dd6&is=65d8c8d6&hm=333ea11ea0af76eab8ef671e7813790123c02a145e7affd090ab4f17ecc0089d&" alt="" class="logo-img">
+                        <img src="https://cdn.vectorstock.com/i/preview-1x/02/93/outdoor-logo-design-vector-23990293.jpg" alt="" class="logo-img">
                     </a>
                     <ul class="navigation mb-menu">
                         <li><a href="../main_page/mainpage_user.html" class="underline">Home</a></li>
@@ -40,7 +40,7 @@
                     <form action="">
                         <input type="text" id="mb-search-bar" class="mb-search-bar" placeholder="Search...">
                     </form>
-                    <button class="mb-search-button" onclick="searchButton()">
+                    <button class="mb-search-button" onclick="openSearch()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                         </svg>
@@ -67,14 +67,14 @@
                             </a>
                         </div>
                         <div class="user dropdown">
-                            <button data-bs-toggle="dropdown" type="button" class="btn">
+                            <button data-bs-toggle="dropdown" type="button" class="btn dropdown">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle nav-icon" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                                 </svg>
                             </button>
                             <ul class="dropdown-menu user-list">
-                                <li class="user-list-items"><a class="dropdown-item" href="mainpage_none.html">Log out</a></li>
+                                <li class="user-list-items"><button class="dropdown-item" href="mainpage_none.html">Log out</button></li>
                             </ul>
                         </div>
                     </ul>
@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <div class="content">
+    <div class="content" onclick="closeSearch()">
         <div class="main">
             <img src="https://img4.thuthuatphanmem.vn/uploads/2019/11/06/hinh-anh-canh-bien-hoang-hon_025748640.jpg" alt="" class="main-img" id="main-img">
             <button class="arrow-left ">

@@ -4,68 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
-    <link rel="stylesheet" href="games.css">
+    <link rel="stylesheet" href="../../main_page/mainpage.css">
+    <link rel="stylesheet" href="../../main_page/responsive.css">  
     <link rel="stylesheet" href="http://unpkg.com/boxicon@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="../../main_page/responsive.js"></script>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <div class="container">
             <div class="wrap">
                 <div class="group">
-                    <ul class="navigation">
-                        <li><a href="../../main_page/mainpage_user.html" class="logo">
-                                <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1210625479258677338/image.png?ex=65eb3dd6&is=65d8c8d6&hm=333ea11ea0af76eab8ef671e7813790123c02a145e7affd090ab4f17ecc0089d&" alt="" class="logo-img">
-                            </a>
-                        </li>
-                        <li><a href="../../main_page/mainpage_user.html" class="underline">Home</a></li>
-                        <li><a href="../games/games.html" class="underline">Game</a></li>
-                        <li><a href="../tour/tour.html" class="underline">Tour</a></li>
-                        <li><a href="" class="underline">Blog</a></li>
+                    <button onclick="showMenu()" class="mb-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                    </button>
+                    <a href="../main_page/mainpage_user.html">
+                        <img src="https://cdn.vectorstock.com/i/preview-1x/02/93/outdoor-logo-design-vector-23990293.jpg" alt="" class="logo-img">
+                    </a>
+                    <ul class="navigation mb-menu">
+                        <li><a href="../main_page/mainpage_user.html" class="underline">Home</a></li>
+                        <li><a href="../pages/games/games.html" class="underline">Game</a></li>
+                        <li><a href="./pages/tour/tour.html" class="underline">Tour</a></li>
+                        <li><a href="#" class="underline">Blog</a></li>
+                        <li><a href="../pages/save_games/savedgame.html" class="underline mb-savedgames">Saved Games</a></li>
+                        <li><a href="#" class="underline mb-user">User</a></li>
                     </ul>
+                </div>
+                <div class="mb-search">
+                    <form action="">
+                        <input type="text" id="mb-search-bar" class="mb-search-bar" placeholder="Search...">
+                    </form>
+                    <button class="mb-search-button" onclick="openSearch()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
                 </div>
                 <div class="group">
                     <ul class="navigation">
                         <div class="search">
-                            <input type="text" class="search-bar" placeholder="Search...">
-                            <button class="search-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                                  </svg>
-                            </button>
+                            <form action="">
+                                <input type="text" class="search-bar" placeholder="Search...">
+                                <button class="search-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search nav-icon" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                         <div class="saved-games">
-                            <a href="../save_games/savedgame.html" class="nav-link">
+                            <a href="../pages/save_games/savedgame.html" class="nav-link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box2-heart nav-icon" viewBox="0 0 16 16">
                                     <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
                                     <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
-                                  </svg>
+                                </svg>
                             </a>
                         </div>
-                        <div class="user">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle nav-icon" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                            </svg>
-                            <div class="user-dropdown">
-                                <ul class="user-list">
-                                    <li class="user-list-items"><button onclick="openModal()">Sign In</button></li>
-                                </ul>
-                            </div>
+                        <div class="user dropdown">
+                            <button data-bs-toggle="dropdown" type="button" class="btn dropdown">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle nav-icon" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu user-list">
+                                <li class="user-list-items"><button class="dropdown-item" href="mainpage_none.html">Log out</button></li>
+                            </ul>
                         </div>
                     </ul>
-                    
                 </div>
             </div>
         </div>
     </div>
     <div class="content container">
-        <h3 class="heading"><a href="../../main_page/mainpage_user.html" class="heading-link">home</a> <span style="opacity: 0.5;">/</span> games</h3>
+        <h3 class="page-heading"><a href="../../main_page/mainpage_user.html" class="heading-link">home</a> <span style="opacity: 0.5;">/</span> games</h3>
         <div class="game-container">
             <div class="left">
+                <button class="filter-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                      </svg>
+                </button>
                 <div class="game-nav">
                     <div class="nav-group">
                         <h4>Players</h4>
@@ -90,7 +114,7 @@
             </div>
             <div class="right">
                 <div class="row">
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -102,7 +126,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -114,7 +138,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -126,7 +150,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -140,7 +164,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -152,7 +176,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -164,7 +188,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -176,7 +200,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col m-3">
+                    <div class="game col-sm m-3">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
