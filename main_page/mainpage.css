@@ -30,10 +30,12 @@ ul {
 }
 
 .mb-search {
+    display: none;
     width: 100%;
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 0;
 }
 
 .mb-search-bar {
@@ -41,11 +43,13 @@ ul {
     height: 10vh;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     border: none;
+    font-size: 1.6rem;
+    padding: 0 20px;
     transform: translateX(100vw);
     opacity: 0;
-    transition: opacity 3s linear, transform 3s linear;
+    transition: transform 3s ease-in-out;
 }
 
 .mb-search-button {
