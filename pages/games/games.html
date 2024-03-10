@@ -65,16 +65,13 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="user dropdown">
-                            <button data-bs-toggle="dropdown" type="button" class="btn dropdown">
+                        <div class="user">
+                            <a href="" class="nav-link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle nav-icon" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                                 </svg>
-                            </button>
-                            <ul class="dropdown-menu user-list">
-                                <li class="user-list-items"><button class="dropdown-item" href="mainpage_none.html">Log out</button></li>
-                            </ul>
+                            </a>
                         </div>
                     </ul>
                 </div>
@@ -83,12 +80,17 @@
     </div>
     <div class="content container">
         <h3 class="page-heading"><a href="../../main_page/mainpage_user.html" class="heading-link">home</a> <span style="opacity: 0.5;">/</span> games</h3>
+        <button class="mb-filter" onclick="openCatagory()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+              </svg>
+        </button>
         <div class="game-container">
-            <div class="left">
-                <button class="filter-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
-                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                      </svg>
+            <div class="catagory" id="catagory">
+                <button class="mb-close" onclick="closeCatagory()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>
                 </button>
                 <div class="game-nav">
                     <div class="nav-group">
@@ -112,9 +114,9 @@
                     </div>
                 </div>
             </div>
-            <div class="right">
+            <div class="game-panel" id="game-panel">
                 <div class="row">
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -126,7 +128,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -138,7 +140,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -150,7 +152,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -164,7 +166,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -176,7 +178,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -188,7 +190,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
@@ -200,7 +202,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="game col-sm m-3">
+                    <div class="game col-sm">
                         <a href="" class="game-link">
                             <div class="game-content">
                                 <img src="https://th.bing.com/th/id/R.bea3d409f1637bf8347c9635d74c37a6?rik=sATWVdMQA8xjnQ&pid=ImgRaw&r=0" alt="">
