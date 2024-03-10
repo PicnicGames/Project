@@ -3,144 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="tour.css" />
+    <title>Web Design Mastery | G.Travel</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="">Home</a>
-        <a href="">Contacts</a>
-        <a href="">Info</a>
-      </nav>
+    <nav>
+      <div class="nav__logo">Travel</div>
+      <ul class="nav__links">
+        <li class="link"><a href="#">Home</a></li>
+        <li class="link"><a href="#">Game</a></li>
+        <li class="link"><a href="#">Tour</a></li>
+        <li class="link"><a href="#">Blog</a></li>
+        <li class="link btn">Any Query?</li>
+      </ul>
+    </nav>
+    <header class="section__container header__container">
+      <div class="header__content">
+        <p class="section__subheader">Choose your plan</p>
+        <h2 class="section__header">Make your best tour plan with us</h2>
+        <p class="title">Select or Search your best plans</p>
+        <form>
+          <div class="form__group">
+            <input type="text" />
+            <span><i class="ri-search-line"></i></span>
+          </div>
+          <p class="hashtags">
+            #TravelPhotography #InstaTravel #TravelCouples #TravelGoals
+            #SoloTravel #TravelInspiration #PassportReady
+          </p>
+          <button class="btn">Find</button>
+        </form>
+      </div>
+      <div class="header__image">
+        <img src="assets/header.jpg" alt="header" />
+        <div class="header__nav">
+          <span><i class="ri-arrow-left-line"></i> Previous</span>
+          <span>Next <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </div>
     </header>
 
-    <!-- carousel -->
-    <div class="carousel">
-      <!-- list item -->
-      <div class="list">
-        <div class="item">
-          <img src="https://img4.thuthuatphanmem.vn/uploads/2020/04/28/hinh-nen-3d-do-phan-giai-2k_014253967.jpg" />
-          <div class="content">
-            <div class="author">CALLMEREV</div>
-            <div class="title">DESIGN SLIDER</div>
-            <div class="topic">PHOTOGRAPH</div>
-            <div class="des">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-              sequi, rem magnam nesciunt minima placeat, itaque eum neque
-              officiis unde, eaque optio ratione aliquid assumenda facere ab et
-              quasi ducimus aut doloribus non numquam. Explicabo, laboriosam
-              nisi reprehenderit tempora at laborum natus unde. Ut,
-              exercitationem eum aperiam illo illum laudantium?
-            </div>
-            <div class="buttons">
-              <button>SEE MORE</button>
-              <button>SUBSCRIBE</button>
-            </div>
-          </div>
+    <section class="story">
+      <div class="section__container story__container">
+        <div class="story__image">
+          <img src="assets/story.jpg" alt="story" />
         </div>
-        <div class="item">
-          <img src="https://th.bing.com/th/id/R.164d992968d88a1f8b82ea8788dfed70?rik=%2bE%2fJW%2bk%2fx4n3Zw&pid=ImgRaw&r=0" />
-          <div class="content">
-            <div class="author">CALLMEREV</div>
-            <div class="title">DESIGN SLIDER</div>
-            <div class="topic">PHOTOGRAPH</div>
-            <div class="des">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-              sequi, rem magnam nesciunt minima placeat, itaque eum neque
-              officiis unde, eaque optio ratione aliquid assumenda facere ab et
-              quasi ducimus aut doloribus non numquam. Explicabo, laboriosam
-              nisi reprehenderit tempora at laborum natus unde. Ut,
-              exercitationem eum aperiam illo illum laudantium?
-            </div>
-            <div class="buttons">
-              <button>SEE MORE</button>
-              <button>SUBSCRIBE</button>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://th.bing.com/th/id/R.59e0736f15aa2da026e7288194d6ee86?rik=glOt9oW816j6XQ&pid=ImgRaw&r=0" />
-          <div class="content">
-            <div class="author">CALLMEREV</div>
-            <div class="title">DESIGN SLIDER</div>
-            <div class="topic">PHOTOGRAPH</div>
-            <div class="des">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-              sequi, rem magnam nesciunt minima placeat, itaque eum neque
-              officiis unde, eaque optio ratione aliquid assumenda facere ab et
-              quasi ducimus aut doloribus non numquam. Explicabo, laboriosam
-              nisi reprehenderit tempora at laborum natus unde. Ut,
-              exercitationem eum aperiam illo illum laudantium?
-            </div>
-            <div class="buttons">
-              <button>SEE MORE</button>
-              <button>SUBSCRIBE</button>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://i.pinimg.com/originals/ee/03/f2/ee03f297b3c40a0b26d2b8e9de854b1d.jpg" />
-          <div class="content">
-            <div class="author">CALLMEREV</div>
-            <div class="title">DESIGN SLIDER</div>
-            <div class="topic">PHOTOGRAPH</div>
-            <div class="des">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-              sequi, rem magnam nesciunt minima placeat, itaque eum neque
-              officiis unde, eaque optio ratione aliquid assumenda facere ab et
-              quasi ducimus aut doloribus non numquam. Explicabo, laboriosam
-              nisi reprehenderit tempora at laborum natus unde. Ut,
-              exercitationem eum aperiam illo illum laudantium?
-            </div>
-            <div class="buttons">
-              <button>SEE MORE</button>
-              <button>SUBSCRIBE</button>
-            </div>
-          </div>
+        <div class="story__content">
+          <p class="section__subheader">A story about a journey</p>
+          <h2 class="section__header">Thailand trip in december</h2>
+          <p class="title">
+            <span><i class="ri-calendar-2-fill"></i> Jan-06-2023</span>
+            <span><i class="ri-user-3-fill"></i> Adam Buleiver</span>
+          </p>
+          <p class="description">
+            Experience the magic of Thailand with GTravel in December! Our
+            expertly curated trip will take you on an unforgettable journey
+            through this vibrant and captivating country. Discover the stunning
+            beaches of Thailand's southern islands, such as Phuket, Krabi, or
+            Koh Samui, where you can bask in the warm tropical sun and indulge
+            in water sports.<br /><br />GTravel, your trusted travel partner,
+            ensures a seamless and well-planned itinerary, including
+            accommodations, transportation, and expert guides. Book your
+            Thailand adventure with GTravel today and create lasting memories in
+            the Land of Smiles.
+          </p>
+          <a href="#">Read More</a>
         </div>
       </div>
-      <!-- list thumnail -->
-      <div class="thumbnail">
-        <div class="item">
-          <img src="https://img4.thuthuatphanmem.vn/uploads/2020/04/28/hinh-nen-3d-do-phan-giai-2k_014253967.jpg" />
-          <div class="content">
-            <div class="title">Name Slider</div>
-            <div class="description">Description</div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://th.bing.com/th/id/R.164d992968d88a1f8b82ea8788dfed70?rik=%2bE%2fJW%2bk%2fx4n3Zw&pid=ImgRaw&r=0" />
-          <div class="content">
-            <div class="title">Name Slider</div>
-            <div class="description">Description</div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://th.bing.com/th/id/R.59e0736f15aa2da026e7288194d6ee86?rik=glOt9oW816j6XQ&pid=ImgRaw&r=0" />
-          <div class="content">
-            <div class="title">Name Slider</div>
-            <div class="description">Description</div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://i.pinimg.com/originals/ee/03/f2/ee03f297b3c40a0b26d2b8e9de854b1d.jpg" />
-          <div class="content">
-            <div class="title">Name Slider</div>
-            <div class="description">Description</div>
-          </div>
-        </div>
-      </div>
-      <!-- next prev -->
+    </section>
 
-      <div class="arrows">
-        <button id="prev"><</button>
-        <button id="next">></button>
+    <section class="section__container price__container">
+      <p class="section__subheader">Pricing</p>
+      <h2 class="section__header">Check your tour plans</h2>
+      <div class="price__grid">
+        <div class="price__card">
+          <img src="assets/price-1.jpg" alt="price" />
+          <div class="details">
+            <span>Team tour</span>
+            <span>$455/Person</span>
+          </div>
+          <h4>Confirm your group tour recent packages</h4>
+          <div class="price__card__footer">
+            <span class="location">
+              <i class="ri-map-pin-2-fill"></i> Morocco
+            </span>
+            <span class="rating"><i class="ri-star-fill"></i> 5.0</span>
+          </div>
+        </div>
+        <div class="price__card">
+          <img src="assets/price-2.jpg" alt="price" />
+          <div class="details">
+            <span>Team tour</span>
+            <span>$405/Person</span>
+          </div>
+          <h4>Get secured tour plan with your spouse</h4>
+          <div class="price__card__footer">
+            <span class="location">
+              <i class="ri-map-pin-2-fill"></i> Singapore
+            </span>
+            <span class="rating"><i class="ri-star-fill"></i> 4.8</span>
+          </div>
+        </div>
+        <div class="price__card">
+          <img src="assets/price-3.jpg" alt="price" />
+          <div class="details">
+            <span>Team tour</span>
+            <span>$355/Person</span>
+          </div>
+          <h4>Make your adventures comfortable</h4>
+          <div class="price__card__footer">
+            <span class="location">
+              <i class="ri-map-pin-2-fill"></i> Switzerland
+            </span>
+            <span class="rating"><i class="ri-star-fill"></i> 4.6</span>
+          </div>
+        </div>
+        <div class="price__card">
+          <img src="assets/price-4.jpg" alt="price" />
+          <div class="details">
+            <span>Team tour</span>
+            <span>$400/Person</span>
+          </div>
+          <h4>Explore the paris streets at peace</h4>
+          <div class="price__card__footer">
+            <span class="location">
+              <i class="ri-map-pin-2-fill"></i> Paris
+            </span>
+            <span class="rating"><i class="ri-star-fill"></i> 4.9</span>
+          </div>
+        </div>
       </div>
-      <!-- time running -->
-      <div class="time"></div>
-    </div>
+    </section>
 
-    <script src="tour.js"></script>
+    <section class="section__container contact__container">
+      <p class="section__subheader">Contact us</p>
+      <h2 class="section__header">Feel free to ask anything to us</h2>
+      <form>
+        <input type="text" placeholder="Full Name" />
+        <input type="text" placeholder="Phone Number" />
+        <input type="text" placeholder="Country" />
+        <input type="text" placeholder="Ask us anything" />
+        <button class="btn">Send Query</button>
+      </form>
+    </section>
+
+    <div class="footer">
+      <footer>
+          <div class="waves">
+              <div class="wave" id="wave1"></div>
+              <div class="wave" id="wave2"></div>
+              <div class="wave" id="wave3"></div>
+              <div class="wave" id="wave4"></div>
+          </div>
+          <ul class="social_icon">
+              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg></ion-icon></a></li>
+              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                </svg></ion-icon></a></li>
+              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                </svg></a></li>
+          </ul>
+          <ul class="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+          <p>@klasdhgfuiewlabfsvnao;raibrghoasdgrahfhntahwesd</p>
+      </footer>
+  </div>
   </body>
 </html>
