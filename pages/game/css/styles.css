@@ -331,6 +331,7 @@ img {
 /*=============== MOVIES ===============*/
 .movie {
   display: grid;
+  margin-top: 10vh;
 }
 
 /* Swiper class */
