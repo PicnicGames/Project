@@ -125,7 +125,7 @@ img {
 }
 
 .header__content,
-.header__action,
+.header__actions,
 .header__search {
   display: flex;
 }

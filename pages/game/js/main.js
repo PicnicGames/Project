@@ -6,14 +6,14 @@ const nav = document.getElementById('nav'),
 /* Menu show */
 if(headerMenu){
    headerMenu.addEventListener('click', () =>{
-      nav.classList.add('show-menu')
+      nav.classList.add('show__menu')
    })
 }
 
 /* Menu hidden */
 if(navClose){
     navClose.addEventListener('click', () =>{
-      nav.classList.remove('show-menu')
+      nav.classList.remove('show__menu')
    })
 }
 
