@@ -80,6 +80,8 @@ nav {
 
 .nav__container {
   max-width: var(--max-width);
+  display: flex;
+  align-items: center;
   padding: 1rem;
   margin: auto;
 }
@@ -87,6 +89,7 @@ nav {
 .nav__links {
   list-style: none;
   display: flex;
+  margin: auto;
   align-items: center;
   gap: 2rem;
 }
@@ -306,10 +309,6 @@ nav {
 .contact__container .btn {
   max-width: fit-content;
   margin: auto;
-}
-
-.footer {
-  margin-top: 100px;
 }
 
 footer {
