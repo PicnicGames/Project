@@ -150,6 +150,10 @@ img {
   cursor: pointer;
 }
 
+.header__actions i {
+  font-size: 1.8rem;
+}
+
 .header__search {
   align-items: center;
   column-gap: .5rem;
