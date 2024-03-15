@@ -133,10 +133,17 @@ nav {
   position: relative;
 }
 
+.header__content .section__header {
+  color: #fff;
+  opacity: 0.95;
+}
+
 .header__content .title {
+  color: #fff;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  opacity: 0.8;
 }
 
 .header__content .form__group {
@@ -371,11 +378,10 @@ footer p {
   color: var(--text-dark);
 }
 
-@media only screen and (max-width: 900px) {
-  .link {
-    display: none;
+@media only screen and (max-width: 1024px) {
+  .nav__container {
+    padding: 2rem;
   }
-
   .header__image img {
     height: 70vh;
   }
@@ -392,6 +398,14 @@ footer p {
   .price__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .nav__logo {
+    font-size: 1.8rem;
+  }
+
+  .link {
+    font-size: 1.5rem;
+  }
 }
 
 @media (width < 600px) {
@@ -406,6 +420,10 @@ footer p {
   .header__container {
     left: 0;
     padding: 5rem 1rem;
+  }
+
+  .story__container {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .price__grid {
