@@ -1,5 +1,5 @@
 /*=============== SHOW MENU ===============*/
-const nav = document.getElementById('nav'),
+const nav = document.getElementById('navigation'),
       headerMenu = document.getElementById('header-menu'),
       navClose = document.getElementById('nav-close')
 
