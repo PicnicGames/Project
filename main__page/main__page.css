@@ -76,6 +76,7 @@ nav {
   position: fixed;
   top: 0;
   background-color: var(--white);
+  z-index: 1;
 }
 
 .nav__container {
@@ -97,10 +98,6 @@ nav {
 .nav__logo {
   font-size: 1.5rem;
   font-weight: 600;
-}
-
-.hamburger {
-  display: none;
 }
 
 .link {
@@ -132,10 +129,21 @@ nav {
   width: 70%;
 }
 
+.header {
+  position: relative;
+}
+
+.header__content .section__header {
+  color: #fff;
+  opacity: 0.95;
+}
+
 .header__content .title {
+  color: #fff;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  opacity: 0.8;
 }
 
 .header__content .form__group {
@@ -169,26 +177,17 @@ nav {
 }
 
 .header__image img {
-  max-width: 450px;
-  margin: auto;
-  border-radius: 2rem;
+  width: 100%;
+  height: 100vh;
 }
 
-.header__nav {
-  margin-top: 1rem;
+.header__container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 15%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5rem;
-}
-
-.header__nav span {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dark);
 }
 
 .story {
@@ -298,7 +297,8 @@ nav {
   gap: 1rem;
 }
 
-.contact__container input {
+.contact__container input, .contact__container textarea {
+  font-family: "Poppins", sans-serif;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   color: var(--text-dark);
@@ -321,6 +321,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 5vh;
 }
 
 footer .social_icon, 
@@ -373,77 +374,21 @@ footer p {
   font-size: 1.1em;
 }
 
-footer .wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url(wave.png);
-  background-size: 1000px 100px;
-}
-
-footer .wave#wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWave 4s linear infinite;
-}
-
-footer .wave#wave2 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animateWave_02 4s linear infinite;
-}
-
-footer .wave#wave3 {
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWave 3s linear infinite;
-}
-
-footer .wave#wave4 {
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animateWave_02 3s linear infinite;
-}
-
-@keyframes animateWave {
-  0% {
-      background-position-x: 1000px;
-  }
-  100% {
-      background-position-x: 0px;
-  }
-}
-
-@keyframes animateWave_02 {
-  0% {
-      background-position-x: 0px;
-  }
-  100% {
-      background-position-x: 1000px;
-  }
-}
-
 .footer__bar .socials span:hover {
   color: var(--text-dark);
 }
 
-@media only screen and (max-width: 900px) {
-  .link {
-    display: none;
+@media only screen and (max-width: 1024px) {
+  .nav__container {
+    padding: 2rem;
+  }
+  .header__image img {
+    height: 70vh;
   }
 
-  .header__image {
-    grid-area: 1/1/2/2;
-  }
-
-  .story__container {
-    grid-template-columns: repeat(1, 1fr);
+  .header__container {
+    left: 0;
+    padding: 5rem 1rem;
   }
 
   .story__image {
@@ -454,58 +399,12 @@ footer .wave#wave4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .client__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .nav__logo {
+    font-size: 1.8rem;
   }
 
-  .footer__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background: #020617;
-    margin: 6px 0;
-  }
-  
-  .nav__bar {
-    height: 450px;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    background: #ffffff;
-    transition: 0.5s;
-    overflow: hidden;
-  }
-
-  .nav__bar.active {
-    height: 450px;
-  }
-  
-  .nav__bar ul {
-    display: block;
-    width: fit-content;
-    margin: 80px auto 0 auto;
-    text-align: center;
-    transition: 0.5s;
-    opacity: 0;
-  }
-
-  .nav__bar.active ul {
-    opacity: 1;
-  }
-
-  .nav__bar ul li a {
-    margin-bottom: 12px;
-    color: #000000;
+  .link {
+    font-size: 1.5rem;
   }
 }
 
@@ -514,19 +413,20 @@ footer .wave#wave4 {
     display: none;
   }
 
+  .header__image img {
+    height: 70vh;
+  }
+
+  .header__container {
+    left: 0;
+    padding: 5rem 1rem;
+  }
+
+  .story__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .price__grid {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .client__grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .footer__container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .footer__bar {
-    flex-direction: column;
   }
 }
