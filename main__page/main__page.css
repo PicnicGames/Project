@@ -133,12 +133,12 @@ nav {
   position: relative;
 }
 
-.header__content .section__header {
+.header .section__header {
   color: #fff;
   opacity: 0.95;
 }
 
-.header__content .title {
+.header .title {
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
