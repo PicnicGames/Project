@@ -198,6 +198,10 @@ img {
     width: 70%;
 }
 
+.nav__link i {
+    font-size: 1.25rem;
+}
+
 .nav__close {
     position: absolute;
     top: 1rem;
