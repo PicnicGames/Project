@@ -25,18 +25,18 @@ button {
     background-color: transparent;
 }
 
-.user-modal {
+.user__modal {
     width: 100%;
     height: 100%;
+    color: #000;
     position: fixed;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
 }
 
-.modal-container {
+.modal__container {
     position: relative;
     width: 768px;
     height: 480px;
@@ -47,52 +47,61 @@ button {
         0 14px 28px rgba(0, 0, 0, 0.2),
         0 10px 10px rgba(0, 0, 0, 0.2);
     background-color: #fff;
-    z-index: 200;
+    z-index: 2;
 }
 
-.close-button {
-    width: 60px;
-    height: 50px;
+.modal__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.close__button {
     position: absolute;
     top: 0;
     right: 0;
-    color: #fff;
     background-color: transparent;
     border: none;
-    z-index: 101;
+    padding: 5px;
+    margin: 5px;
+    z-index: 3;
 }
 
-.overlay-container {
+.close__button i {
+    font-size: 2rem;
+}
+
+.overlay__container {
     display: none;
 }
 
-.form-container {
+.form__container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.modal-container a {
+.modal__container a {
     color: #333;
     font-size: 14px;
     text-decoration: none;
-    margin: 15px 0;
+    margin: 15px 0 0 0;
 }
 
-.sign-in-container {
+.signin__container {
     left: 0;
     width: 50%;
-    z-index: 2;
 }
 
-.sign-up-container {
+.signup__container {
     right: 0;
     width: 50%;
-    z-index: 1;
 }
 
-.form-container form {
+.form__container form {
     height: 100%;
     background: #fff;
     padding: 0 50px;
@@ -103,11 +112,19 @@ button {
     text-align: center;
 }
 
-.social-container {
+.social__container {
     margin: 20px 0;
 }
 
-.social-container a {
+.form__container h2 {
+    color: #000;
+}
+
+.form__container span {
+    color: #333;
+}
+
+.social__container a {
     height: 40px;
     width: 40px;
     border: 1px solid #ddd;
@@ -118,8 +135,14 @@ button {
     margin: 0 5px;
 }
 
-.form-container input {
+.social i {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.form__container input {
     width: 100%;
+    color: #000;
     background: #eee;
     border: none;
     padding: 12px 15px;
@@ -130,47 +153,53 @@ button {
     font-style: italic;
 }
 
-.form-container button, .overlay-container button {
+.form__container button, .overlay__container button {
     background: #000;
     color: #fff;
     border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
+    margin-top: 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
 
-.form-container button:hover, .overlay-container button:hover, .form-container button:hover.ghost, .overlay-container button:hover.ghost {
+.form__container button:hover, .overlay__container button:hover {
     cursor: pointer;
-    background-color: #fff;
+    background-color: #ccc;
     color: #000;
 }
 
-.form-container button:active, .overlay-container button:active  {
+.form__container button:active, .overlay__container button:active  {
     transform: scale(0.95);
 }
 
-.form-container button:focus, .overlay-container button:focus {
+.form__container button:focus, .overlay__container button:focus {
     outline: none;
 }
 
-.form-container button.ghost, .overlay-container button.ghost  {
-    background: transparent;
+.form__container button.ghost, .overlay__container button.ghost  {
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
-    border-color: #333;
+    border: solid 1px #ddd;
 }
 
-.sign-up-container {
+.form__container button:hover.ghost, .overlay__container button:hover.ghost {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+}
+
+.signup__container {
     left: 0;
     opacity: 0;
 }
 
-.overlay-container {
+.overlay__container {
     display: block;
     position: absolute;
-    z-index: 100;
     width: 50%;
     height: 100%;
     top: 0;
@@ -190,14 +219,14 @@ button {
     transition: transform 0.6s ease-in-out;
 }
 
-.overlay-image {
+.overlay__image {
     width: 50%;
     height: 100%;
     transform: translateX(100%);
     opacity: 1;
 }
 
-.overlay-panel {
+.overlay__panel {
     position: absolute;
     top: 0;
     height: 100%;
@@ -212,40 +241,43 @@ button {
     transition: transform 0.6s ease-in-out;
 }
 
-.overlay-right {
+.overlay__panel button {
+    background: #ddd;
+}
+
+.overlay__right {
     right: 0;
     transform: translateY(0);
 }
 
-.overlay-left {
+.overlay__left {
     transform: translateY(-20%);
 }
 
-.modal-container.right-panel-active {
-    & .sign-in-container {
+.modal__container.right-panel__active {
+    & .signin__container {
         transform: translateY(100%);
     }
 
-    & .overlay-container {
+    & .overlay__container {
         transform: translateX(-100%);
     }
-    & .overlay-image {
+    & .overlay__image {
         transform: translateX(0);
     }
 }
 
-.modal-container.modal-container.right-panel-active {
-    & .sign-up-container {
+.modal__container.modal__container.right-panel__active {
+    & .signup__container {
         transform: translateX(100%);
         opacity: 1;
-        z-index: 5;
     }
 
     & .overlay {
         transform: translateX(50%);
     }
 
-    & .overlay-right {
+    & .overlay__right {
         transform: translateY(20%);
     }
 }
