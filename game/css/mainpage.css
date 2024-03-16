@@ -311,53 +311,114 @@ img {
   font-size: var(--big-font-size);
 }
 
-.game__tittle a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
+/*=============== CARDS ===============*/
+.card__title {
+  color: #fff;
+  background: transparent;
+  font-size: var(--h3-font-size);
+  font-weight: bold;
+  margin-bottom: .75rem;
 }
 
-.game__tittle span {
-    color: rgba(255, 255, 255, 0.8);
+.card__article {
+  width: 152px;
 }
 
-.game__background {
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 2rem;
-    padding: 1rem;
+.card__link {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--white-color);
 }
 
-.game__data {
-    height: 100%;
-    color: var(--white-color-light);
-    display: grid;
+.card__img {
+  border-radius: 1rem;
 }
 
-.game__desc {
-    font-size: var(--h3-font-size);
-    overflow: hidden;
+.card__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-bg);
+  border-radius: 1rem;
 }
 
-.game__rating {
-    border-top: 1px solid var(--white-color-light);
-    padding-top: 1.25rem;
+.card__data {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+  padding-inline: .75rem;
 }
 
-.game__like__btn {
-    width: 45%;
-    background: rgba(255, 255, 255, 0.5);
-    font-size: var(--h3-font-size);
-    border-radius: 1rem;
-    padding: 0.5rem;
+.card__name {
+  font-size: var(--normal-font-size);
 }
 
-.game__like__btn:hover {
-    background: var(--white-color);
-    color: #000;
+.card__category {
+  font-size: var(--small-font-size);
 }
 
-.game__content {
-    font-size: var(--font-regular);
+.card__like {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*=============== MOVIES ===============*/
+.movie {
+  display: grid;
+  margin-top: 10vh;
+}
+
+/* Swiper class */
+.swiper {
+  margin-inline: initial;
+}
+
+/*=============== NEW ===============*/
+.new {
+  position: relative;
+  display: grid;
+}
+
+.new__card {
+  scale: .8;
+  transition: scale .4s;
+}
+
+.new__data {
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+/* Swiper class */
+.swiper-slide-active .new__data {
+  opacity: 1;
+}
+
+.new .swiper-pagination-bullets {
+  bottom: -2.5rem;
+}
+
+.new .swiper-pagination-bullet {
+  width: 1.5rem;
+  height: .25rem;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+  transition: background-color .3s, opacity .3s;
+}
+
+.new .swiper-pagination-bullet-active {
+  background-color: var(--white-color);
+}
+
+.new .swiper-slide-active,
+.new .swiper-slide-duplicate-active {
+  scale: 1;
 }
 
 /*=============== SCROLL BAR ===============*/
@@ -369,6 +430,8 @@ img {
 ::-webkit-scrollbar-thumb {
   background-color: hsl(0, 0%, 30%);
 }
+
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -396,10 +459,6 @@ img {
 
   .card__like {
     font-size: 1.75rem;
-  }
-
-  .game__like__btn {
-    width: 100%;
   }
 }
 
