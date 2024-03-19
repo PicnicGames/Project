@@ -70,6 +70,7 @@ input,
 button {
   border: none;
   outline: none;
+  background: transparent;
 }
 
 ul {
@@ -96,14 +97,10 @@ img {
 
 .home {
   display: block;
-  scale: 1;
-  transition: scale .5s ease-in 1s;
 }
 
 .all__games, .game {
   display: none;
-  scale: 0;
-  transition: scale .5s ease-in 1s;
 }
 
 .bg__image,
@@ -264,7 +261,6 @@ img {
   column-gap: .75rem;
   align-items: center;
   text-decoration: none;
-  background: transparent;
 }
 
 .nav__link::after {
@@ -305,31 +301,12 @@ img {
 }
 
 /*=============== BANNER ===============*/
-/* .banner {
-  position: relative;
-  width: 100%;
-  height: 480px;
-} */
-
 .banner__card, .banner__img {
   width: 100%;
   height: 480px;
 }
 
-/* .banner__list {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0 auto;
-  display: flex;
-}
-
 .banner__card {
-} */
-
-.banner__link {
   position: relative;
   display: grid;
   place-items: center;
@@ -364,7 +341,6 @@ img {
 .card__title {
   color: #fff;
   font-size: var(--h2-font-size);
-  background: transparent;
   font-weight: bold;
   margin-bottom: .75rem;
 }
@@ -477,6 +453,10 @@ img {
 }
 
 /*=============== GAME PAGE ===============*/
+.banner__card .game__background {
+  position: absolute;
+  top: 0;
+}
 .game__tittle a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
@@ -487,6 +467,7 @@ img {
 }
 
 .game__background {
+  width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 2rem;
@@ -502,6 +483,23 @@ img {
 .game__desc {
   font-size: var(--h3-font-size);
   overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.game__catagory {
+  margin-bottom: 1rem;
+}
+
+.game__catagory button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem;
+}
+
+.game__catagory button:hover {
+  background: var(--white-color);
+  color: #000;
 }
 
 .game__rating {
@@ -517,7 +515,7 @@ img {
   padding: 0.5rem;
 }
 
-.game__like__btn:hover {
+.game__like__btn:hover, .game__like__btn:hover i {
   background: var(--white-color);
   color: #000;
 }
@@ -792,7 +790,7 @@ img {
   background: rgba(0, 0, 0, 0.7);
   min-height: 100px;
   padding: 3rem 10rem;
-  margin: 3rem 0 0 17.8rem;
+  margin-left: 17.8rem;
   overflow: hidden;
 }
 
@@ -882,7 +880,6 @@ img {
   .footer {
     display: block;
     padding: 0;
-    margin: 3rem 0 0 0;
   }
 
   .footer__map {
@@ -895,8 +892,12 @@ img {
     margin: auto;
   }
 
-  .footer a {
-    text-align: center;
+  .game__desc {
+    margin-bottom: 0;
+  }
+
+  .game__catagory {
+    margin-bottom: 0;
   }
 }
 
@@ -915,18 +916,6 @@ img {
     border-radius: 1rem;
   }
 
-  .footer__contact {
-    width: 300px;
-  }
-
-  .footer .footer__icon, .footer .footer__menu {
-    justify-content: center;
-  }
-
-  .footer a {
-    text-align: center;
-  }
-
   .banner__data {
     bottom: 2.5rem;
   }
@@ -936,8 +925,15 @@ img {
   }
 
   .footer {
-    margin: 3rem 0 0 0;
     padding: 3rem 5rem;
+  }
+
+  .footer__contact {
+    width: 300px;
+  }
+
+  .footer .footer__icon, .footer .footer__menu {
+    justify-content: center;
   }
 }
 
@@ -1019,5 +1015,17 @@ img {
 
   .card__category {
     font-size: var(--small-font-size);
+  }
+
+  .footer {
+    margin-left: 0;
+  }
+
+  .footer a {
+    text-align: center;
+  }
+
+  .game__catagory button {
+    padding: 0.3rem 0.5rem;
   }
 }
