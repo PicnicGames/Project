@@ -19,7 +19,7 @@
 
       <title>GAMES</title>
    </head>
-   <body>
+   <body id="body">
       <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="bg__image">
       <div class="bg__blur"></div>
       
@@ -46,7 +46,7 @@
       <!--==================== NAV ====================-->
       <nav class="navigation" id="navigation">
          <div class="nav__menu">
-            <a href="#" class="nav__logo">LOGO</a>
+            <div class="nav__logo">LOGO</div>
 
             <ul class="nav__list">
                <li class="nav__item">
@@ -56,7 +56,7 @@
                </li>
 
                <li class="nav__item">
-                  <button class="nav__link" onclick="displayAllGames()">
+                  <button class="nav__link" id="button" onclick="displayAllGames()">
                      <i class="ri-gamepad-line"></i> <span>All Games</span>
                   </button>
                </li>
@@ -82,79 +82,15 @@
       <main class="main home" id="home">
          <!--==================== BANNER ====================-->
          <section class="banner">
-            <section class="banner__list">
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 1</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article>
+            <article class="banner__card">
+               <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
+               <div class="banner__shadow"></div>
 
-               <!-- <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 2</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article>
-
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 3</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article>
-
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 4</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article>
-
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 5</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article>
-
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Chess 6</h2>
-                        <span class="banner__category">Tactic</span>
-                     </div>
-                  </a>
-               </article> -->
-            </section>
+               <div class="banner__data">
+                  <h2 class="banner__title">Chess</h2>
+                  <span class="banner__category">Tactic</span>
+                  </div>
+            </article>
          </section>
 
          <!--==================== TRENDING ====================-->
@@ -164,7 +100,19 @@
             <div class="new__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </article>
+
+                  <article class="new__card card__article swiper-slide">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -176,7 +124,7 @@
                   </article>
 
                   <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -188,7 +136,7 @@
                   </article>
 
                   <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -196,11 +144,11 @@
                            <h3 class="card__name">Chess</h3>
                            <span class="card__category">Tactic</span>
                         </div>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -208,23 +156,11 @@
                            <h3 class="card__name">Chess</h3>
                            <span class="card__category">Tactic</span>
                         </div>
-                     </a>
-                  </article>
-
-                  <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-   
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </a>
+                     </button>
                   </article>
                   
                   <article class="new__card card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -232,7 +168,7 @@
                            <h3 class="card__name">Chess</h3>
                            <span class="card__category">Tactic</span>
                         </div>
-                     </a>
+                     </button>
                   </article>
                </div>
             </div>
@@ -248,7 +184,7 @@
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -258,11 +194,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -272,11 +208,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -286,11 +222,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -300,11 +236,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -314,11 +250,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -328,7 +264,7 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                </div>
             </div>
@@ -340,7 +276,7 @@
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -350,11 +286,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -364,11 +300,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -378,11 +314,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -392,11 +328,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -406,11 +342,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -420,19 +356,19 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                </div>
             </div>
          </section>
 
-         <section class="movie">
+         <section class="main__content">
             <form><button type="submit" value="Male" class="card__title" onclick="">Male</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -442,11 +378,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -456,11 +392,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -470,11 +406,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -484,11 +420,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -498,11 +434,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -512,19 +448,19 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                </div>
             </div>
          </section>
 
-         <section class="movie">
+         <section class="main__content">
             <form><button type="submit" value="Female" class="card__title" onclick="">Female</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -534,11 +470,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -548,11 +484,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -562,11 +498,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -576,11 +512,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -590,11 +526,11 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <a href="#" class="card__link">
+                     <button class="card__link">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -604,7 +540,7 @@
                         </div>
    
                         <i class="ri-heart-3-line card__like"></i>
-                     </a>
+                     </button>
                   </article>
                </div>
             </div>
@@ -615,28 +551,24 @@
       <main class="main all__games" id="all-games">
          <!--==================== BANNER ====================-->
          <section class="banner">
-            <section class="banner">
-               <article class="banner__card">
-                  <a href="#" class="banner__link">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
-                     <div class="banner__shadow"></div>
-      
-                     <div class="banner__data">
-                        <h2 class="banner__title">Trending</h2>
-                        <span class="banner__category">Treding games right now!</span>
-                     </div>
-                  </a>
-               </article>
-            </section>
+            <article class="banner__card">
+               <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
+               <div class="banner__shadow"></div>
+
+               <div class="banner__data">
+                  <h2 class="banner__title">Trending</h2>
+                  <span class="banner__category">Treding games right now!</span>
+               </div>
+            </article>
          </section>
 
          <!--==================== GAMES ====================-->
-         <section class="movie">
+         <section class="main__content">
             <form><button type="submit" value="Family" class="card__title" onclick="">Trending</button></form>
 
             <div class="row">
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -646,11 +578,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -660,11 +592,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -674,11 +606,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -688,13 +620,13 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
             </div>
 
             <div class="row">
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -704,11 +636,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -718,11 +650,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -732,11 +664,11 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
 
                <article class="col-sm mb-5">
-                  <a href="#" class="card__link">
+                  <button class="card__link">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -746,7 +678,7 @@
                      </div>
 
                      <i class="ri-heart-3-line card__like"></i>
-                  </a>
+                  </button>
                </article>
             </div>
          </section>
@@ -755,33 +687,36 @@
       <!--==================== GAME PAGE ====================-->
       <main class="main game" id="game">
          <!--==================== GAME ====================-->
-         <h1 class="game__tittle"><a href="mainpage__user.html">Home</a><span> / </span>Chess</h1>
+         <h1 class="game__tittle"><a href="mainpage__none.html">Home</a><span> / </span>Chess</h1>
          <section class="row">
-             <article class="banner__card col-sm-7 mt-3">
-                 <div href="#" class="banner__link">
-                     <iframe class="banner__img" width="560" height="315" src="https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                 </div>
-             </article>
+            <article class="banner__card col-sm-7 mt-3">
+               <iframe class="banner__img" width="560" height="315" src="https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
 
-             <article class="banner__card col-sm-5 mt-3">
-                 <div class="game__background">
-                     <div class="game__data">
-                         <div class="game__desc">Chess is a two-player game with the goal of checkmating the opponent's king. It has roots in 7th-century India and modern rules were standardized in the 19th century. It's globally popular and also known as international or Western chess to differentiate it from similar games like xiangqi and shogi.</div>
-                         <div class="game__rating">
-                             <h3 id="game-rating">Game Rating: 5</h3>
-                             <h3 class="mt-3">Favorite: 1K</h3>
-                         </div>
-                         <button class="game__like__btn mt-3">
-                             Favourite
-                             <i class="ri-heart-3-line"></i>
-                         </button>
+            <article class="banner__card col-sm-5 mt-3">
+               <div class="game__background">
+                  <div class="game__data">
+                     <div class="game__desc">Chess is a two-player game with the goal of checkmating the opponent's king. It has roots in 7th-century India and modern rules were standardized in the 19th century. It's globally popular and also known as international or Western chess to differentiate it from similar games like xiangqi and shogi.</div>
+                     <div class="game__catagory">
+                        <button class="mx-auto">Strategy</button>
+                        <button class="mx-auto">Everyone</button>
+                        <button class="mx-auto">Everywhere</button>
                      </div>
-                 </div>
-             </article>
+                     <div class="game__rating">
+                        <h3 id="game-rating">Game Rating: 5</h3>
+                        <h3 class="mt-3">Favorite: 1K</h3>
+                     </div>
+                     <button class="game__like__btn mt-3">
+                        Favourite
+                        <i class="ri-heart-3-line"></i>
+                     </button>
+                  </div>
+               </div>
+            </article>
          </section>
 
          <!--==================== HOW TO PLAY ====================-->
-         <section>
+         <section class="mt-3">
              <div class="game__background">
                  <div class="game__content">
                      Sure, here are the basic steps to play chess:
@@ -875,7 +810,7 @@
       </div>
 
       <!--=============== FOOTER  ===============-->
-      <footer class="footer">
+      <footer class="footer mt-5">
             <iframe class="mx-5 footer__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.740001527951!2d105.8478037110061!3d21.00305678055915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1710617601502!5m2!1svi!2s" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="footer__contact">
                <ul class="footer__icon">
