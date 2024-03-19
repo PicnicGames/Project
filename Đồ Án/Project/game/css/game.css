@@ -1,0 +1,995 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: hsl(0, 0%, 100%);
+  --white-color-light: hsl(0, 0%, 90%);
+  --shadow-bg: linear-gradient(180deg,
+             hsla(0, 0%, 0%, 0) 60%,
+             hsla(0, 0%, 0%, .7) 78%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-login: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  color: var(--white-color);
+  padding: 0;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  color: var(--white-color);
+  overflow: auto;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== LAYOUT ===============*/
+.main {
+  display: grid;
+  row-gap: 2.5rem;
+  padding-top: 7.5rem;
+  margin-inline: 20rem 2rem;
+}
+
+.home {
+  display: block;
+}
+
+.all__games, .game {
+  display: none;
+}
+
+.bg__image,
+.bg__blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.bg__image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bg__blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/*=============== HEADER ===============*/
+.header {
+  width: calc(100% - 17rem);
+  height: calc(var(--header-height) + 2rem);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: initial;
+  display: grid;
+  justify-content: space-between;
+  background-color: transparent;
+  align-items: center;
+  row-gap: 1.5rem;
+  grid-template-columns: repeat(2, max-content);
+  padding: 0 2rem 0 3rem;
+  z-index: var(--z-fixed);
+}
+
+.header__content,
+.header__user,
+.header__search {
+  display: flex;
+}
+
+.header__content {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__close, .header__logo, .header__menu {
+  display: none;
+}
+
+.header__logo {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+}
+
+.header__user {
+  column-gap: .75rem;
+  align-items: center;
+  font-size: 1.25rem;
+}
+.header__user i,
+.header__menu {
+  cursor: pointer;
+}
+
+.header__user a {
+  text-decoration: none;
+}
+
+.header__user i {
+  font-size: 2rem;
+}
+
+.header__search {
+  align-items: center;
+  column-gap: .5rem;
+  background-color: hsla(0, 0%, 100%, .15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding-inline: 1rem;
+  border-radius: .75rem;
+  order: -1;
+  width: 450px;
+}
+
+.header__search i {
+  font-size: 1.25rem;
+}
+
+.header__input {
+  width: 100%;
+  padding-block: 0.7rem;
+  background-color: transparent;
+  color: var(--white-color);
+}
+
+.header__input::placeholder {
+  color: var(--white-color);
+}
+
+/* Add blur header */
+.blur-header::after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/*=============== NAV ===============*/
+.navigation {
+  position: fixed;
+  top: 0;
+  right: initial;
+  background-color: hsla(0, 0%, 0%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: 285px;
+  height: 100%;
+  padding: 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: var(--z-fixed);
+  transition: right .4s;
+}
+
+.nav__logo {
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--white-color-light);
+  padding-bottom: 1.25rem;
+}
+
+.nav__menu,
+.nav__list {
+  display: grid;
+  row-gap: 2rem;
+  padding-left: 0;
+}
+
+.nav__link {
+  display: inline-flex;
+  position: relative;
+  color: var(--white-color);
+  column-gap: .75rem;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav__link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--white-color);
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
+  transition: width .3s;
+}
+
+.nav__link:hover::after {
+  width: 70%;
+}
+
+.nav__link i {
+  font-size: 1.5rem;
+}
+
+.nav__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: .75rem;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show__menu {
+  right: 0 !important;
+}
+
+/*=============== BANNER ===============*/
+.banner__card, .banner__img {
+  width: 100%;
+  height: 480px;
+}
+
+.banner__card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--white-color);
+}
+
+.banner__img, .banner__shadow {
+  border-radius: 2rem;
+}
+
+.banner__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-bg);
+  border-radius: 1rem;
+}
+
+.banner__data {
+  position: absolute;
+  bottom: 1.5rem;
+  text-align: center;
+}
+
+.banner__title {
+  font-size: var(--big-font-size);
+}
+
+/*=============== CARDS ===============*/
+.card__title {
+  color: #fff;
+  font-size: var(--h2-font-size);
+  font-weight: bold;
+  margin-bottom: .75rem;
+  text-align: left;
+}
+
+.card__article {
+  width: 152px;
+}
+
+.card__link {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--white-color);
+}
+
+.card__img {
+  border-radius: 1rem;
+}
+
+.card__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-bg);
+  border-radius: 1rem;
+}
+
+.card__data {
+  position: absolute;
+  text-align: center;
+  padding-inline: 1.5rem;
+  bottom: 1.5rem;
+}
+
+.card__name {
+  font-size: var(--h3-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__category {
+  font-size: var(--normal-font-size);
+}
+
+.card__like {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  font-size: var(--h2-font-size);
+  cursor: pointer;
+}
+
+/*=============== MAIN CONTENT ===============*/
+.main__content {
+  position: relative;
+  display: grid;
+  margin-top: 3rem;
+}
+
+/* Swiper class */
+.swiper {
+  margin-inline: initial;
+}
+
+/*=============== TRENDING ===============*/
+.new__card {
+  scale: .8;
+  transition: scale .4s;
+}
+
+.new__data {
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+/* Swiper class */
+.swiper-slide-active .new__data {
+  opacity: 1;
+}
+
+.main__content .swiper-pagination-bullets {
+  bottom: -2.5rem;
+}
+
+.main__content .swiper-pagination-bullet {
+  width: 1.5rem;
+  height: .25rem;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+  transition: background-color .3s, opacity .3s;
+}
+
+.main__content .swiper-pagination-bullet-active {
+  background-color: var(--white-color);
+}
+
+.main__content .swiper-slide-active, .main__content .swiper-slide-duplicate-active {
+  scale: 1;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: .6rem;
+  background-color: hsl(0, 0%, 15%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 30%);
+}
+
+/*=============== GAME PAGE ===============*/
+.banner__card .game__background {
+  position: absolute;
+  top: 0;
+}
+.game__tittle a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.game__tittle span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.game__background {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.game__data {
+  height: 100%;
+  color: var(--white-color-light);
+  display: grid;
+}
+
+.game__desc {
+  font-size: var(--h3-font-size);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.game__catagory {
+  margin-bottom: 1rem;
+}
+
+.game__catagory button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem;
+}
+
+.game__catagory button:hover {
+  background: var(--white-color);
+  color: #000;
+}
+
+.game__rating {
+  border-top: 1px solid var(--white-color-light);
+  padding-top: 1.25rem;
+}
+
+.game__like__btn {
+  width: 45%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: var(--h3-font-size);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.game__like__btn:hover, .game__like__btn:hover i {
+  background: var(--white-color);
+  color: #000;
+}
+
+.game__content {
+  font-size: var(--font-regular);
+}
+
+/*=============== SIGNIN SIGNUP ===============*/
+.user__modal {
+  width: 100%;
+  height: 100%;
+  color: #000;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-login);
+}
+
+.modal__container {
+  position: relative;
+  width: 768px;
+  height: 480px;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.2),
+      0 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  z-index: 2;
+}
+
+.modal__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.close__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  z-index: 3;
+}
+
+.close__button i {
+  font-size: 2rem;
+}
+
+.overlay__container {
+  display: none;
+}
+
+.form__container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.modal__container a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0 0 0;
+}
+
+.signin__container {
+  left: 0;
+  width: 50%;
+}
+
+.signup__container {
+  right: 0;
+  width: 50%;
+}
+
+.form__container form {
+  height: 100%;
+  background: #fff;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.social__container {
+  margin: 20px 0;
+}
+
+.form__container h2 {
+  color: #000;
+}
+
+.form__container span {
+  color: #333;
+}
+
+.social__container a {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.social i {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.form__container input {
+  width: 100%;
+  color: #000;
+  background: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.form__container button, .overlay__container button {
+  background: #000;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+.form__container button:hover, .overlay__container button:hover {
+  cursor: pointer;
+  background-color: #ccc;
+  color: #000;
+}
+
+.form__container button:active, .overlay__container button:active  {
+  transform: scale(0.95);
+}
+
+.form__container button:focus, .overlay__container button:focus {
+  outline: none;
+}
+
+.form__container button.ghost, .overlay__container button.ghost  {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: solid 1px #ddd;
+}
+
+.form__container button:hover.ghost, .overlay__container button:hover.ghost {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+.signup__container {
+  left: 0;
+  opacity: 0;
+}
+
+.overlay__container {
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 200%;
+  left: -100%;
+  object-fit: contain;
+  color: #fff;
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay__image {
+  width: 50%;
+  height: 100%;
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.overlay__panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay__panel button {
+  background: #ddd;
+}
+
+.overlay__right {
+  right: 0;
+  transform: translateY(0);
+}
+
+.overlay__left {
+  transform: translateY(-20%);
+}
+
+.modal__container.right-panel__active {
+  & .signin__container {
+      transform: translateY(100%);
+  }
+
+  & .overlay__container {
+      transform: translateX(-100%);
+  }
+  & .overlay__image {
+      transform: translateX(0);
+  }
+}
+
+.modal__container.modal__container.right-panel__active {
+  & .signup__container {
+      transform: translateX(100%);
+      opacity: 1;
+  }
+
+  & .overlay {
+      transform: translateX(50%);
+  }
+
+  & .overlay__right {
+      transform: translateY(20%);
+  }
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+  position: relative;
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+  min-height: 100px;
+  padding: 3rem 10rem;
+  margin-left: 17.8rem;
+  overflow: hidden;
+}
+
+.footer__contact {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer .footer__icon, .footer .footer__menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer__icon li, .footer .footer__menu li {
+  display: inline-block;
+  list-style: none;
+}
+
+.footer .footer__icon li a {
+  font-size: 2em;
+  margin-right: 1.5rem;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.footer .footer__icon li:hover {
+  transform: translateY(-10px);
+}
+
+.footer .footer__menu li a {
+  font-size: var(--h3-font-size);
+  color: var(--white-color);
+  margin-right: 1.5rem;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.footer .footer__menu li a:hover {
+  opacity: 1;
+}
+
+.footer a {
+  color: var(--white-color-light);
+  font-size: var(--h3-font-size);
+  text-decoration: none;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 767px) {
+  .header {
+    display: block;
+  }
+
+  .main {
+    margin-inline: 1rem;
+  }
+  
+  .header__logo {
+    display: block;
+  }
+
+  .header__search {
+    width: unset;
+  }
+
+  .col-sm {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .banner__img {
+    border-radius: 1rem;
+  }
+
+  .game__like__btn {
+    width: 100%;
+  }
+
+  .footer {
+    display: block;
+    padding: 0;
+  }
+
+  .footer__map {
+    display: none;
+  }
+
+  .footer__contact {
+    width: 80%;
+    align-items: center;
+    margin: auto;
+  }
+
+  .game__desc {
+    margin-bottom: 0;
+  }
+
+  .game__catagory {
+    margin-bottom: 0;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    padding-top: 10rem;
+  }
+  
+  .banner__card, .banner__img {
+    height: 400px;
+  }
+
+  .banner__img {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  .banner__data {
+    bottom: 2.5rem;
+  }
+
+  .banner__category {
+    font-size: var(--h1-font-size);
+  }
+
+  .footer {
+    padding: 3rem 5rem;
+  }
+
+  .footer__contact {
+    width: 300px;
+  }
+
+  .footer .footer__icon, .footer .footer__menu {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .header {
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .main {
+    row-gap: 1.5rem;
+    margin-inline: 1.5rem;
+    padding-block: 8.5rem 4rem;
+  }
+  
+  .navigation {
+    right: -100%;
+  }
+
+  .nav__close,
+  .header__menu {
+    display: block;
+  }
+
+  .card__title {
+    font-size: var(--h1-font-size);
+  }
+
+  .card__name {
+    font-size: var(--h2-font-size);
+  }
+
+  .card__category {
+    font-size: var(--h3-font-size);
+  }
+
+  .card__like {
+    font-size: var(--big-font-size);
+  }
+
+  .card__data {
+    bottom: 1rem;
+    padding-inline: .75rem;
+  }
+
+  .footer {
+    margin-left: 0;
+  }
+
+  .footer a {
+    text-align: center;
+  }
+
+  .game__catagory button {
+    padding: 0.3rem 0.5rem;
+  }
+}
