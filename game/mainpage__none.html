@@ -26,7 +26,7 @@
       <!--==================== HEADER ====================-->
       <header class="header" id="header">
          <div class="header__content">
-            <a href="#" class="header__logo">LOGO</a>
+            <div href="#" class="header__logo">LOGO</div>
 
             <div class="header__user" id="header-user">
                <button class="nav__link" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
@@ -95,7 +95,7 @@
 
          <!--==================== TRENDING ====================-->
          <section class="main__content">
-            <form><button type="submit" value="Trending" class="card__title" onclick="">Trending</button></form>
+            <button type="submit" value="Trending" class="card__title" onclick="displayAllGames()">Trending</button>
 
             <div class="new__swiper swiper">
                <div class="swiper-wrapper">
@@ -112,31 +112,7 @@
                   </article>
 
                   <article class="new__card card__article swiper-slide">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-   
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </a>
-                  </article>
-
-                  <article class="new__card card__article swiper-slide">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-   
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </a>
-                  </article>
-
-                  <article class="new__card card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -148,7 +124,31 @@
                   </article>
 
                   <article class="new__card card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </article>
+
+                  <article class="new__card card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </article>
+
+                  <article class="new__card card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -160,7 +160,7 @@
                   </article>
                   
                   <article class="new__card card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -179,12 +179,12 @@
 
          <!--==================== GAMES ====================-->
          <section class="main__content">
-            <form><button type="submit" value="Family" class="card__title" onclick="">Family</button></form>
+            <form><button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Family</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -198,7 +198,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -212,7 +212,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -226,7 +226,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -240,7 +240,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -254,7 +254,7 @@
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -271,12 +271,12 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Kid" class="card__title" onclick="">Kid</button></form>
+            <form><button type="submit" value="Kid" class="card__title" onclick="displayAllGames()">Kid</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -290,7 +290,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -304,7 +304,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -318,7 +318,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -332,7 +332,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -346,7 +346,7 @@
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -363,12 +363,12 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Male" class="card__title" onclick="">Male</button></form>
+            <form><button type="submit" value="Male" class="card__title" onclick="displayAllGames()">Male</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -382,7 +382,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -396,7 +396,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -410,7 +410,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -424,7 +424,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -438,7 +438,7 @@
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -455,12 +455,12 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Female" class="card__title" onclick="">Female</button></form>
+            <form><button type="submit" value="Female" class="card__title" onclick="displayAllGames()">Female</button></form>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -474,7 +474,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -488,7 +488,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -502,7 +502,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -516,7 +516,7 @@
                   </article>
 
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -530,7 +530,7 @@
                   </article>
                    
                   <article class="card__article swiper-slide">
-                     <button class="card__link">
+                     <button class="card__link" onclick="displayGame()">
                         <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                         <div class="card__shadow"></div>
    
@@ -564,11 +564,11 @@
 
          <!--==================== GAMES ====================-->
          <section class="main__content">
-            <form><button type="submit" value="Family" class="card__title" onclick="">Trending</button></form>
+            <form><button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Trending</button></form>
 
             <div class="row">
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -582,7 +582,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -596,7 +596,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -610,7 +610,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -626,7 +626,7 @@
 
             <div class="row">
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -640,7 +640,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -654,7 +654,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -668,7 +668,7 @@
                </article>
 
                <article class="col-sm mb-5">
-                  <button class="card__link">
+                  <button class="card__link" onclick="displayGame()">
                      <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
                      <div class="card__shadow"></div>
 
@@ -687,7 +687,7 @@
       <!--==================== GAME PAGE ====================-->
       <main class="main game" id="game">
          <!--==================== GAME ====================-->
-         <h1 class="game__tittle"><a href="mainpage__none.html">Home</a><span> / </span>Chess</h1>
+         <h1 class="game__tittle"><button onclick="displayHome()">Home</button><span> / </span>Chess</h1>
          <section class="row">
             <article class="banner__card col-sm-7 mt-3">
                <iframe class="banner__img" width="560" height="315" src="https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
