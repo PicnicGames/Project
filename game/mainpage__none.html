@@ -78,7 +78,8 @@
          </div>
       </nav>
 
-      <!--==================== DASHBOARD ====================-->
+      <div class="content">
+         <!--==================== DASHBOARD ====================-->
       <main class="main home" id="home">
          <!--==================== BANNER ====================-->
          <section class="banner">
@@ -179,7 +180,7 @@
 
          <!--==================== GAMES ====================-->
          <section class="main__content">
-            <form><button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Family</button></form>
+            <button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Family</button>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
@@ -271,7 +272,7 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Kid" class="card__title" onclick="displayAllGames()">Kid</button></form>
+            <button type="submit" value="Kid" class="card__title" onclick="displayAllGames()">Kid</button>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
@@ -363,7 +364,7 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Male" class="card__title" onclick="displayAllGames()">Male</button></form>
+            <button type="submit" value="Male" class="card__title" onclick="displayAllGames()">Male</button>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
@@ -455,7 +456,7 @@
          </section>
 
          <section class="main__content">
-            <form><button type="submit" value="Female" class="card__title" onclick="displayAllGames()">Female</button></form>
+            <button type="submit" value="Female" class="card__title" onclick="displayAllGames()">Female</button>
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
@@ -564,7 +565,7 @@
 
          <!--==================== GAMES ====================-->
          <section class="main__content">
-            <form><button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Trending</button></form>
+            <button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Trending</button>
 
             <div class="row">
                <article class="col-sm mb-5">
@@ -810,32 +811,35 @@
       </div>
 
       <!--=============== FOOTER  ===============-->
-      <footer class="footer mt-5">
+      <footer class="mt-5">
+         <div class="footer">
             <iframe class="mx-5 footer__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.740001527951!2d105.8478037110061!3d21.00305678055915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1710617601502!5m2!1svi!2s" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="footer__contact">
-               <ul class="footer__icon">
-                  <li><a href="#">
-                     <i class="ri-facebook-circle-fill"></i>
-                  </a></li>
-                  <li><a href="#">
-                     <i class="ri-instagram-fill"></i>
-                  </a></li>
-                  <li><a href="#">
-                     <i class="ri-youtube-fill"></i>
-                  </a></li>
-                  <li><a href="#">
-                     <i class="ri-tiktok-fill"></i>
-                  </a></li>
-               </ul>
-               <ul class="footer__menu">
-                  <li><a href="#" class="nav__link">About</a></li>
-                  <li><a href="#" class="nav__link">Services</a></li>
-                  <li><a href="#" class="nav__link">Team</a></li>
-               </ul>
-               <a href="https://maps.app.goo.gl/RUyEFA2gBvb15fXx7">19 P. Le Thanh Nghi, Bach Khoa, Hai Ba Trung, Ha Noi, Viet Nam</a>
+               <div class="footer__contact">
+                  <ul class="footer__icon">
+                     <li><a href="#">
+                        <i class="ri-facebook-circle-fill"></i>
+                     </a></li>
+                     <li><a href="#">
+                        <i class="ri-instagram-fill"></i>
+                     </a></li>
+                     <li><a href="#">
+                        <i class="ri-youtube-fill"></i>
+                     </a></li>
+                     <li><a href="#">
+                        <i class="ri-tiktok-fill"></i>
+                     </a></li>
+                  </ul>
+                  <ul class="footer__menu">
+                     <li><a href="#" class="nav__link">About</a></li>
+                     <li><a href="#" class="nav__link">Services</a></li>
+                     <li><a href="#" class="nav__link">Team</a></li>
+                  </ul>
+                  <a href="https://maps.app.goo.gl/RUyEFA2gBvb15fXx7">19 P. Le Thanh Nghi, Bach Khoa, Hai Ba Trung, Ha Noi, Viet Nam</a>
+               </div>
             </div>
          </div>
       </footer>
+      </div>
   
       <!--=============== SWIPER JS ===============-->
       <script src="js/swiper-bundle.min.js"></script>
