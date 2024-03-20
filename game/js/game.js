@@ -83,6 +83,7 @@ function displayHome() {
    document.getElementById('home').style.display = "block";
    document.getElementById('all-games').style.display = "none";
    document.getElementById('game').style.display = "none";
+   document.getElementById('blog').style.display = "none";
    document.getElementById('banner__img').setAttribute('src', '');
 }
 
@@ -93,6 +94,7 @@ function displayAllGames() {
    document.getElementById('home').style.display = "none";
    document.getElementById('all-games').style.display = "block";
    document.getElementById('game').style.display = "none";
+   document.getElementById('blog').style.display = "none";
    document.getElementById('banner__img').setAttribute('src', '');
 }
 
@@ -103,6 +105,18 @@ function displayGame() {
    document.getElementById('home').style.display = "none";
    document.getElementById('all-games').style.display = "none";
    document.getElementById('game').style.display = "block";
+   document.getElementById('blog').style.display = "none";
+   document.getElementById('banner__img').setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
+}
+
+/* BLOG */
+function displayGame() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+   document.getElementById('home').style.display = "none";
+   document.getElementById('all-games').style.display = "none";
+   document.getElementById('game').style.display = "none";
+   document.getElementById('blog').style.display = "block";
    document.getElementById('banner__img').setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
 }
 

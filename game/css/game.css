@@ -527,6 +527,67 @@ img {
   font-size: var(--font-regular);
 }
 
+/*=============== BLOG ===============*/
+.blog {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin: auto;
+}
+
+.blog__header {
+  display: flex;
+  width: fit-content;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.user__img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user__name {
+  font-size: var(--h2-font-size);
+}
+
+.user__timestamp {
+  font-size: var(--normal-font-size);
+}
+
+.blog__img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.blog__content {
+  font-size: var(--h2-font-size);
+  text-transform: capitalize;
+  border-bottom: 1px solid var(--white-color-light);
+  padding-bottom: 1.25rem;
+}
+
+.blog__footer {
+  width: 100%;
+  height: 50px;
+  font-size: var(--h3-font-size);
+}
+
+.blog__footer button {
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.blog__footer button:hover {
+  opacity: 0.75;
+}
+
 /*=============== SIGNIN SIGNUP ===============*/
 .user__modal {
   width: 100%;
@@ -800,19 +861,22 @@ img {
 .footer {
   position: relative;
   display: flex;
-  background: rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+  background-color: hsla(0, 0%, 0%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   min-height: 100px;
   padding: 3rem 10rem;
-  margin-left: 17.8rem;
   overflow: hidden;
 }
 
 .footer__contact {
   height: 200px;
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .footer .footer__icon, .footer .footer__menu {
@@ -925,11 +989,16 @@ img {
   .game__catagory {
     margin-bottom: 0;
   }
+
+  .blog {
+    width: 100%;
+  }
 }
 
 /* For medium devices */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .main {
+    margin-inline: 1.5rem;
     padding-top: 10rem;
   }
   
@@ -961,6 +1030,10 @@ img {
   .footer .footer__icon, .footer .footer__menu {
     justify-content: center;
   }
+
+  .blog {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 1025px) {
@@ -972,7 +1045,6 @@ img {
 
   .main {
     row-gap: 1.5rem;
-    margin-inline: 1.5rem;
     padding-block: 8.5rem 4rem;
   }
   
