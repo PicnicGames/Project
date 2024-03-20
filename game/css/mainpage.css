@@ -421,6 +421,20 @@ img {
   scale: 1;
 }
 
+/*=============== Wifi connect ===============*/
+.alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #ce647c;
+  color: #fff;
+  font-family: system-ui;
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+}
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: .6rem;
