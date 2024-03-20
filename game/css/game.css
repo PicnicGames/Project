@@ -47,9 +47,6 @@
 }
 
 /*=============== BASE ===============*/
-.content {
-  overflow: hidden;
-}
 * {
   box-sizing: border-box;
   color: var(--white-color);
@@ -790,14 +787,6 @@ img {
 }
 
 /*=============== FOOTER ===============*/
-footer {
-  height: auto;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: -15%;
-}
-
 .footer {
   position: relative;
   display: flex;
@@ -892,12 +881,15 @@ footer {
   }
 
   .footer {
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     padding: 0;
   }
 
   .footer__map {
-    display: none;
+    width: 320px;
+    height: 200px;
   }
 
   .footer__contact {
