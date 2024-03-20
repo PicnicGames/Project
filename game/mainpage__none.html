@@ -66,6 +66,12 @@
                      <i class="ri-heart-3-line"></i> <span>Favorites</span>
                   </button>
                </li>
+
+               <li class="nav__item">
+                  <a class="nav__link" href="#contact">
+                     <i class="ri-contacts-line"></i> <span>Contact</span>
+                  </a>
+               </li>
             </ul>
          </div>
 
@@ -78,8 +84,7 @@
          </div>
       </nav>
 
-      <div class="content">
-         <!--==================== DASHBOARD ====================-->
+      <!--==================== DASHBOARD ====================-->
       <main class="main home" id="home">
          <!--==================== BANNER ====================-->
          <section class="banner">
@@ -691,7 +696,7 @@
          <h1 class="game__tittle"><button onclick="displayHome()">Home</button><span> / </span>Chess</h1>
          <section class="row">
             <article class="banner__card col-sm-7 mt-3">
-               <iframe class="banner__img" width="560" height="315" src="https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+               <iframe class="banner__img" id="banner__img" width="560" height="315" src="https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </article>
 
             <article class="banner__card col-sm-5 mt-3">
@@ -749,15 +754,33 @@
       </main>
 
       <!--=============== SIGNIN SIGNUP ===============-->
-      <div class="user__modal" id="user-modal" style="display: none;">
-            <div class="modal__background" onclick="closeModal()"></div>
-            <div class="modal__container" id="modal-container">
-               <button class="close__button" onclick="closeModal()">
-                  <i class="ri-close-line" id="close"></i>
-               </button>
-               <div class="form__container signup__container">
-                  <form action="#">
-                     <h2>Create Account</h2>
+      <div class="user__modal" id="user-modal">
+         <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
+         <div class="modal__container" id="modal-container">
+            <button class="close__button" onclick="closeModal()">
+               <i class="ri-close-line" id="close"></i>
+            </button>
+            <div class="form__container signup__container">
+               <form action="#">
+                  <h2>Create Account</h2>
+                  <div class="social__container">
+                     <a href="#" class="social">
+                        <i class="ri-facebook-fill"></i>
+                     </a>
+                     <a href="#" class="social">
+                        <i class="ri-google-fill"></i>
+                     </a>
+                  </div>
+                  <span>or use your email for registration</span>
+                  <input type="text" placeholder="Username">
+                  <input type="email" placeholder="Email">
+                  <input type="password" placeholder="Password">
+                  <button>Sign Up</button>
+               </form>
+            </div>
+            <div class="form__container signin__container">
+               <form action="#">
+                     <h2>Sign In</h2>
                      <div class="social__container">
                         <a href="#" class="social">
                            <i class="ri-facebook-fill"></i>
@@ -766,52 +789,34 @@
                            <i class="ri-google-fill"></i>
                         </a>
                      </div>
-                     <span>or use your email for registration</span>
-                     <input type="text" placeholder="Username">
-                     <input type="email" placeholder="Email">
+                     <span>or use your account</span>
+                     <input type="email" placeholder="Username or Email">
                      <input type="password" placeholder="Password">
-                     <button>Sign Up</button>
-                  </form>
-               </div>
-               <div class="form__container signin__container">
-                  <form action="#">
-                        <h2>Sign In</h2>
-                        <div class="social__container">
-                           <a href="#" class="social">
-                              <i class="ri-facebook-fill"></i>
-                           </a>
-                           <a href="#" class="social">
-                              <i class="ri-google-fill"></i>
-                           </a>
-                        </div>
-                        <span>or use your account</span>
-                        <input type="email" placeholder="Username or Email">
-                        <input type="password" placeholder="Password">
-                        <a href="#">Forgot your password?</a>
-                        <button>Sign In</button>
-                  </form>
-               </div>
-               <div class="overlay__container">
-                  <div class="overlay">
-                     <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
-                     <div class="overlay__panel overlay__left">
-                        <h1>Welcome to registration</h1>
-                        <p class="italic">Already have an account</p>
-                        <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
+                     <a href="#">Forgot your password?</a>
+                     <button>Sign In</button>
+               </form>
+            </div>
+            <div class="overlay__container">
+               <div class="overlay">
+                  <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
+                  <div class="overlay__panel overlay__left">
+                     <h1>Welcome to registration</h1>
+                     <p class="italic">Already have an account</p>
+                     <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
 
-                     </div>
-                     <div class="overlay__panel overlay__right">
-                        <h1>Welcome</h1>
-                        <p class="italic">Don't have an account?</p>
-                        <button class="ghost" id="signUp" onclick="signUp()">Sign Up</button>
-                     </div>
+                  </div>
+                  <div class="overlay__panel overlay__right">
+                     <h1>Welcome</h1>
+                     <p class="italic">Don't have an account?</p>
+                     <button class="ghost" id="signUp" onclick="signUp()">Sign Up</button>
                   </div>
                </div>
             </div>
+         </div>
       </div>
 
       <!--=============== FOOTER  ===============-->
-      <footer class="footer mt-5">
+      <footer class="footer mt-5" id="contact">
          <iframe class="mx-5 footer__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.740001527951!2d105.8478037110061!3d21.00305678055915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1710617601502!5m2!1svi!2s" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
          <div class="footer__contact">
             <ul class="footer__icon">
@@ -833,10 +838,11 @@
                <li><a href="#" class="nav__link">Services</a></li>
                <li><a href="#" class="nav__link">Team</a></li>
             </ul>
-            <a href="https://maps.app.goo.gl/RUyEFA2gBvb15fXx7">19 P. Le Thanh Nghi, Bach Khoa, Hai Ba Trung, Ha Noi, Viet Nam</a>
+            <ul class="footer__address">
+               <li href="https://maps.app.goo.gl/RUyEFA2gBvb15fXx7">19 P. Le Thanh Nghi, Bach Khoa, Hai Ba Trung, Ha Noi, Viet Nam</>
+            </ul>
          </div>
       </footer>
-      </div>
   
       <!--=============== SWIPER JS ===============-->
       <script src="js/swiper-bundle.min.js"></script>
