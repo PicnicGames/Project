@@ -47,6 +47,9 @@
 }
 
 /*=============== BASE ===============*/
+.content {
+  overflow: hidden;
+}
 * {
   box-sizing: border-box;
   color: var(--white-color);
@@ -62,6 +65,7 @@ button {
 }
 
 body {
+  position: relative;
   color: var(--white-color);
   overflow: auto;
 }
@@ -451,6 +455,7 @@ img {
 
 ::-webkit-scrollbar-thumb {
   background-color: hsl(0, 0%, 30%);
+  border-radius: 1rem;
 }
 
 /*=============== GAME PAGE ===============*/
@@ -785,6 +790,14 @@ img {
 }
 
 /*=============== FOOTER ===============*/
+footer {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -15%;
+}
+
 .footer {
   position: relative;
   display: flex;
@@ -979,6 +992,10 @@ img {
   .card__data {
     bottom: 1rem;
     padding-inline: .75rem;
+  }
+
+  footer {
+    bottom: -10%;
   }
 
   .footer {
