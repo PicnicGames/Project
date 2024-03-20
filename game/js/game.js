@@ -76,48 +76,63 @@ const blurHeader = () =>{
 window.addEventListener('scroll', blurHeader)
 
 /*=============== BUTTON ===============*/
+const home = document.getElementById('home'),
+   all_games = document.getElementById('all-games'),
+   game = document.getElementById('game'),
+   blog = document.getElementById('blog'),
+   bg_image = document.getElementById('bg-image'),
+   banner_img = document.getElementById('banner-img');
 /* HOME */
 function displayHome() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.getElementById('home').style.display = "block";
-   document.getElementById('all-games').style.display = "none";
-   document.getElementById('game').style.display = "none";
-   document.getElementById('blog').style.display = "none";
-   document.getElementById('banner__img').setAttribute('src', '');
+   home.style.display = "block";
+   all_games.style.display = "none";
+   game.style.display = "none";
+   blog.style.display = "none";
+   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
+   banner_img.setAttribute('src', '');
+   nav.style.borderRight = "none";
 }
 
 /* ALL GAMES */
 function displayAllGames() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.getElementById('home').style.display = "none";
-   document.getElementById('all-games').style.display = "block";
-   document.getElementById('game').style.display = "none";
-   document.getElementById('blog').style.display = "none";
-   document.getElementById('banner__img').setAttribute('src', '');
+   home.style.display = "none";
+   all_games.style.display = "block";
+   game.style.display = "none";
+   blog.style.display = "none";
+   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
+   banner_img.setAttribute('src', '');
+   nav.style.borderRight = "none";
 }
 
 /* GAME */
 function displayGame() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.getElementById('home').style.display = "none";
-   document.getElementById('all-games').style.display = "none";
-   document.getElementById('game').style.display = "block";
-   document.getElementById('blog').style.display = "none";
-   document.getElementById('banner__img').setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
+   home.style.display = "none";
+   all_games.style.display = "none";
+   game.style.display = "block";
+   blog.style.display = "none";
+   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
+   banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
+   nav.style.borderRight = "none";
 }
 
 /* BLOG */
-function displayGame() {
+function displayBlog() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.getElementById('home').style.display = "none";
-   document.getElementById('all-games').style.display = "none";
-   document.getElementById('game').style.display = "none";
-   document.getElementById('blog').style.display = "block";
-   document.getElementById('banner__img').setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
+   home.style.display = "none";
+   all_games.style.display = "none";
+   game.style.display = "none";
+   blog.style.display = "block";
+   bg_image.style.backgroundColor = "#000";
+   bg_image.setAttribute('src', '');
+   banner_img.setAttribute('src', '');
+   nav.style.borderRight = "1px solid var(--white-color-light)";
 }
 
 /*=============== GAME PAGE ===============*/
@@ -127,34 +142,38 @@ str = str.replace(/(\d+)/g,function(a){return Array(+a+1).join('★')});
 document.getElementById('game-rating').innerHTML = str;
 
 /*=============== SIGNIN SIGNUP ===============*/
-/* OPEN MODAL */
-const modal_user = document.getElementById('modal-container');
+const modal = document.getElementById('user-modal'),
+   bg_modal = document.getElementById('modal-background'),
+   user_modal = document.getElementById('modal-container'),
+   overlay_img = document.getElementById('overlay-image'),
+   modal_close = document.getElementById('modal-close');
 
+/* OPEN MODAL */
 function openModal() {
-   document.getElementById('user-modal').style.zIndex = 'var(--z-login)'
-   document.getElementById('modal-background').style.display = 'block';
-   modal_user.classList.add('open-modal__container');
-   modal_user.classList.remove('close-modal__container');
+   modal.style.zIndex = 'var(--z-login)'
+   bg_modal.style.display = 'block';
+   user_modal.classList.add('open-modal__container');
+   user_modal.classList.remove('close-modal__container');
 }
 
 /* CLOSE MODAL */
 function closeModal() {
-   document.getElementById('user-modal').style.zIndex = '-2'
-   document.getElementById('modal-background').style.display = 'none';
-   modal_user.classList.remove('open-modal__container');
-   modal_user.classList.add('close-modal__container');
+   modal.style.zIndex = '-2'
+   bg_modal.style.display = 'none';
+   user_modal.classList.remove('open-modal__container');
+   user_modal.classList.add('close-modal__container');
 }
 
 /* OPEN SIGNUP */
 function signUp() {
-   document.getElementById('modal-container').classList.add('right-panel__active');
-   document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
-   document.getElementById('close').style.color = "#000";
+   user_modal.classList.add('right-panel__active');
+   overlay_img.src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
+   modal_close.style.color = "#000";
 };
 
 /* OPEN SIGNIN */
 function signIn() {
-   document.getElementById('modal-container').classList.remove('right-panel__active');
-   document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
-   document.getElementById('close').style.color = "#fff";
+   user_modal.classList.remove('right-panel__active');
+   overlay_img.src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
+   modal_close.style.color = "#fff";
 };
