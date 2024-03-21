@@ -80,6 +80,7 @@ const home = document.getElementById('home'),
    all_games = document.getElementById('all-games'),
    game = document.getElementById('game'),
    blog = document.getElementById('blog'),
+   user = document.getElementById('user'),
    bg_image = document.getElementById('bg-image'),
    banner_img = document.getElementById('banner-img'),
    footer = document.getElementById('footer'),
@@ -103,6 +104,7 @@ function displayHome() {
    all_games.style.display = "none";
    game.style.display = "none";
    blog.style.display = "none";
+   user.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
@@ -117,6 +119,7 @@ function displayAllGames() {
    all_games.style.display = "block";
    game.style.display = "none";
    blog.style.display = "none";
+   user.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
@@ -131,6 +134,7 @@ function displayGame() {
    all_games.style.display = "none";
    game.style.display = "block";
    blog.style.display = "none";
+   user.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
    nav.style.borderRight = "none";
@@ -145,6 +149,7 @@ function displayBlog() {
    all_games.style.display = "none";
    game.style.display = "none";
    blog.style.display = "block";
+   user.style.display = "none";
    bg_image.style.backgroundColor = "#000";
    bg_image.setAttribute('src', '');
    banner_img.setAttribute('src', '');
@@ -153,6 +158,20 @@ function displayBlog() {
 }
 
 /* USER */
+function displayUser() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+   home.style.display = "none";
+   all_games.style.display = "none";
+   game.style.display = "none";
+   blog.style.display = "none";
+   user.style.display = "block";
+   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
+   banner_img.setAttribute('src', '');
+   nav.style.borderRight = "none";
+   footer.style.display = "flex";
+}
+
 function displayProfile() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
