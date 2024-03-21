@@ -82,8 +82,19 @@ const home = document.getElementById('home'),
    blog = document.getElementById('blog'),
    bg_image = document.getElementById('bg-image'),
    banner_img = document.getElementById('banner-img'),
-   footer = document.getElementById('footer');
+   footer = document.getElementById('footer'),
+   profile = document.getElementById('profile'),
+   password = document.getElementById('password'),
+   nav_button = document.querySelectorAll('.nav__button'),
+   profile_button = document.getElementById('profile-button'),
+   password_button = document.getElementById('password-button'); 
 
+   nav_button.forEach(nav_button => {
+      nav_button.addEventListener('click', () => {
+         document.querySelector('.active')?.classList.remove('active');
+         nav_button.classList.add('active');
+      })
+   })
 /* HOME */
 function displayHome() {
    document.body.scrollTop = 0;
@@ -95,7 +106,7 @@ function displayHome() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
-   footer.style.display = "block";
+   footer.style.display = "flex";
 }
 
 /* ALL GAMES */
@@ -109,7 +120,7 @@ function displayAllGames() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
-   footer.style.display = "block";
+   footer.style.display = "flex";
 }
 
 /* GAME */
@@ -123,7 +134,7 @@ function displayGame() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
    nav.style.borderRight = "none";
-   footer.style.display = "block";
+   footer.style.display = "flex";
 }
 
 /* BLOG */
@@ -139,6 +150,25 @@ function displayBlog() {
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "1px solid var(--white-color-light)";
    footer.style.display = "none";
+}
+
+/* USER */
+function displayProfile() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+   profile.style.display = 'block';
+   password.style.display = 'none';
+   profile_button.classList.add('active');
+   password_button.classList.remove('active');
+}
+
+function displayPassword() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+   profile.style.display = 'none';
+   password.style.display = 'block';
+   profile_button.classList.remove('active');
+   password_button.classList.add('active');
 }
 
 /*=============== GAME PAGE ===============*/
