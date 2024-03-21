@@ -62,6 +62,7 @@ button {
 }
 
 body {
+  min-height: 100vh;
   position: relative;
   color: var(--white-color);
   overflow: auto;
@@ -255,16 +256,22 @@ img {
   padding-left: 0;
 }
 
-.nav__link {
-  display: inline-flex;
-  position: relative;
-  color: var(--white-color);
-  column-gap: .75rem;
-  align-items: center;
-  text-decoration: none;
+.active::after {
+  content: '';
+  width: 70%;
+  height: 2px;
+  background-color: var(--white-color);
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
 }
 
-.nav__link::after {
+.nav__item {
+  width: max-content;
+  position: relative;
+}
+
+.nav__item::after {
   content: '';
   width: 0;
   height: 2px;
@@ -275,11 +282,18 @@ img {
   transition: width .3s;
 }
 
-.nav__link:hover::after {
+.nav__item:hover::after {
   width: 70%;
 }
 
-.nav__link i {
+.nav__button {
+  display: inline-flex;
+  color: var(--white-color);
+  column-gap: .75rem;
+  align-items: center;
+}
+
+.nav__button i {
   font-size: 1.5rem;
 }
 
@@ -530,8 +544,6 @@ img {
 /*=============== BLOG ===============*/
 .blog {
   width: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
   padding: 1rem 2rem;
   margin: auto;
 }
@@ -543,18 +555,18 @@ img {
   padding: 1rem;
 }
 
-.user__img {
+.blog .user__img {
   height: 60px;
   width: 60px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.user__name {
+.blog .user__name {
   font-size: var(--h2-font-size);
 }
 
-.user__timestamp {
+.blog .user__timestamp {
   font-size: var(--normal-font-size);
 }
 
@@ -575,7 +587,7 @@ img {
   height: 50px;
   font-size: var(--h3-font-size);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
 }
 
 .blog__footer button {
@@ -586,6 +598,73 @@ img {
 
 .blog__footer button:hover {
   opacity: 0.75;
+}
+
+/*=============== USER ===============*/
+.user {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.user__nav {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user .user__img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user__infor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user__infor::after {
+  content: "";
+  width: 80%;
+  border-bottom: 1px solid var(--white-color-light);
+}
+
+.user .nav__list {
+  font-size: var(--h3-font-size);
+  padding: 3rem 0;
+}
+
+.user__form {
+  font-size: var(--h3-font-size);
+}
+
+.user input {
+  color: #000;
+  background-color: var(--white-color-light);
+  width: 80%;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.user .game {
+  height: 200px;
+  overflow: hidden;
+}
+
+.user .game__img {
+  width: 100%;
+  height: 200px;
+  border-radius: 1rem;
+}
+
+.user .game__content {
+  display: grid;
+}
+
+.user .form__button {
+  border: 1px solid var(--white-color-light);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
 }
 
 /*=============== SIGNIN SIGNUP ===============*/
@@ -859,7 +938,9 @@ img {
 
 /*=============== FOOTER ===============*/
 .footer {
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: hsla(0, 0%, 0%, .2);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -959,6 +1040,7 @@ img {
   }
 
   .footer {
+    position: unset;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -990,6 +1072,63 @@ img {
 
   .blog {
     width: 100%;
+  }
+  
+  .user__nav {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .user .nav__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 3rem 0 0 0;
+  }
+
+  .user .nav__item {
+    display: inline-block;
+    font-size: var(--big-font-size);
+  }
+
+  .user .nav__item::after {
+    width: 0;
+  }
+
+  .user .active {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: unset;
+    border: none;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .user .active::after {
+    width: 0;
+  }
+
+  .user__content {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  
+  .user__profile, .user__password {
+    margin: 0 1rem;
+  }
+
+  .user__heading {
+    display: none;
+  }
+
+  .user__content .mt-5 {
+    margin-top: 2rem !important;
+  }
+
+  .user__form input {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
   }
 }
 
@@ -1074,18 +1213,6 @@ img {
   .card__data {
     bottom: 1rem;
     padding-inline: .75rem;
-  }
-
-  footer {
-    bottom: -10%;
-  }
-
-  .footer {
-    margin-left: 0;
-  }
-
-  .footer a {
-    text-align: center;
   }
 
   .game__catagory button {
