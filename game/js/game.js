@@ -80,6 +80,7 @@ const home = document.getElementById('home'),
    all_games = document.getElementById('all-games'),
    game = document.getElementById('game'),
    blog = document.getElementById('blog'),
+   blog_main = document.getElementById('blog-main')
    user = document.getElementById('user'),
    bg_image = document.getElementById('bg-image'),
    banner_img = document.getElementById('banner-img'),
@@ -100,6 +101,7 @@ const home = document.getElementById('home'),
 function displayHome() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    home.style.display = "block";
    all_games.style.display = "none";
    game.style.display = "none";
@@ -108,6 +110,7 @@ function displayHome() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
+   nav.style.backgroundColor = "unset";
    footer.style.display = "block";
 }
 
@@ -115,14 +118,16 @@ function displayHome() {
 function displayAllGames() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    home.style.display = "none";
-   all_games.style.display = "block";
+   all_games.style.display = "grid";
    game.style.display = "none";
    blog.style.display = "none";
    user.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
+   nav.style.backgroundColor = "unset";
    footer.style.display = "block";
 }
 
@@ -130,14 +135,16 @@ function displayAllGames() {
 function displayGame() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    home.style.display = "none";
    all_games.style.display = "none";
-   game.style.display = "block";
+   game.style.display = "grid";
    blog.style.display = "none";
    user.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
    nav.style.borderRight = "none";
+   nav.style.backgroundColor = "unset";
    footer.style.display = "block";
 }
 
@@ -145,36 +152,57 @@ function displayGame() {
 function displayBlog() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    home.style.display = "none";
    all_games.style.display = "none";
    game.style.display = "none";
-   blog.style.display = "block";
+   blog.style.display = "flex";
+   blog.style.flexDirection = "column";
+   blog.style.alignItems = "center";
+   blog_main.style.display = "none";
+   bg_image.style.background = "#000";
    user.style.display = "none";
    bg_image.setAttribute("src", "");
-   bg_image.style.backgroundColor = "#000";
+   bg_image.style.background = "#000";
    banner_img.setAttribute("src", "");
-   nav.style.borderRight = "1px solid var(--white-color-light)";
+   nav.style.borderRight = "1px solid rgba(255, 255, 255, 0.3)";
+   nav.style.backgroundColor = "#000";
    footer.style.display = "none";
+}
+
+function displayBlogMain() {
+   blog_main.style.display = "block";
+   bg_image.style.background = "#111";
+   document.body.style.overflow = "hidden";
+}
+
+function closeBlogMain() {
+   blog_main.style.display = "none";
+   bg_image.style.background = "#000";
+   document.body.style.overflow = "unset";
 }
 
 /* USER */
 function displayUser() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    home.style.display = "none";
    all_games.style.display = "none";
    game.style.display = "none";
    blog.style.display = "none";
-   user.style.display = "block";
+   user.style.display = "grid";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
+   nav.style.backgroundColor = "unset";
    footer.style.display = "block";
 }
 
 function displayProfile() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    profile.style.display = 'block';
    password.style.display = 'none';
    profile_button.classList.add('active');
@@ -184,6 +212,7 @@ function displayProfile() {
 function displayPassword() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
    profile.style.display = 'none';
    password.style.display = 'block';
    profile_button.classList.remove('active');
