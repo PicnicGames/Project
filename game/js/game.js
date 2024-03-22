@@ -1,4 +1,5 @@
 /*=============== MAINPAGE ===============*/
+
 /*=============== SHOW MENU ===============*/
 const nav = document.getElementById('navigation'),
       headerMenu = document.getElementById('header-menu'),
@@ -77,25 +78,26 @@ window.addEventListener('scroll', blurHeader)
 
 /*=============== BUTTON ===============*/
 const home = document.getElementById('home'),
-   all_games = document.getElementById('all-games'),
-   game = document.getElementById('game'),
-   blog = document.getElementById('blog'),
-   user = document.getElementById('user'),
-   bg_image = document.getElementById('bg-image'),
-   banner_img = document.getElementById('banner-img'),
-   footer = document.getElementById('footer'),
-   profile = document.getElementById('profile'),
-   password = document.getElementById('password'),
-   nav_button = document.querySelectorAll('.nav__button'),
-   profile_button = document.getElementById('profile-button'),
-   password_button = document.getElementById('password-button'); 
+      all_games = document.getElementById('all-games'),
+      game = document.getElementById('game'),
+      blog = document.getElementById('blog'),
+      contact = document.getElementById('contact'),
+      user = document.getElementById('user'),
+      bg_image = document.getElementById('bg-image'),
+      banner_img = document.getElementById('banner-img'),
+      footer = document.getElementById('footer'),
+      profile = document.getElementById('profile'),
+      password = document.getElementById('password'),
+      nav_button = document.querySelectorAll('.nav__button'),
+      profile_button = document.getElementById('profile-button'),
+      password_button = document.getElementById('password-button'); 
 
-   nav_button.forEach(nav_button => {
-      nav_button.addEventListener('click', () => {
-         document.querySelector('.active')?.classList.remove('active');
-         nav_button.classList.add('active');
+      nav_button.forEach(nav_button => {
+         nav_button.addEventListener('click', () => {
+            document.querySelector('.active')?.classList.remove('active');
+            nav_button.classList.add('active');
+         })
       })
-   })
 /* HOME */
 function displayHome() {
    document.body.scrollTop = 0;
@@ -108,7 +110,7 @@ function displayHome() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
-   footer.style.display = "flex";
+   footer.style.display = "block";
 }
 
 /* ALL GAMES */
@@ -123,7 +125,7 @@ function displayAllGames() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
-   footer.style.display = "flex";
+   footer.style.display = "block";
 }
 
 /* GAME */
@@ -138,7 +140,7 @@ function displayGame() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
    nav.style.borderRight = "none";
-   footer.style.display = "flex";
+   footer.style.display = "block";
 }
 
 /* BLOG */
@@ -150,9 +152,9 @@ function displayBlog() {
    game.style.display = "none";
    blog.style.display = "block";
    user.style.display = "none";
+   bg_image.setAttribute("src", "");
    bg_image.style.backgroundColor = "#000";
-   bg_image.setAttribute('src', '');
-   banner_img.setAttribute('src', '');
+   banner_img.setAttribute("src", "");
    nav.style.borderRight = "1px solid var(--white-color-light)";
    footer.style.display = "none";
 }
@@ -169,7 +171,7 @@ function displayUser() {
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
-   footer.style.display = "flex";
+   footer.style.display = "block";
 }
 
 function displayProfile() {

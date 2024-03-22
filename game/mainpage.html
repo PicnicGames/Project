@@ -28,8 +28,9 @@
          <div class="header__content">
             <div href="#" class="header__logo">LOGO</div>
 
+            <!-- NONE -->
             <div class="header__user" id="header-user">
-               <button class="nav__link" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
+               <button class="nav__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
 
                <div class="header__menu" id="header-menu">
                   <i class="ri-menu-fill"></i>
@@ -50,32 +51,46 @@
 
             <ul class="nav__list">
                <li class="nav__item">
-                  <button class="nav__link" onclick="displayHome()">
+                  <button class="nav__button active" onclick="displayHome()">
                      <i class="ri-home-5-line"></i> <span>Home</span>
                   </button>
                </li>
 
                <li class="nav__item">
-                  <button class="nav__link" id="button" onclick="displayAllGames()">
+                  <button class="nav__button" id="button" onclick="displayAllGames()">
                      <i class="ri-gamepad-line"></i> <span>All Games</span>
                   </button>
                </li>
 
                <li class="nav__item">
-                  <button class="nav__link" onclick="displayAllGames()">
+                  <button class="nav__button" onclick="displayAllGames()">
                      <i class="ri-heart-3-line"></i> <span>Favorites</span>
                   </button>
                </li>
 
                <li class="nav__item">
-                  <button class="nav__link" onclick="displayBlog()">
+                  <button class="nav__button" onclick="displayBlog()">
                      <i class="ri-blogger-line"></i> <span>Blog</span>
                   </button>
                </li>
+
+               <li class="nav__item">
+                  <button class="nav__button" onclick="displayContact()">
+                     <i class="ri-contacts-line"></i> <span>contact</span>
+                  </button>
+               </li>
             </ul>
+
+            <!-- USER -->
+             <button class="nav__user__button" onclick="displayUser()">
+               <div class="nav__user">
+                  <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
+                  <div class="user__name">ADMIN</div>
+               </div>
+            </button>
          </div>
 
-         <button class="nav__link" id="logOut" onclick="logOut()" style="display: none;">
+         <button class="nav__button" id="logOut" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
          </button>
 
@@ -807,6 +822,54 @@
           </section>
        </main>
 
+      <!--=============== USER  ===============-->
+      <main class="main" id="user" style="display: none;">
+         <div class="row user m-5">
+            <div class="col-sm-3 user__nav pt-5">
+               <div class="user__infor">
+                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img">
+                     <h2 class="user__name my-3">ADMIN</h2>
+               </div>
+               <ul class="nav__list ms-auto">
+                     <li class="nav__item">
+                        <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
+                     </li>
+                     <li class="nav__item">
+                        <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
+                     </li>
+               </ul>
+            </div>
+            <div class="col-sm-7 user__content mx-auto pb-5">
+               <div class="user__profile" id="profile">
+                     <h2 class="user__heading">Profile</h2>
+                     <div class="user__form">
+                        <form action="">
+                           <p class="mt-5">User Name:</p>
+                           <p>ADMIN</p>
+                           <p class="mt-5">Email:</p>
+                           <p>ADMIN@gmail.com</p>
+                           <button class="form__button mt-5">Edit Profile</button>
+                        </form>
+                     </div>
+               </div>
+               <div class="user__password" id="password" style="display: none;">
+                     <h2 class="user__heading mb-5">Password</h2>
+                     <div class="user__form">
+                        <form action="">
+                           <p class="mt-3">Old password:</p>
+                           <input type="text">
+                           <p class="mt-3">New password:</p>
+                           <input type="text">
+                           <p class="mt-3">Confirm password:</p>
+                           <input type="text">
+                           <button class="form__button mt-5">Change Password</button>
+                        </form>
+                     </div>
+               </div>
+            </div>
+         </div>
+      </main>
+
       <!--=============== SIGNIN SIGNUP ===============-->
       <div class="user__modal" id="user-modal">
          <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
@@ -870,7 +933,7 @@
       </div>
 
       <!--=============== FOOTER  ===============-->
-      <footer>
+      <footer class="footer mt-5" id="footer">
          <div class="footer-container">
              <div class="footer-content-container">
                  <h3 class="website-logo">Name</h3>
