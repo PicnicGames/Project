@@ -20,7 +20,7 @@
       <title>GAMES</title>
    </head>
    <body id="body">
-      <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="bg__image" id="bg-image">
+      <img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg" alt="image" class="bg__image" id="bg-image">
       <div class="bg__blur"></div>
       
       <!--==================== HEADER ====================-->
@@ -29,8 +29,10 @@
             <div href="#" class="header__logo">LOGO</div>
 
             <!-- NONE -->
-            <div class="header__user" id="register">
-               <button class="nav__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
+            <div class="header__user">
+               <div class="header__login" id="register">
+                  <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
+               </div>
 
                <div class="header__menu" id="header-menu">
                   <i class="ri-menu-fill"></i>
@@ -82,7 +84,7 @@
             </ul>
 
             <!-- USER -->
-            <div class="nav__user pt-3" id="registered">
+            <div class="nav__user pt-3" id="registered" style="display: none;">
                <button onclick="displayUser()">
                   <div class="user__container">
                      <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
@@ -92,7 +94,7 @@
             </div>
          </div>
 
-         <button class="nav__button" id="logOut" onclick="logOut()" style="display: none;">
+         <button class="nav__button" id="logout" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
          </button>
 
@@ -937,7 +939,7 @@
             <button class="close__button" onclick="closeModal()">
                <i class="ri-close-line" id="modal-close"></i>
             </button>
-            <div class="form__container signup__container">
+            <div class="form__container signup__container" id="signup">
                <form action="#">
                   <h2>Create Account</h2>
                   <div class="social__container">
@@ -952,10 +954,11 @@
                   <input type="text" placeholder="Username">
                   <input type="email" placeholder="Email">
                   <input type="password" placeholder="Password">
+                  <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
                   <button>Sign Up</button>
                </form>
             </div>
-            <div class="form__container signin__container">
+            <div class="form__container signin__container" id="signin">
                <form action="#">
                      <h2>Sign In</h2>
                      <div class="social__container">
@@ -970,6 +973,7 @@
                      <input type="email" placeholder="Username or Email">
                      <input type="password" placeholder="Password">
                      <a href="#">Forgot your password?</a>
+                     <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
                      <button>Sign In</button>
                </form>
             </div>
@@ -994,39 +998,39 @@
 
       <!--=============== FOOTER  ===============-->
       <footer class="footer mt-5" id="footer">
-         <div class="footer-container">
-             <div class="footer-content-container">
-                 <h3 class="website-logo">Name</h3>
-                 <span class="footer-info">123414254614</span>
-                 <span class="footer-info">ajsdhf@loaishgfow.com</span>
-             </div>
-             <div class="footer-menus">
-                 <div class="footer-content-container">
-                     <span class="menu-title">Menu</span>
-                     <a href="#" class="menu-item-footer">Home</a>
-                     <a href="#" class="menu-item-footer">Course</a>
-                     <a href="#" class="menu-item-footer">Testimonials</a>
-                 </div>
-                 <div class="footer-content-container">
-                     <span class="menu-title">legal</span>
-                     <a href="#" class="menu-item-footer">Primary Policy</a>
-                     <a href="#" class="menu-item-footer">Cookies</a>
-                     <a href="#" class="menu-item-footer">Terms & Conditions</a>
-                 </div>
-             </div>
- 
-             <div class="footer-content-container">
-                 <span class="menu-title">follow us</span>
-                 <div class="social-container">
-                     <a href="#" class="social-link"><i class="ri-facebook-circle-fill"></i></a>
-                     <a href="#" class="social-link"><i class="ri-instagram-fill"></i></a>
-                     <a href="#" class="social-link"><i class="ri-youtube-fill"></i></a>
-                     <a href="#" class="social-link"><i class="ri-tiktok-fill"></i></i></a>
-                 </div>
-             </div>
+         <div class="footer__container">
+            <div class="footer__content">
+               <h3 class="website-logo">Name</h3>
+               <span class="footer-info">123414254614</span>
+               <span class="footer-info">ajsdhf@loaishgfow.com</span>
+            </div>
+            <div class="footer__menu">
+               <div class="footer__content">
+                  <span class="menu__title">Menu</span>
+                  <a href="#" class="menu__item">Home</a>
+                  <a href="#" class="menu__item">Course</a>
+                  <a href="#" class="menu__item">Testimonials</a>
+               </div>
+               <div class="footer__content">
+                  <span class="menu__title">legal</span>
+                  <a href="#" class="menu__item">Primary Policy</a>
+                  <a href="#" class="menu__item">Cookies</a>
+                  <a href="#" class="menu__item">Terms & Conditions</a>
+               </div>
+            </div>
+
+            <div class="footer__content">
+               <span class="menu__title">follow us</span>
+               <div class="social-container">
+                  <a href="#" class="social__link"><i class="ri-facebook-circle-fill"></i></a>
+                  <a href="#" class="social__link"><i class="ri-instagram-fill"></i></a>
+                  <a href="#" class="social__link"><i class="ri-youtube-fill"></i></a>
+                  <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></i></a>
+               </div>
+            </div>
          </div>
-         <div class="copyright-container">
-             <span class="copyright">&copy;2024, aksdfbo.com.</span>
+         <div class="copyright__container">
+            <span class="copyright">&copy;2024, aksdfbo.com.</span>
          </div>
      </footer>
   
