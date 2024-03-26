@@ -257,10 +257,6 @@ img {
   padding-left: 0;
 }
 
-.nav__list {
-  padding-bottom: 1.25rem;
-}
-
 .active::after {
   content: '';
   width: 70%;
@@ -307,19 +303,22 @@ img {
   margin-bottom: .75rem;
 }
 
-.nav__user__button {
-  width: max-content;
+.nav__user {
+  border-top: 1px solid var(--white-color-light);
 }
 
-.nav__user__button:hover {
+.nav__user button {
+  width: 100%;
+}
+
+.nav__user button:hover {
   opacity: 0.75;
 }
 
-.nav__user {
+.nav__user .user__container{
   width: max-content;
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--white-color-light);
 }
 
 .user__img {
