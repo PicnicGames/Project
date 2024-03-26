@@ -304,3 +304,13 @@ function signInMb() {
    signup.style.opacity = "0";
    signup.style.zIndex = "0";
 };
+
+const register = document.getElementById('register'),
+      registered = document.getElementById('registered'),
+      logout = document.getElementById('logout');
+
+function logIn() {
+   register.style.display = "block";
+   registered.style.display = "none";
+   logout.style.display = "none";
+}
