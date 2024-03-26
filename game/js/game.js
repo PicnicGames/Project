@@ -255,7 +255,9 @@ const modal = document.getElementById('user-modal'),
    bg_modal = document.getElementById('modal-background'),
    user_modal = document.getElementById('modal-container'),
    overlay_img = document.getElementById('overlay-image'),
-   modal_close = document.getElementById('modal-close');
+   modal_close = document.getElementById('modal-close'),
+   signin = document.getElementById('signin'),
+   signup = document.getElementById('signup');
 
 /* OPEN MODAL */
 function openModal() {
@@ -285,4 +287,20 @@ function signIn() {
    user_modal.classList.remove('right-panel__active');
    overlay_img.src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
    modal_close.style.color = "#fff";
+};
+
+/* OPEN SIGNUP MOBILE */
+function signUpMb() {
+   signin.style.opacity = "0";
+   signin.style.zIndex = "0";
+   signup.style.opacity = "1";
+   signup.style.zIndex = "1";
+};
+
+/* OPEN SIGNIN MOBILE*/
+function signInMb() {
+   signin.style.opacity = "1";
+   signin.style.opacity = "1";
+   signup.style.opacity = "0";
+   signup.style.zIndex = "0";
 };
