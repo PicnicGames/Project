@@ -81,8 +81,9 @@ const home = document.getElementById('home'),
    all_games = document.getElementById('all-games'),
    game = document.getElementById('game'),
    blog = document.getElementById('blog'),
-   blog_main = document.getElementById('blog-main')
+   blog_main = document.getElementById('blog-main'),
    user = document.getElementById('user'),
+   contact = document.getElementById('contact'),
    bg_image = document.getElementById('bg-image'),
    banner_img = document.getElementById('banner-img'),
    footer = document.getElementById('footer'),
@@ -108,6 +109,7 @@ function displayHome() {
    game.style.display = "none";
    blog.style.display = "none";
    user.style.display = "none";
+   contact.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
@@ -125,6 +127,7 @@ function displayAllGames() {
    game.style.display = "none";
    blog.style.display = "none";
    user.style.display = "none";
+   contact.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
@@ -142,6 +145,7 @@ function displayGame() {
    game.style.display = "grid";
    blog.style.display = "none";
    user.style.display = "none";
+   contact.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
    nav.style.borderRight = "none";
@@ -163,6 +167,7 @@ function displayBlog() {
    blog_main.style.display = "none";
    bg_image.style.background = "#000";
    user.style.display = "none";
+   contact.style.display = "none";
    bg_image.setAttribute("src", "");
    bg_image.style.background = "#000";
    banner_img.setAttribute("src", "");
@@ -193,6 +198,7 @@ function displayUser() {
    game.style.display = "none";
    blog.style.display = "none";
    user.style.display = "grid";
+   contact.style.display = "none";
    bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
    banner_img.setAttribute('src', '');
    nav.style.borderRight = "none";
@@ -218,6 +224,24 @@ function displayPassword() {
    password.style.display = 'block';
    profile_button.classList.remove('active');
    password_button.classList.add('active');
+}
+
+/* CONTACT */
+function displayContact() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+   document.body.style.overflow = "unset";
+   home.style.display = "none";
+   all_games.style.display = "none";
+   game.style.display = "none";
+   blog.style.display = "none";
+   user.style.display = "none";
+   contact.style.display = "block";
+   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
+   banner_img.setAttribute('src', '');
+   nav.style.borderRight = "none";
+   nav.style.backgroundColor = "unset";
+   footer.style.display = "block";
 }
 
 /*=============== GAME PAGE ===============*/

@@ -744,6 +744,76 @@ img {
   border-radius: 1rem;
 }
 
+/*=============== CONTACT ===============*/
+.conact__container {
+  width: 100%;
+  display: flex;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  padding: 3rem 5rem;
+}
+
+.contact__heading {
+  font-size: var(--h1-font-size);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contact__body input, .contact__body textarea {
+  width: 100%;
+  font-family: var(--body-font);
+  background-color: var(--white-color);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.contact__body textarea:focus-visible {
+  outline: none;
+}
+
+.contact__body input:focus-visible, .contact__body textarea:focus-visible {
+  border: 2px solid var(--white-color-light);
+}
+
+.contact__body .row:first-child {
+  justify-content: space-between;
+}
+
+.contact__input {
+  position: relative;
+}
+
+.contact__input i, .contact__input span {
+  position: absolute;
+  color: #000;
+  font-size: var(--h3-font-size);
+  right: 1rem;
+  top: 30%;
+  opacity: 0.75;
+}
+
+.contact__input span {
+  right: 0;
+}
+
+.contact__input:last-child span {
+  top: 45%;
+}
+
+.contact__footer button {
+  width: 100%;
+  background-color: var(--white-color);
+  font-size: var(--h2-font-size);
+  color: #000;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.contact__footer button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 /*=============== SIGNIN SIGNUP ===============*/
 .user__modal {
   width: 100%;
@@ -763,7 +833,7 @@ img {
   height: 480px;
   border-radius: 10px;
   overflow: hidden;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--body-font);
   box-shadow:
       0 14px 28px rgba(0, 0, 0, 0.2),
       0 10px 10px rgba(0, 0, 0, 0.2);
