@@ -296,6 +296,7 @@ img {
   color: var(--white-color);
   column-gap: .75rem;
   align-items: center;
+  text-decoration: none;
 }
 
 .nav__button i {
@@ -308,6 +309,7 @@ img {
 }
 
 .nav__user {
+  position: relative;
   border-top: 1px solid var(--white-color-light);
 }
 
@@ -577,6 +579,7 @@ img {
   width: 40%;
   padding: 1rem 2rem;
   z-index: 1;
+  margin: auto;
 }
 
 .blog__header {
