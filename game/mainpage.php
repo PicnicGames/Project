@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
    <html lang="en">
    <head>
@@ -73,21 +77,15 @@
                      <i class="ri-blogger-line"></i> <span>Blog</span>
                   </button>
                </li>
-
-               <li class="nav__item">
-                  <button class="nav__button" onclick="displayContact()">
-                     <i class="ri-contacts-line"></i> <span>Contact</span>
-                  </button>
-               </li>
             </ul>
 
             <!-- USER -->
-             <button class="nav__user__button" onclick="displayUser()">
+            <!-- <button class="nav__user__button" onclick="displayUser()">
                <div class="nav__user">
                   <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
                   <div class="user__name">ADMIN</div>
                </div>
-            </button>
+            </button> -->
          </div>
 
          <button class="nav__button" id="logOut" onclick="logOut()" style="display: none;">
@@ -884,48 +882,6 @@
                </div>
             </div>
          </div>
-      </main>
-
-      <!--==================== CONTAECT ====================-->
-      <main class="main" id="contact">
-         <section class="conact__container row">
-            <div class="col contact__map">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.920264509758!2d105.82973073919662!3d21.003055517035317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1711421403758!5m2!1svi!2s" width="500" height="550" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="col">
-               <div class="contact__header mb-5">
-                     <h1 class="contact__heading">contact us</h1>
-               </div>
-
-               <div class="contact__body">
-                     <form action="">
-                        <div class="row my-3">
-                           <div class="col px-0 me-3 contact__input">
-                                 <input type="text" placeholder="First Name">
-                                 <i class="ri-id-card-line"></i>
-                           </div>
-                           <div class="col px-0 contact__input">
-                                 <input type="text" placeholder="Last Name">
-                                 <i class="ri-id-card-line"></i>
-                           </div>
-                        </div>
-                        <div class="row my-3 contact__input">
-                           <input type="email" placeholder="Email">
-                           <span><i class="ri-mail-line"></i></span>
-                        </div>
-                        <div class="row my-3 contact__input">
-                           <textarea name="" id="" cols="30" rows="8" placeholder="Message"></textarea>
-                           <span><i class="ri-inbox-line"></i></span>
-                        </div>
-                     </form>
-               </div>
-
-               <div class="contact__footer row">
-                     <button>Send</button>
-               </div>
-            </div>
-         </section>
       </main>
 
       <!--=============== SIGNIN SIGNUP ===============-->
