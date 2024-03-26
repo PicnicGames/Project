@@ -1,4 +1,5 @@
 /*=============== MAINPAGE ===============*/
+
 /*=============== SHOW MENU ===============*/
 const nav = document.getElementById('navigation'),
       headerMenu = document.getElementById('header-menu'),
@@ -91,12 +92,12 @@ const home = document.getElementById('home'),
    profile_button = document.getElementById('profile-button'),
    password_button = document.getElementById('password-button'); 
 
-   nav_button.forEach(nav_button => {
-      nav_button.addEventListener('click', () => {
-         document.querySelector('.active')?.classList.remove('active');
-         nav_button.classList.add('active');
+      nav_button.forEach(nav_button => {
+         nav_button.addEventListener('click', () => {
+            document.querySelector('.active')?.classList.remove('active');
+            nav_button.classList.add('active');
+         })
       })
-   })
 /* HOME */
 function displayHome() {
    document.body.scrollTop = 0;
