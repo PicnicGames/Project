@@ -57,7 +57,7 @@
    <!--==================== HEADER ====================-->
    <header class="header" id="header">
       <div class="header__content">
-         <a href="index.html" class="header__logo">Picnic Play</a>
+         <a href="home.php" class="header__logo">Picnic Play</a>
 
          <!-- NONE -->
          <div class="header__user">
