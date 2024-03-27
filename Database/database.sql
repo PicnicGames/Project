@@ -1,6 +1,7 @@
 CREATE TABLE `game` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255),
+  `description` varchar(255),
   `content` text,
   `vertical_img` varchar(255),
   `horizontal_img` varchar(255),
@@ -26,8 +27,8 @@ CREATE TABLE `user` (
 CREATE TABLE `blog` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255),
-  `post_img` varchar(255),
-  `body` text,
+  `img` varchar(255),
+  `content` text,
   `created_at` timestamp
 );
 
