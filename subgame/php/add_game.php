@@ -11,6 +11,18 @@ $content = get_post('place');
 
 if ($name != "") {
     $sql = "insert into games (gamename, player, place, description, content) values ('$name', '$player', '$place', '$des' , '$content')";
+
+$title = $cont = $vimg = $himg = $vid = "";
+$title = get_post("title");
+$cont = get_post("cont");
+$vimg = get_post("vimg");
+$himg = get_post("himg");
+$vid = get_post("vid");
+$type = get_post("type");
+
+if ($title != "" && $cont != "") {
+    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, type) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$type')";
+
     sql_query($sql);
 }
 

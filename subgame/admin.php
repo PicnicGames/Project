@@ -60,11 +60,11 @@
             </a>
             </div>
         </div>
-    </nav>
+
 
     <div class="nav__close" id="nav-close">
         <i class="ri-close-line"></i>
     </div>
-</nav>
+  </nav>
 </body>
 </html>
