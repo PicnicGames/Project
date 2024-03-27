@@ -1,5 +1,4 @@
 <?php
-
 require_once "utils.php";
 
 function add_user($name, $email, $password) {
