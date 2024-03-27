@@ -1,30 +1,4 @@
 <?php
-require_once "php/utils.php";
-session_start();
-
-$name = $email = $pwd = $name_email = "";
-$name = get_post("name");
-$email = get_post("email");
-$pwd = get_post("pwd");
-$name_email = get_post("name_email");
-
-if ($name != "") {
-   $cur_time = date("Y-m-d H:i:s");
-   $pwd = hash_pwd($pwd);
-   $data = res_sql_query("select * from user where email = '$email'");
-   if (count($data) == 0) {
-      $sql = "insert into user (username, email, password, created_at) values ('$name','$email','$pwd','$cur_time')";
-      sql_query($sql);
-   }
-}
-
-if ($name_email != "") {
-   $data = res_sql_query("select * from user where email = '$name_email' or username = '$name_email'");
-
-   if (password_verify($pwd, $data[0]['pwd'])) {
-      $_SESSION['loggedin'] = true;
-   }
-}
 
 ?>
 
@@ -47,21 +21,10 @@ if ($name_email != "") {
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <script>
-         const register = document.getElementById('register'),
-            registered = document.getElementById('registered'),
-            logout = document.getElementById('logout');
-
-         function logIn() {
-               register.style.display = "none";
-             registered.style.display = "block";
-          logout.style.display = "block";
-         }
-      </script>
-      <title>GAME</title>
+      <title>GAMES</title>
    </head>
    <body id="body">
-      <img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg" alt="image" class="bg__image" id="bg-image">
+      <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="bg__image" id="bg-image">
       <div class="bg__blur"></div>
       
       <!--==================== HEADER ====================-->
@@ -70,10 +33,8 @@ if ($name_email != "") {
             <div href="#" class="header__logo">LOGO</div>
 
             <!-- NONE -->
-            <div class="header__user">
-               <div class="header__login" id="register">
-                  <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
-               </div>
+            <div class="header__user" id="header-user">
+               <button class="nav__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
 
                <div class="header__menu" id="header-menu">
                   <i class="ri-menu-fill"></i>
@@ -116,26 +77,18 @@ if ($name_email != "") {
                      <i class="ri-blogger-line"></i> <span>Blog</span>
                   </button>
                </li>
-
-               <li class="nav__item">
-                  <button class="nav__button" onclick="displayContact()">
-                     <i class="ri-contacts-line"></i> <span>Contact</span>
-                  </button>
-               </li>
             </ul>
 
             <!-- USER -->
-            <div class="nav__user pt-3" id="registered" style="display: none;">
-               <button onclick="displayUser()">
-                  <div class="user__container">
-                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
-                     <div class="user__name">ADMIN</div>
-                  </div>
-               </button>
-            </div>
+            <!-- <button class="nav__user__button" onclick="displayUser()">
+               <div class="nav__user">
+                  <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
+                  <div class="user__name">ADMIN</div>
+               </div>
+            </button> -->
          </div>
 
-         <button class="nav__button" id="logout" onclick="logOut()" style="display: none;">
+         <button class="nav__button" id="logOut" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
          </button>
 
@@ -149,22 +102,13 @@ if ($name_email != "") {
          <!--==================== BANNER ====================-->
          <section class="banner">
             <article class="banner__card">
-               <?php
-               $sql = "select * from game order by (select count(id_user) from savedgame, game where id = id_game) desc";
-               $res = res_sql_query($sql);
-               $_POST['top_game'] = $res;
-               $top = $res[0];
-               $top_img = $top["horizontal_img"];
-               $top_name = $top["title"];
-               $top_type = $top["type"];
-               echo "<img src='$top_img' alt='image' class='banner__img'>
-               <div class='banner__shadow'></div>
+               <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
+               <div class="banner__shadow"></div>
 
-               <div class='banner__data'>
-                  <h2 class='banner__title'>$top_name</h2>
-                  <span class='banner__category'>$top_type</span>
-               </div>";
-               ?>
+               <div class="banner__data">
+                  <h2 class="banner__title">Chess</h2>
+                  <span class="banner__category">Tactic</span>
+                  </div>
             </article>
          </section>
 
@@ -176,115 +120,73 @@ if ($name_email != "") {
                <div class="swiper-wrapper">
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                        <?php
-                           $top1 = $_POST['top_game'][0];
-                           $top1_img = $top1["vertical_img"];
-                           $top1_name = $top1["title"];
-                           $top1_type = $top1["type"];
-                           echo "
-                           <img src='$top1_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top1_name</h3>
-                              <span class='card__category'>$top1_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
 
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                        <?php
-                           $top2 = $_POST['top_game'][1];
-                           $top2_img = $top2["vertical_img"];
-                           $top2_name = $top2["title"];
-                           $top2_type = $top2["type"];
-                           echo "
-                           <img src='$top2_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top2_name</h3>
-                              <span class='card__category'>$top2_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/564x/82/25/48/8225483621d3f898be339dc4a03a90bf.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
 
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                     <?php
-                           $top3 = $_POST['top_game'][2];
-                           $top3_img = $top3["vertical_img"];
-                           $top3_name = $top3["title"];
-                           $top3_type = $top3["type"];
-                           echo "
-                           <img src='$top3_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top3_name</h3>
-                              <span class='card__category'>$top3_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
 
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                     <?php
-                           $top4 = $_POST['top_game'][3];
-                           $top4_img = $top4["vertical_img"];
-                           $top4_name = $top4["title"];
-                           $top4_type = $top4["type"];
-                           echo "
-                           <img src='$top4_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top4_name</h3>
-                              <span class='card__category'>$top4_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
 
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                     <?php
-                           $top5 = $_POST['top_game'][4];
-                           $top5_img = $top5["vertical_img"];
-                           $top5_name = $top5["title"];
-                           $top5_type = $top5["type"];
-                           echo "
-                           <img src='$top5_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top5_name</h3>
-                              <span class='card__category'>$top5_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
                   
                   <article class="new__card card__article swiper-slide">
                      <button class="card__link" onclick="displayGame()">
-                     <?php
-                           $top6 = $_POST['top_game'][5];
-                           $top6_img = $top6["vertical_img"];
-                           $top6_name = $top6["title"];
-                           $top6_type = $top6["type"];
-                           echo "
-                           <img src='$top6_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='new__data card__data'>
-                              <h3 class='card__name'>$top6_name</h3>
-                              <span class='card__category'>$top6_type</span>
-                           </div>";
-                        ?>
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
                      </button>
                   </article>
                </div>
@@ -300,28 +202,89 @@ if ($name_email != "") {
 
             <div class="movie__swiper swiper">
                <div class="swiper-wrapper">
-                  <?php
-                     for ($i = 0; $i<count($_POST['top_game']); $i++) {
-                        $row = $_POST['top_game'][$i];
-                        $tmp_img = $row['vertical_img'];
-                        $tmp_name = $row['vertical_img'];
-                        $tmp_type = $row['vertical_img'];
-                        echo "<article class='card__article swiper-slide'>
-                        <button class='card__link' onclick='displayGame()''>
-                           <img src='$tmp_img' alt='image' class='card__img'>
-                           <div class='card__shadow'></div>
-      
-                           <div class='card__data'>
-                              <h3 class='card__name'>$tmp_name</h3>
-                              <span class='card__category'>$tmp_type</span>
-                           </div>
-      
-                           <i class='ri-heart-3-line card__like'></i>
-                        </button>
-                     </article>
-                        ";
-                     }
-                  ?>
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
+                   
+                  <article class="card__article swiper-slide">
+                     <button class="card__link" onclick="displayGame()">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+   
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+   
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </article>
                </div>
             </div>
          </section>
@@ -921,48 +884,6 @@ if ($name_email != "") {
          </div>
       </main>
 
-      <!--==================== CONTAECT ====================-->
-      <main class="main" id="contact" style="display: none;">
-         <section class="conact__container row">
-            <div class="col contact__map">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.920264509758!2d105.82973073919662!3d21.003055517035317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1711421403758!5m2!1svi!2s" width="500" height="550" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="col">
-               <div class="contact__header mb-5">
-                     <h1 class="contact__heading">contact us</h1>
-               </div>
-
-               <div class="contact__body">
-                     <form action="">
-                        <div class="row my-3">
-                           <div class="col px-0 me-3 contact__input">
-                                 <input type="text" placeholder="First Name">
-                                 <i class="ri-id-card-line"></i>
-                           </div>
-                           <div class="col px-0 contact__input">
-                                 <input type="text" placeholder="Last Name">
-                                 <i class="ri-id-card-line"></i>
-                           </div>
-                        </div>
-                        <div class="row my-3 contact__input">
-                           <input type="email" placeholder="Email">
-                           <span><i class="ri-mail-line"></i></span>
-                        </div>
-                        <div class="row my-3 contact__input">
-                           <textarea name="" id="" cols="30" rows="8" placeholder="Message"></textarea>
-                           <span><i class="ri-inbox-line"></i></span>
-                        </div>
-                     </form>
-               </div>
-
-               <div class="contact__footer row">
-                     <button>Send</button>
-               </div>
-            </div>
-         </section>
-      </main>
-
       <!--=============== SIGNIN SIGNUP ===============-->
       <div class="user__modal" id="user-modal">
          <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
@@ -970,8 +891,8 @@ if ($name_email != "") {
             <button class="close__button" onclick="closeModal()">
                <i class="ri-close-line" id="modal-close"></i>
             </button>
-            <div class="form__container signup__container" id="signup">
-               <form method="post">
+            <div class="form__container signup__container">
+               <form action="#">
                   <h2>Create Account</h2>
                   <div class="social__container">
                      <a href="#" class="social">
@@ -982,15 +903,14 @@ if ($name_email != "") {
                      </a>
                   </div>
                   <span>or use your email for registration</span>
-                  <input name="name" type="text" placeholder="Username">
-                  <input name="email" type="email" placeholder="Email">
-                  <input name="pwd" type="password" placeholder="Password">
-                  <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
-                  <button type="submit">Sign Up</button>
+                  <input type="text" placeholder="Username">
+                  <input type="email" placeholder="Email">
+                  <input type="password" placeholder="Password">
+                  <button>Sign Up</button>
                </form>
             </div>
-            <div class="form__container signin__container" id="signin">
-               <form method="post">
+            <div class="form__container signin__container">
+               <form action="#">
                      <h2>Sign In</h2>
                      <div class="social__container">
                         <a href="#" class="social">
@@ -1001,11 +921,10 @@ if ($name_email != "") {
                         </a>
                      </div>
                      <span>or use your account</span>
-                     <input name="name_email" type="email" placeholder="Username or Email">
-                     <input name="pwd" type="password" placeholder="Password">
+                     <input type="email" placeholder="Username or Email">
+                     <input type="password" placeholder="Password">
                      <a href="#">Forgot your password?</a>
-                     <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
-                     <button type="submit" onclick="logIn()">Sign In</button>
+                     <button>Sign In</button>
                </form>
             </div>
             <div class="overlay__container">
@@ -1029,39 +948,39 @@ if ($name_email != "") {
 
       <!--=============== FOOTER  ===============-->
       <footer class="footer mt-5" id="footer">
-         <div class="footer__container">
-            <div class="footer__content">
-               <h3 class="website-logo">Name</h3>
-               <span class="footer-info">123414254614</span>
-               <span class="footer-info">ajsdhf@loaishgfow.com</span>
-            </div>
-            <div class="footer__menu">
-               <div class="footer__content">
-                  <span class="menu__title">Menu</span>
-                  <a href="#" class="menu__item">Home</a>
-                  <a href="#" class="menu__item">Course</a>
-                  <a href="#" class="menu__item">Testimonials</a>
-               </div>
-               <div class="footer__content">
-                  <span class="menu__title">legal</span>
-                  <a href="#" class="menu__item">Primary Policy</a>
-                  <a href="#" class="menu__item">Cookies</a>
-                  <a href="#" class="menu__item">Terms & Conditions</a>
-               </div>
-            </div>
-
-            <div class="footer__content">
-               <span class="menu__title">follow us</span>
-               <div class="social-container">
-                  <a href="#" class="social__link"><i class="ri-facebook-circle-fill"></i></a>
-                  <a href="#" class="social__link"><i class="ri-instagram-fill"></i></a>
-                  <a href="#" class="social__link"><i class="ri-youtube-fill"></i></a>
-                  <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></i></a>
-               </div>
-            </div>
+         <div class="footer-container">
+             <div class="footer-content-container">
+                 <h3 class="website-logo">Name</h3>
+                 <span class="footer-info">123414254614</span>
+                 <span class="footer-info">ajsdhf@loaishgfow.com</span>
+             </div>
+             <div class="footer-menus">
+                 <div class="footer-content-container">
+                     <span class="menu-title">Menu</span>
+                     <a href="#" class="menu-item-footer">Home</a>
+                     <a href="#" class="menu-item-footer">Course</a>
+                     <a href="#" class="menu-item-footer">Testimonials</a>
+                 </div>
+                 <div class="footer-content-container">
+                     <span class="menu-title">legal</span>
+                     <a href="#" class="menu-item-footer">Primary Policy</a>
+                     <a href="#" class="menu-item-footer">Cookies</a>
+                     <a href="#" class="menu-item-footer">Terms & Conditions</a>
+                 </div>
+             </div>
+ 
+             <div class="footer-content-container">
+                 <span class="menu-title">follow us</span>
+                 <div class="social-container">
+                     <a href="#" class="social-link"><i class="ri-facebook-circle-fill"></i></a>
+                     <a href="#" class="social-link"><i class="ri-instagram-fill"></i></a>
+                     <a href="#" class="social-link"><i class="ri-youtube-fill"></i></a>
+                     <a href="#" class="social-link"><i class="ri-tiktok-fill"></i></i></a>
+                 </div>
+             </div>
          </div>
-         <div class="copyright__container">
-            <span class="copyright">&copy;2024, aksdfbo.com.</span>
+         <div class="copyright-container">
+             <span class="copyright">&copy;2024, aksdfbo.com.</span>
          </div>
      </footer>
   
