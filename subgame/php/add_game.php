@@ -1,16 +1,17 @@
 <?php
 require_once "utils.php";
 
-$title = $cont = $vimg = $himg = $vid = "";
+$title = "";
 $title = get_post("title");
 $cont = get_post("cont");
 $vimg = get_post("vimg");
 $himg = get_post("himg");
 $vid = get_post("vid");
-$type = get_post("type");
+$player = get_post("player");
+$place = get_post("place");
 
-if ($title != "" && $cont != "") {
-    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, type) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$type')";
+if ($title != "") {
+    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, player, place, favourite) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$player', '$place', 0)";
     sql_query($sql);
 }
 
@@ -60,8 +61,12 @@ if ($title != "" && $cont != "") {
                     <input type="text" name="vid" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="des">Type:</label>
-                    <input type="text" name="type" class="form-control">
+                    <label for="des">Player:</label>
+                    <input type="text" name="player" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="des">Place:</label>
+                    <input type="text" name="place" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success mt-3">Add</button>
