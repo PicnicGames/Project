@@ -3,7 +3,9 @@ require_once "utils.php";
 $id = "";
 $id = get_post('id');
 if ($id != '') {
-    $sql = "delete from games where id = $id";
+    $sql = "delete from game where id = $id";
+    $sql2 = "delete from favourite where id_game = $id";
+    sql_query($sql2);
     sql_query($sql);
 }
 ?>
@@ -48,6 +50,9 @@ if ($id != '') {
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
+                        $id = $row["id"];
+                        $sql2 = "select count(id_user) 'num' from favourite where id_game = $id";
+                        $num = res_sql_query($sql2, true);
                         echo "<tr>
                             <td>". $i+1 ."</td>
                             <td>".$row['gamename']."</td>

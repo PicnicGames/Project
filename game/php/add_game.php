@@ -1,15 +1,16 @@
 <?php
 require_once "utils.php";
 
-$title = $cont = $vimg = $himg = $vid = "";
+$title = "";
 $title = get_post("title");
 $cont = get_post("cont");
 $vimg = get_post("vimg");
 $himg = get_post("himg");
 $vid = get_post("vid");
-$type = get_post("type");
+$player = get_post("player");
+$place = get_post("place");
 
-if ($title != "" && $cont != "") {
+if ($title != "") {
     $sql = "insert into game (title, content, vertical_img, horizontal_img, video, type) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$type')";
     sql_query($sql);
 }

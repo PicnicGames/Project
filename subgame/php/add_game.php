@@ -1,16 +1,17 @@
 <?php
 require_once "utils.php";
 
-$name = $player = $place = $des =  $content ="";
+$title = "";
+$title = get_post("title");
+$cont = get_post("cont");
+$vimg = get_post("vimg");
+$himg = get_post("himg");
+$vid = get_post("vid");
+$player = get_post("player");
+$place = get_post("place");
 
-$name = get_post('name');
-$player = get_post('desc');
-$place = get_post('place');
-$des = get_post('player');
-$content = get_post('place');
-
-if ($name != "") {
-    $sql = "insert into games (gamename, player, place, description, content) values ('$name', '$player', '$place', '$des' , '$content')";
+if ($title != "") {
+    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, player, place, favourite) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$player', '$place', 0)";
     sql_query($sql);
 }
 
