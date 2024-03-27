@@ -3,18 +3,7 @@
 define('HOST','localhost');
 define('USERNAME','root');
 define('PASSWORD','');
-define('DATABASE','picnic_game');
-
-function fix_sql($sql) {
-    $new_sql = str_replace('\\', '\\\\', $sql);
-    $new_sql = str_replace('\'', '\\\'', $sql);
-    return $new_sql;
-}
-
-function hash_pwd($pwd) {
-    $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
-    return $hashed_pwd;
-}
+define('DATABASE','data');
 
 function get_post($key) {
     $val = "";

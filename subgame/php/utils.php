@@ -13,6 +13,10 @@ function get_post($key) {
     return $val;
 }
 
+function hash_pwd($pwd) {
+    return password_hash($pwd, PASSWORD_DEFAULT);
+}
+
 function sql_query($sql) {
     $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
     mysqli_set_charset($conn,"utf8");

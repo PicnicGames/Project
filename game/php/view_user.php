@@ -26,13 +26,14 @@
                         <th>ID</th>
                         <th>USERNAME</th>
                         <th>EMAIL</th>
+                        <th>TYPE</th>
                         <th>PASSWORD</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     require_once "utils.php";
-                    $sql = "select * from user";
+                    $sql = "select * from users";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
@@ -40,15 +41,13 @@
                             <th>".$row['id']."</th>
                             <th>".$row['username']."</th>
                             <th>".$row['email']."</th>
-                            <th>".$row['password']."</th>
+                            <th>".$row['type']."</th>
+                            <th>".$row['pwd']."</th>
                         </tr>";
                     }
                     ?>
                 </tbody>
             </table>
-        </div>
-        <div class="container">
-            <a class="btn btn-primary mt-3" href="../admin.php">Back</a>
         </div>
     </body>
 </html>

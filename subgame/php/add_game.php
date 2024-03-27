@@ -1,17 +1,16 @@
 <?php
 require_once "utils.php";
 
-$title = "";
-$title = get_post("title");
-$cont = get_post("cont");
-$vimg = get_post("vimg");
-$himg = get_post("himg");
-$vid = get_post("vid");
-$player = get_post("player");
-$place = get_post("place");
+$name = $player = $place = $des =  $content ="";
 
-if ($title != "") {
-    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, player, place, favourite) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$player', '$place', 0)";
+$name = get_post('name');
+$player = get_post('desc');
+$place = get_post('place');
+$des = get_post('player');
+$content = get_post('place');
+
+if ($name != "") {
+    $sql = "insert into games (gamename, player, place, description, content) values ('$name', '$player', '$place', '$des' , '$content')";
     sql_query($sql);
 }
 
@@ -27,7 +26,7 @@ if ($title != "") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/subgame/css/game.css">
+    <link rel="stylesheet" href="/project/subgame/css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,29 +40,29 @@ if ($title != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="admin.php" class="nav__logo">ADMIN PAGE</a>
+            <a href="/project/subgame/admin.php" class="nav__logo">ADMIN PAGE</a>
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__button active" href="admin.php">
+                    <a class="nav__button" href="/project/subgame/admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="php/add_game.php">
+                    <a class="nav__button active" href="add_game.php">
                         <i class="ri-gamepad-line"></i> <span>Add Game</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="php/view_game.php">
+                    <a class="nav__button" href="view_game.php">
                         <i class="ri-heart-3-line"></i> <span>View Games</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="php/view_user.php">
+                    <a class="nav__button" href="view_user.php">
                         <i class="ri-blogger-line"></i> <span>View Users</span>
                     </a>
                 </li>
@@ -87,7 +86,7 @@ if ($title != "") {
 
     <main class="main">
         <section class="add__game">
-            <h1 class="mb-5">Add game</h1>
+            <h1 class="mb-5">add game</h1>
             <form method="post">
                 <div class="row">
                     <div class="col-sm">
@@ -102,13 +101,13 @@ if ($title != "") {
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm">
-                        <input type="text" name="vimg" placeholder="Vertical Image">
+                        <input type="text" name="name" placeholder="Vertical Image">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="himg" placeholder="Horizontal Image">
+                        <input type="text" name="player" placeholder="Horizontal Image">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="vid" placeholder="Video">
+                        <input type="text" name="place" placeholder="Video">
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -116,7 +115,7 @@ if ($title != "") {
                         <textarea name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
                     </div>
                     <div class="col-sm-8">
-                        <textarea name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                        <textarea name="content" id="" cols="30" rows="10" placeholder="Content"></textarea>
                     </div>
                 </div>
                 <button class="mt-3" type="submit">Add</button>

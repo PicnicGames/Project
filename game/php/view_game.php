@@ -3,7 +3,7 @@ require_once "utils.php";
 $id = "";
 $id = get_post('id');
 if ($id != '') {
-    $sql = "delete from game where id = $id";
+    $sql = "delete from games where id = $id";
     sql_query($sql);
 }
 ?>
@@ -34,22 +34,26 @@ if ($id != '') {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>TITLE</th>
-                        <th>CONTENT</th>
+                        <th>GAMENAME</th>
+                        <th>DESCRIPTION</th>
+                        <th>PLACE</th>
+                        <th>TYPE</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     require_once "utils.php";
-                    $sql = "select * from game";
+                    $sql = "select * from games";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
                         echo "<tr>
                             <td>". $i+1 ."</td>
-                            <td>".$row['title']."</td>
-                            <td>".$row['content']."</td>
+                            <td>".$row['gamename']."</td>
+                            <td>".$row['description']."</td>
+                            <td>".$row['place']."</td>
+                            <td>".$row['type']."</td>
                             <td>
                                 <form method='post'>
                                     <input type='hidden' name='id' value='" . $row["id"] . "'>
@@ -61,9 +65,6 @@ if ($id != '') {
                     ?>
                 </tbody>
             </table>
-        </div>
-        <div class="container">
-            <a class="btn btn-primary mt-3" href="../admin.php">Back</a>
         </div>
     </body>
 </html>
