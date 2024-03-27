@@ -5,6 +5,17 @@ define('USERNAME','root');
 define('PASSWORD','');
 define('DATABASE','data');
 
+function fix_sql($sql) {
+    $new_sql = str_replace('\\', '\\\\', $sql);
+    $new_sql = str_replace('\'', '\\\'', $sql);
+    return $new_sql;
+}
+
+function hash_pwd($pwd) {
+    $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+    return $hashed_pwd;
+}
+
 function get_post($key) {
     $val = "";
     if (isset($_POST[$key])) {
