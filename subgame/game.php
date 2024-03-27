@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +106,15 @@
     <!--==================== GAME PAGE ====================-->
     <main class="main" id="game">
         <!--==================== GAME ====================-->
+        <?php
+            require_once "php/utils.php";
+            $game_choose = "";
+            $game_choose = get_post('game_choose');
+            if ($game_choose != '') {
+                $res = res_sql_query("select * from game where id = $game_choose");
+                $game = $res[0];
+            }
+        ?>
         <h1 class="game__tittle"><button onclick="displayHome()">Home</button><span> / </span>Chess</h1>
         <section class="row">
             <article class="banner__card col-sm-7 mt-3">
@@ -119,15 +124,18 @@
             <article class="banner__card col-sm-5 mt-3">
             <div class="game__background">
                 <div class="game__data">
-                    <div class="game__desc">Chess is a two-player game with the goal of checkmating the opponent's king. It has roots in 7th-century India and modern rules were standardized in the 19th century. It's globally popular and also known as international or Western chess to differentiate it from similar games like xiangqi and shogi.</div>
+                    <div class="game__desc"><?php
+                    echo $game['content']
+                    ?></div>
                     <div class="game__catagory">
-                        <button class="mx-auto">Strategy</button>
-                        <button class="mx-auto">Everyone</button>
-                        <button class="mx-auto">Everywhere</button>
+                        <button class="mx-auto"><?php
+                        echo $game['player']
+                        ?></button>
                     </div>
                     <div class="game__rating">
-                        <h3 id="game-rating">Game Rating: 5</h3>
-                        <h3 class="mt-3">Favorite: 1K</h3>
+                        <h3 class="mt-3">Favorite: <?php
+                        echo $game['favourite']
+                        ?></h3>
                     </div>
                     <button class="game__like__btn mt-3">
                         Favourite
@@ -142,29 +150,9 @@
         <section class="mt-3">
             <div class="game__background">
                 <div class="game__content">
-                    Sure, here are the basic steps to play chess:
-                    <br><br>
-                    1. **Set Up The Chess Board**: Each player has the white (or light) color square in the bottom right-hand side. The second row is filled with pawns. The rooks go in the corners, then the knights next to them, followed by the bishops, and finally the queen (white queen on white, black queen on black), and the king on the remaining square¹.
-                    <br>
-                    2. **Move The Pieces**: Each of the 6 different kinds of pieces moves differently. Pieces cannot move through other pieces (though the knight can jump over other pieces), and can never move onto a square with one of their own pieces. However, they can be moved to take the place of an opponent's piece which is then captured¹.
-                    <br>
-                    3. **Special Rules**: Learn the special rules like castling, pawn promotion, and en passant¹.
-                    <br>
-                    4. **First Move**: White always moves first³.
-                    <br>
-                    5. **Winning the Game**: The goal of chess is to checkmate your opponent's king. This means the opponent's king is in a position to be captured (in "check") and there is no way to remove the threat of capture on the next move².
-                    <br>
-                    6. **Basic Strategies**: Practice and learn some basic strategies. This includes understanding the value of each piece, controlling the center of the board, protecting your king, and knowing when to trade pieces¹.
-                    <br>
-                    7. **Practice**: The best way to improve is by playing lots of games¹.
-                    <br>
-                    For more detailed instructions, you might want to check out some online resources or chess learning platforms¹⁴.
-                    <br><br>
-                    Source:
-                    <br>(1) How to Play Chess: 7 Rules To Get You Started. https://www.chess.com/learn-how-to-play-chess.
-                    <br>(2) How to Play Chess: The Ultimate Chessable Guide. https://www.chessable.com/blog/how-to-play-chess-the-ultimate-chessable-guide/.
-                    <br>(3) How to Play Chess: Setup, Rules, & Gameplay - wikiHow. https://www.wikihow.com/Play-Chess.
-                    <br>(4) Learn Chess Online: Lessons, Openings and more - Chess.com. https://www.chess.com/learn.
+                    <?php
+                    echo $game['content'];
+                    ?>
                 </div>
             </div>
         </section>
