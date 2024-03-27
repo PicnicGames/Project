@@ -3,7 +3,7 @@
 define('HOST','localhost');
 define('USERNAME','root');
 define('PASSWORD','');
-define('DATABASE','data');
+define('DATABASE','picnic_game');
 
 function get_post($key) {
     $val = "";

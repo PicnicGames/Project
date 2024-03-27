@@ -27,7 +27,7 @@ if ($title != "") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="/subgame/css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -87,7 +87,7 @@ if ($title != "") {
 
     <main class="main">
         <section class="add__game">
-            <h1 class="mb-5">add game</h1>
+            <h1 class="mb-5">Add game</h1>
             <form method="post">
                 <div class="row">
                     <div class="col-sm">
@@ -102,13 +102,13 @@ if ($title != "") {
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm">
-                        <input type="text" name="name" placeholder="Vertical Image">
+                        <input type="text" name="vimg" placeholder="Vertical Image">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="player" placeholder="Horizontal Image">
+                        <input type="text" name="himg" placeholder="Horizontal Image">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="place" placeholder="Video">
+                        <input type="text" name="vid" placeholder="Video">
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -116,7 +116,7 @@ if ($title != "") {
                         <textarea name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
                     </div>
                     <div class="col-sm-8">
-                        <textarea name="content" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                        <textarea name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>
                     </div>
                 </div>
                 <button class="mt-3" type="submit">Add</button>

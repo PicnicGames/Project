@@ -36,10 +36,12 @@ if ($id != '') {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>GAMENAME</th>
-                        <th>DESCRIPTION</th>
+                        <th>TITLE</th>
+                        <th>PLAYER</th>
                         <th>PLACE</th>
-                        <th>TYPE</th>
+                        <th>DESCRIPTION</th>
+                        <th>CONTENT</th>
+                        <th>FAVOURITE</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -55,13 +57,15 @@ if ($id != '') {
                         $num = res_sql_query($sql2, true);
                         echo "<tr>
                             <td>". $i+1 ."</td>
-                            <td>".$row['gamename']."</td>
-                            <td>".$row['description']."</td>
+                            <td>".$row['title']."</td>
+                            <td>".$row['player']."</td>
                             <td>".$row['place']."</td>
-                            <td>".$row['type']."</td>
+                            <td>".$row['description']."</td>
+                            <td>".$row['content']."</td>
+                            <td>".$num['num']."</td>
                             <td>
                                 <form method='post'>
-                                    <input type='hidden' name='id' value='" . $row["id"] . "'>
+                                    <input type='hidden' name='id' value='" . $id . "'>
                                     <button type='submit' class='btn btn-danger'>Delete</button>
                                 </form>
                             </td>
