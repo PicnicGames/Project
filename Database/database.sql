@@ -1,0 +1,44 @@
+CREATE TABLE `game` (
+  `id` integer PRIMARY KEY,
+  `title` varchar(255),
+  `content` text,
+  `vertical_img` varchar(255),
+  `horizontal_img` varchar(255),
+  `video` varchar(255),
+  `player` varchar(255),
+  `place` varchar(255),
+  `favourite` integer
+);
+
+CREATE TABLE `favourite` (
+  `id_user` integer,
+  `id_game` integer
+);
+
+CREATE TABLE `user` (
+  `id` integer PRIMARY KEY,
+  `username` varchar(255),
+  `email` varchar(255),
+  `password` varchar(255),
+  `created_at` timestamp
+);
+
+CREATE TABLE `blog` (
+  `id` integer PRIMARY KEY,
+  `title` varchar(255),
+  `post_img` varchar(255),
+  `body` text,
+  `created_at` timestamp
+);
+
+CREATE TABLE `contact` (
+  `id` integer PRIMARY KEY,
+  `first_name` varchar(255),
+  `last_name` varchar(255),
+  `email` varchar(255),
+  `content` text
+);
+
+ALTER TABLE `favourite` ADD FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
+
+ALTER TABLE `favourite` ADD FOREIGN KEY (`id_game`) REFERENCES `game` (`id`);
