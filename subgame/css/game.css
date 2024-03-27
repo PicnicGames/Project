@@ -768,12 +768,8 @@ img {
   border-radius: 1rem;
 }
 
-.contact__body textarea:focus-visible {
-  outline: none;
-}
-
 .contact__body input:focus-visible, .contact__body textarea:focus-visible {
-  border: 2px solid #333;
+  border: 3px solid #333;
 }
 
 .contact__body .row:first-child {
@@ -1203,18 +1199,16 @@ footer .website-logo {
   text-transform: uppercase;
 }
 
-.add__game input {
+.add__game input, .add__game textarea {
+  color: #000;
   width: 100%;
   border-radius: 1rem;
   padding: 1rem;
   background-color: var(--white-color-light);
 }
 
-.add__game textarea {
-  width: 100%;
-  background-color: var(--white-color-light);
-  border-radius: 1rem;
-  padding: 1rem;
+.add__game input:focus-visible, .add__game textarea:focus-visible {
+  border: 3px solid #000;
 }
 
 .add__game button {

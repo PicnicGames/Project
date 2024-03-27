@@ -52,19 +52,18 @@
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__button" href="user.html">
-                <div class="user__container">
-                    <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
-                    <div class="user__name">ADMIN</div>
-                </div>
-            </a>
+                <a class="nav__button" href="user.html">
+                    <div class="user__container">
+                        <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
+                        <div class="user__name">ADMIN</div>
+                    </div>
+                </a>
             </div>
         </div>
 
-
-    <div class="nav__close" id="nav-close">
-        <i class="ri-close-line"></i>
-    </div>
-  </nav>
+        <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+        </div>
+    </nav>
 </body>
 </html>
