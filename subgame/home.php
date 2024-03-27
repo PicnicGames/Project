@@ -159,95 +159,31 @@
 
          <div class="new__swiper swiper">
             <div class="swiper-wrapper">
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
+               <?php
+                  $top_game = res_sql_query("select * from game order by favourite, id desc");
 
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
-               
-               <article class="new__card card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="new__data card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                     </button>
-                  </form>   
-               </article>
+                  for ($i = 0; $i < 6; $i++) {
+                     $row = $top_game[$i];
+                     $id = $row["id"];
+                     $row_img = $row["vertical_img"];
+                     echo "
+                     <article class='new__card card__article swiper-slide'>
+                        <form action='game.php' method='post'>
+                           <input type='hidden' value='$id' name='game_choose'>
+                           <button type='submit' class='card__link'>
+                              <img src='$row_img' alt='image' class='card__img'>
+                              <div class='card__shadow'></div>
+                              
+                              <div class='new__data card__data'>
+                                 <h3 class='card__name'>".$row['title']."</h3>
+                                 <span class='card__category'>".$row['player']."</span>
+                                 <span class='card__category'>".$row['place']."</span>
+                              </div>
+                           </button>
+                        </form>   
+                     </article>";
+                  }
+               ?>
             </div>
          </div>
 
@@ -263,443 +199,139 @@
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+               <?php
+                  $top_game = res_sql_query("select * from game where player = 'family' order by id desc");
 
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-               
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+                  for ($i = 0; $i < 6; $i++) {
+                     $row = $top_game[$i];
+                     $id = $row["id"];
+                     $row_img = $row["vertical_img"];
+                     echo "
+                     <article class='card__article swiper-slide'>
+                        <form action='game.php' method='post'>
+                           <input type='hidden' value='$id' name='game_choose'>
+                           <button type='submit' class='card__link'>
+                              <img src='$row_img' alt='image' class='card__img'>
+                              <div class='card__shadow'></div>
+                              
+                              <div class='card__data'>
+                                 <h3 class='card__name'>".$row['title']."</h3>
+                                 <span class='card__category'>".$row['player']."</span>
+                                 <span class='card__category'>".$row['place']."</span>
+                              </div>
+                           </button>
+                        </form>   
+                     </article>";
+                  }
+               ?>
             </div>
          </div>
       </section>
 
       <section class="main__content">
          <form action="" method="post">
-            <button type="submit" value="Family" class="card__title">Kid</button>
+            <button type="submit" value="Kid" class="card__title">Kid</button>
          </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+               <?php
+                  $top_game = res_sql_query("select * from game where player = 'kid' order by id desc");
 
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-               
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+                  for ($i = 0; $i < 6; $i++) {
+                     $row = $top_game[$i];
+                     $id = $row["id"];
+                     $row_img = $row["vertical_img"];
+                     echo "
+                     <article class='card__article swiper-slide'>
+                        <form action='game.php' method='post'>
+                           <input type='hidden' value='$id' name='game_choose'>
+                           <button type='submit' class='card__link'>
+                              <img src='$row_img' alt='image' class='card__img'>
+                              <div class='card__shadow'></div>
+                              
+                              <div class='card__data'>
+                                 <h3 class='card__name'>".$row['title']."</h3>
+                                 <span class='card__category'>".$row['player']."</span>
+                                 <span class='card__category'>".$row['place']."</span>
+                              </div>
+                           </button>
+                        </form>   
+                     </article>";
+                  }
+               ?>
             </div>
          </div>
       </section>
 
       <section class="main__content">
          <form action="" method="post">
-            <button type="submit" value="Family" class="card__title">Male</button>
+            <button type="submit" value="male" class="card__title">Male</button>
          </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+               <?php
+                  $top_game = res_sql_query("select * from game where player = 'male' order by id desc");
 
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-               
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+                  for ($i = 0; $i < 6; $i++) {
+                     $row = $top_game[$i];
+                     $id = $row["id"];
+                     $row_img = $row["vertical_img"];
+                     echo "
+                     <article class='card__article swiper-slide'>
+                        <form action='game.php' method='post'>
+                           <input type='hidden' value='$id' name='game_choose'>
+                           <button type='submit' class='card__link'>
+                              <img src='$row_img' alt='image' class='card__img'>
+                              <div class='card__shadow'></div>
+                              
+                              <div class='card__data'>
+                                 <h3 class='card__name'>".$row['title']."</h3>
+                                 <span class='card__category'>".$row['player']."</span>
+                                 <span class='card__category'>".$row['place']."</span>
+                              </div>
+                           </button>
+                        </form>   
+                     </article>";
+                  }
+               ?>
             </div>
          </div>
       </section>
 
       <section class="main__content">
          <form action="" method="post">
-            <button type="submit" value="Family" class="card__title">Female</button>
+            <button type="submit" value="female" class="card__title">Female</button>
          </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+               <?php
+                  $top_game = res_sql_query("select * from game where player = 'famale' order by id desc");
 
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
-               
-               <article class="card__article swiper-slide">
-                  <form action="" method="post">
-                     <input type="hidden" value="">
-                     <button class="card__link">
-                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                        
-                        <div class="card__data">
-                           <h3 class="card__name">Chess</h3>
-                           <span class="card__category">Tactic</span>
-                        </div>
-                        
-                        <i class="ri-heart-3-line card__like"></i>
-                     </button>
-                  </form>   
-               </article>
+                  for ($i = 0; $i < 6; $i++) {
+                     $row = $top_game[$i];
+                     $id = $row["id"];
+                     $row_img = $row["vertical_img"];
+                     echo "
+                     <article class='card__article swiper-slide'>
+                        <form action='game.php' method='post'>
+                           <input type='hidden' value='$id' name='game_choose'>
+                           <button type='submit' class='card__link'>
+                              <img src='$row_img' alt='image' class='card__img'>
+                              <div class='card__shadow'></div>
+                              
+                              <div class='card__data'>
+                                 <h3 class='card__name'>".$row['title']."</h3>
+                                 <span class='card__category'>".$row['player']."</span>
+                                 <span class='card__category'>".$row['place']."</span>
+                              </div>
+                           </button>
+                        </form>   
+                     </article>";
+                  }
+               ?>
             </div>
          </div>
       </section>
