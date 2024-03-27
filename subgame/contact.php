@@ -1,3 +1,17 @@
+<?php
+require_once "php/utils.php";
+
+$fname = $lname = $email = "";
+$fname = get_post('fname');
+$lname = get_post('lname');
+$email = get_post('email');
+$msg = get_post('msg');
+
+if ($fname != "" && $lname != "") {
+    sql_query("insert into contact (first_name, last_name, email, content) values ('$fname','$lname','$email','$msg')");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +91,7 @@
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="contact.html">
+                <a class="nav__button active" href="contact.html">
                     <i class="ri-contacts-line"></i> <span>Contact</span>
                 </a>
             </li>
@@ -103,82 +117,46 @@
         </div>
     </nav>
 
-    <!--=============== USER  ===============-->
-    <main class="main" id="user">
-        <div class="row user m-5">
-            <div class="col-sm-3 user__nav pt-5">
-            <div class="user__infor">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img">
-                    <h2 class="user__name my-3">ADMIN</h2>
+    <!--==================== CONTACT ====================-->
+    <main class="main" id="contact">
+        <section class="contact__container">
+            <div class="contact__map me-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.920264509758!2d105.82973073919662!3d21.003055517035317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1711421403758!5m2!1svi!2s" width="500" height="550" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <ul class="nav__list ms-auto">
-                <li class="nav__item">
-                    <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
-                </li>
-                <li class="nav__item">
-                    <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
-                </li>
-            </ul>
+
+            <div class="contact__content">
+            <div class="contact__header">
+                    <h1 class="contact__heading">contact us</h1>
             </div>
-            <div class="col-sm-7 user__content mx-auto pb-5">
-            <div class="user__profile" id="profile">
-                    <h2 class="my-3">Profile</h2>
-                    <div class="user__form mt-5">
-                        <form action="">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <label>User Name:</label>
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>ADMIN</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <label>Email:</label>
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>ADMIN@gmail.com</p>
-                                </div>
-                            </div>
-                            <button class="form__button mt-3">Edit Profile</button>
-                        </form>
-                    </div>
+
+            <form method="post">
+            <div class="contact__body">
+                <div class="row my-3">
+                <div class="col px-0 me-3 contact__input">
+                        <input name="fname" type="text" placeholder="First Name">
+                        <i class="ri-id-card-line"></i>
+                </div>
+                <div class="col px-0 contact__input">
+                        <input name="lname" type="text" placeholder="Last Name">
+                        <i class="ri-id-card-line"></i>
+                </div>
+                </div>
+                <div class="row my-3 contact__input">
+                <input name="email" type="email" placeholder="Email">
+                <span><i class="ri-mail-line"></i></span>
+                </div>
+                <div class="row my-3 contact__input">
+                <textarea name="msg" id="" cols="30" rows="8" placeholder="Message"></textarea>
+                <span><i class="ri-inbox-line"></i></span>
+                </div>
             </div>
-            <div class="user__password" id="password" style="display: none;">
-                    <h2 class="my-3">Password</h2>
-                    <div class="user__form mt-5">
-                        <form method="post">
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>Old password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>New password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>Confirm password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <button class="form__button mt-5">Change Password</button>
-                        </form>
-                    </div>
+
+            <div class="contact__footer row">
+                    <button type="submit">Send</button>
             </div>
             </div>
-        </div>
+            </form>
+        </section>
     </main>
 
     <!--=============== SIGNIN SIGNUP ===============-->

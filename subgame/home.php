@@ -21,6 +21,7 @@
         } else {
             if (password_verify($pwd, $db_user[0]['password'])) {
                 $_SESSION['loggedin'] = true;
+                $_SESSION['id_user'] = $db_user[0]['id'];
             } else {
                 $_SESSION['loggedin'] = false;
             }

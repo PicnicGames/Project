@@ -24,23 +24,23 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>USERNAME</th>
+                        <th>NAME</th>
                         <th>EMAIL</th>
-                        <th>PASSWORD</th>
+                        <th>MESSAGE</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     require_once "utils.php";
-                    $sql = "select * from user";
+                    $sql = "select * from contact";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
                         echo "<tr>
-                            <th>".$row['id']."</th>
-                            <th>".$row['username']."</th>
+                            <th>". $i+1 ."</th>
+                            <th>".$row['first_name'].$row['last_name']."</th>
                             <th>".$row['email']."</th>
-                            <th>".$row['password']."</th>
+                            <th>".$row['content']."</th>
                         </tr>";
                     }
                     ?>

@@ -48,7 +48,7 @@ if ($id != '') {
                 <tbody>
                     <?php
                     require_once "utils.php";
-                    $sql = "select * from games";
+                    $sql = "select * from game";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];

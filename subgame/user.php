@@ -1,3 +1,20 @@
+<?php
+require_once "php/utils.php";
+
+$old_pwd = $new_pwd = $conf_pwd = "";
+$old_pwd = get_post('old_pwd');
+$new_pwd = get_post('new_pwd');
+$conf_pwd = get_post('conf_pwd');
+
+if ($old_pwd != "" && $new_pwd != "" && $conf_pwd != "") {
+    $db_pwd = res_sql_query("select * from user where id = ".$_SESSION['id_user']);
+    if (password_verify($old_pwd, $db_pwd[0]['password']) && $new_pwd == $conf_pwd) {
+        $new_hash_pwd = hash_pwd($new_pwd);
+        sql_query("update user set password = $new_hash_pwd where id = ".$db_pwd[0]['id']);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,7 +171,7 @@
                                     <label>Old password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input name="old_pwd" type="text">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -162,7 +179,7 @@
                                     <label>New password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input name="new_pwd" type="text">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -170,10 +187,10 @@
                                     <label>Confirm password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input name="conf_pwd" type="text">
                                 </div>
                             </div>
-                            <button class="form__button mt-5">Change Password</button>
+                            <button type="submit" class="form__button mt-5">Change Password</button>
                         </form>
                     </div>
             </div>
