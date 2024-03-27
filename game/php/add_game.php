@@ -1,14 +1,16 @@
 <?php
 require_once "utils.php";
 
-$name = $des = $place = $type = "";
-$name = get_post('name');
-$des = get_post('desc');
-$place = get_post('place');
-$type = get_post('type');
+$title = $cont = $vimg = $himg = $vid = "";
+$title = get_post("title");
+$cont = get_post("cont");
+$vimg = get_post("vimg");
+$himg = get_post("himg");
+$vid = get_post("vid");
+$type = get_post("type");
 
-if ($name != "") {
-    $sql = "insert into games (gamename, description, place, type) values ('$name', '$des', '$place', '$type')";
+if ($title != "" && $cont != "") {
+    $sql = "insert into game (title, content, vertical_img, horizontal_img, video, type) values ('$title', '$cont', '$vimg', '$himg', '$vid', '$type')";
     sql_query($sql);
 }
 
@@ -38,23 +40,34 @@ if ($name != "") {
         <div class="container mt-3">
             <form method="post">
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" class="form-control">
+                    <label for="name">Title:</label>
+                    <input type="text" name="title" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="des">Description:</label>
-                    <input type="text" name="desc" class="form-control">
+                    <label for="des">Content:</label>
+                    <input type="text" name="cont" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="place">Place:</label>
-                    <input type="text" name="place" class="form-control">
+                    <label for="des">Vertical Image:</label>
+                    <input type="text" name="vimg" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="type">Type:</label>
+                    <label for="des">Horizontal Image:</label>
+                    <input type="text" name="himg" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="des">Video:</label>
+                    <input type="text" name="vid" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="des">Type:</label>
                     <input type="text" name="type" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success mt-3">Add</button>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary mt-3" href="../admin.php">Back</a>
                 </div>
             </form>
         </div>
