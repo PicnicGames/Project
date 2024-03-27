@@ -40,7 +40,7 @@ if ($fname != "" && $lname != "") {
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <div class="header__content">
-            <a href="index.html" class="header__logo">Picnic Play</a>
+            <a href="home.php" class="header__logo">Picnic Play</a>
 
             <!-- NONE -->
             <div class="header__user">
@@ -63,35 +63,35 @@ if ($fname != "" && $lname != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="index.html" class="nav__logo">Picnic Play</a>
+            <a href="home.php" class="nav__logo">Picnic Play</a>
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__button" href="index.html">
+                <a class="nav__button" href="home.php">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="allgames.html" id="button">
+                <a class="nav__button" href="allgames.php" id="button">
                     <i class="ri-gamepad-line"></i> <span>All Games</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="favorite.html">
+                <a class="nav__button" href="favorite.php">
                     <i class="ri-heart-3-line"></i> <span>Favorites</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="blog.html">
+                <a class="nav__button" href="blog.php">
                     <i class="ri-blogger-line"></i> <span>Blog</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button active" href="contact.html">
+                <a class="nav__button active" href="contact.php">
                     <i class="ri-contacts-line"></i> <span>Contact</span>
                 </a>
             </li>
@@ -99,7 +99,7 @@ if ($fname != "" && $lname != "") {
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__button" href="user.html">
+            <a class="nav__button" href="user.php">
                 <div class="user__container">
                     <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
                     <div class="user__name">ADMIN</div>

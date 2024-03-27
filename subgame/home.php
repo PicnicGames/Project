@@ -74,41 +74,43 @@
       <form action="" class="header__search">
          <i class="ri-search-line"></i>
          <input type="search" placeholder="Search games or places . . ." class="header__input">
-      </form>
-   </header>
-
-   <!--==================== NAV ====================-->
-   <nav class="navigation" id="navigation">
-      <div class="nav__menu">
-         <a href="index.html" class="nav__logo">Picnic Play</a>
-
-         <ul class="nav__list">
+      
+         
+      </header>
+      
+      <!--==================== NAV ====================-->
+      <nav class="navigation" id="navigation">
+         <div class="nav__menu">
+            <a href="home.php" class="nav__logo">Picnic Play</a>
+            
+            <ul class="nav__list">
+            </form>
          <li class="nav__item">
-            <a class="nav__button active" href="index.html">
+            <a class="nav__button active" href="home.php">
                   <i class="ri-home-5-line"></i> <span>Home</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="allgames.html">
+            <a class="nav__button" href="allgames.php">
                   <i class="ri-gamepad-line"></i> <span>All Games</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="favorite.html">
+            <a class="nav__button" href="favorite.php">
                   <i class="ri-heart-3-line"></i> <span>Favorites</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="blog.html">
+            <a class="nav__button" href="blog.php">
                   <i class="ri-blogger-line"></i> <span>Blog</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="contact.html">
+            <a class="nav__button" href="contact.php">
                   <i class="ri-contacts-line"></i> <span>Contact</span>
             </a>
          </li>
@@ -116,7 +118,7 @@
 
          <!-- USER -->
          <div class="nav__user pt-3" id="registered">
-         <a class="nav__button" href="user.html">
+         <a class="nav__button" href="user.php">
             <div class="user__container">
                   <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
                   <div class="user__name">ADMIN</div>
@@ -151,80 +153,100 @@
 
       <!--==================== TRENDING ====================-->
       <section class="main__content">
-         <button type="submit" value="Trending" class="card__title" onclick="displayAllGames()">Trending</button>
+         <form action="" method="post">
+            <button type="submit" value="Trending" class="card__title">Trending</button>
+         </form>
 
          <div class="new__swiper swiper">
             <div class="swiper-wrapper">
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
 
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/564x/82/25/48/8225483621d3f898be339dc4a03a90bf.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
 
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
 
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
 
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
                
                <article class="new__card card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="new__data card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="new__data card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                     </button>
+                  </form>   
                </article>
             </div>
          </div>
@@ -235,368 +257,448 @@
 
       <!--==================== GAMES ====================-->
       <section class="main__content">
-         <button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Family</button>
+         <form action="" method="post">
+            <button type="submit" value="Family" class="card__title">Family</button>
+         </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
                
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
             </div>
          </div>
       </section>
 
       <section class="main__content">
-         <button type="submit" value="Kid" class="card__title" onclick="displayAllGames()">Kid</button>
+         <form action="" method="post">
+            <button type="submit" value="Family" class="card__title">Kid</button>
+         </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
                
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
             </div>
          </div>
       </section>
 
       <section class="main__content">
-         <button type="submit" value="Male" class="card__title" onclick="displayAllGames()">Male</button>
+         <form action="" method="post">
+            <button type="submit" value="Family" class="card__title">Male</button>
+         </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
                
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
             </div>
          </div>
       </section>
 
       <section class="main__content">
-         <button type="submit" value="Female" class="card__title" onclick="displayAllGames()">Female</button>
+         <form action="" method="post">
+            <button type="submit" value="Family" class="card__title">Female</button>
+         </form>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
 
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
                
                <article class="card__article swiper-slide">
-                  <button class="card__link" onclick="displayGame()">
-                     <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                     <div class="card__shadow"></div>
-
-                     <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                     </div>
-
-                     <i class="ri-heart-3-line card__like"></i>
-                  </button>
+                  <form action="" method="post">
+                     <input type="hidden" value="">
+                     <button class="card__link">
+                        <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                        
+                        <div class="card__data">
+                           <h3 class="card__name">Chess</h3>
+                           <span class="card__category">Tactic</span>
+                        </div>
+                        
+                        <i class="ri-heart-3-line card__like"></i>
+                     </button>
+                  </form>   
                </article>
             </div>
          </div>
@@ -627,15 +729,17 @@
                <input name="pwd" type="password" placeholder="Password">
                <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
                <button type="submit">Sign Up</button>
-            </form>
-         </div>
-         <div class="form__container signin__container" id="signin">
-            <form method="post">
+            
+               
+            </div>
+            <div class="form__container signin__container" id="signin">
+               <form method="post">
                   <h2>Sign In</h2>
                   <div class="social__container">
                      <a href="#" class="social">
                         <i class="ri-facebook-fill"></i>
                      </a>
+                  </form>
                      <a href="#" class="social">
                         <i class="ri-google-fill"></i>
                      </a>
@@ -646,15 +750,17 @@
                   <a href="#">Forgot your password?</a>
                   <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
                   <button type="submit" onclick="logIn()">Sign In</button>
-            </form>
-         </div>
-         <div class="overlay__container">
-            <div class="overlay">
-               <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
-               <div class="overlay__panel overlay__left">
-                  <h1>Welcome to registration</h1>
-                  <p class="italic">Already have an account</p>
-                  <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
+            
+                  
+               </div>
+               <div class="overlay__container">
+                  <div class="overlay">
+                     <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
+                     <div class="overlay__panel overlay__left">
+                        <h1>Welcome to registration</h1>
+                        <p class="italic">Already have an account</p>
+                        <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
+                     </form>
 
                </div>
                <div class="overlay__panel overlay__right">
