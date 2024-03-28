@@ -13,6 +13,14 @@ function get_post($key) {
     return $val;
 }
 
+function get_get($key) {
+    $val = "";
+    if (isset($_GET[$key])) {
+        $val = $_GET[$key];
+    }
+    return $val;
+}
+
 function hash_pwd($pwd) {
     return password_hash($pwd, PASSWORD_DEFAULT);
 }

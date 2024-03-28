@@ -90,7 +90,7 @@ if ($id != '') {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Tittle</th>
+                        <th>Title</th>
                         <th>Player</th>
                         <th>Place</th>
                         <th>Description</th>
@@ -103,7 +103,7 @@ if ($id != '') {
                 <tbody>
                     <?php
                     require_once "utils.php";
-                    $sql = "select * from game";
+                    $sql = "select * from game order by title";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
@@ -119,7 +119,7 @@ if ($id != '') {
                             <td>".$row['content']."</td>
                             <td>".$num['num']."</td>
                             <td>
-                                <form method='post' action='edit_game.php'>
+                                <form method='get' action='edit_game.php'>
                                     <input type='hidden' name='id_edit_game' value='" . $id . "'>
                                     <button type='submit' class='btn btn-warning'>Edit</button>
                                 </form>

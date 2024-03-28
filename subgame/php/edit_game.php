@@ -1,43 +1,45 @@
 <?php
 require_once "utils.php";
 
-$title = $player = $place = $vimg = $himg = $vid = $desc = $cont = "";
+$id_edit_game = $title = $player = $place = $vimg = $himg = $vid = $desc = $cont = "";
 
 $title = get_post('title');
 $player = get_post('player');
 $place = get_post('place');
-$vimg = get_post('vertical_img');
-$himg = get_post('horizontal_img');
+$vimg = get_post('vimg');
+$himg = get_post('himg');
 $vid = get_post('vid');
 $desc = get_post('desc');
 $cont = get_post('cont');
-$id_edit_game = get_post('id_edit_game');
+$id_edit_game = get_get('id_edit_game');
 
-if ($title != "") {
-    sql_query("update game set title = '$title' where id = $id_edit_game");
+if ($id_edit_game != "") {
+    if ($title != "") {
+        $sql = "update game set title = '$title' where id = $id_edit_game";
+        sql_query($sql);
+    }
+    if ($player != "") {
+        sql_query("update game set player = '$player' where id = $id_edit_game");
+    }
+    if ($place != "") {
+        sql_query("update game set place = '$place' where id = $id_edit_game");
+    }
+    if ($vimg != "") {
+        sql_query("update game set vertical_img = '$vimg' where id = $id_edit_game");
+    }
+    if ($himg != "") {
+        sql_query("update game set horizontal_img = '$himg' where id = $id_edit_game");
+    }
+    if ($vid != "") {
+        sql_query("update game set video = '$vid' where id = $id_edit_game");
+    }
+    if ($desc != "") {
+        sql_query("update game set description = '$desc' where id = $id_edit_game");
+    }
+    if ($cont != "") {
+        sql_query("update game set content = '$cont' where id = $id_edit_game");
+    }
 }
-if ($player != "") {
-    sql_query("update game set player = '$player' where id = $id_edit_game");
-}
-if ($place != "") {
-    sql_query("update game set place = '$place' where id = $id_edit_game");
-}
-if ($vimg != "") {
-    sql_query("update game set vertical_img = '$vimg' where id = $id_edit_game");
-}
-if ($himg != "") {
-    sql_query("update game set horizontal_img = '$himg' where id = $id_edit_game");
-}
-if ($vid != "") {
-    sql_query("update game set video = '$vid' where id = $id_edit_game");
-}
-if ($desc != "") {
-    sql_query("update game set description = '$desc' where id = $id_edit_game");
-}
-if ($cont != "") {
-    sql_query("update game set content = '$cont' where id = $id_edit_game");
-}
-
 ?>
 
 <!DOCTYPE html>
