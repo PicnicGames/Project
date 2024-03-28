@@ -92,13 +92,13 @@ if ($name_email != "") {
             </li>
 
             <li class="nav__item">
-                <a class="nav__link active" href="allgames.php" id="button">
+                <a class="nav__link" href="allgames.php" id="button">
                     <i class="ri-gamepad-line"></i> <span>All Games</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__link" href="favourite.php">
+                <a class="nav__link active" href="favourite.php">
                     <i class="ri-heart-3-line"></i> <span>Favourites</span>
                 </a>
             </li>
@@ -140,10 +140,10 @@ if ($name_email != "") {
     <main class="main" id="all-games">
         <!--==================== GAMES ====================-->
         <section class="main__content">
-            <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / All Games</span></h1>
+            <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / Family Games</span></h1>
 
             <?php
-                $all_game = res_sql_query("select * from game order by favourite, id desc");
+                $all_game = res_sql_query("select * from favourite order by id_game desc");
 
                 for ($j = 0; $j < 2; $j++) {
                     echo "

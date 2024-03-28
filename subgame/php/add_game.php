@@ -1,4 +1,4 @@
-<?php
+<div?php
 require_once "utils.php";
 
 $title = "";
@@ -38,7 +38,7 @@ if ($title != "") {
     <title>ADD GAMES</title>
 </head>
 <body id="body">
-    <div class="bg__image" style="background-color:#333"></div>
+    <div class="bg__image" style="background: #333"></div>
 
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
@@ -47,31 +47,31 @@ if ($title != "") {
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__button" href="../admin.php">
+                    <a class="nav__link" href="../admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button active" href="add_game.php">
+                    <a class="nav__link active" href="add_game.php">
                         <i class="ri-gamepad-line"></i> <span>Add Game</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="view_game.php">
+                    <a class="nav__link" href="view_game.php">
                         <i class="ri-heart-3-line"></i> <span>View Games</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="view_user.php">
+                    <a class="nav__link" href="view_user.php">
                         <i class="ri-blogger-line"></i> <span>View Users</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__button" href="view_feedback.php">
+                    <a class="nav__link" href="view_feedback.php">
                         <i class="ri-blogger-line"></i> <span>View Feedback</span>
                     </a>
                 </li>
@@ -79,12 +79,12 @@ if ($title != "") {
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__button" href="user.html">
-                <div class="user__container">
-                    <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
-                    <div class="user__name">ADMIN</div>
+                <div class="nav__link">
+                    <div class="user__container">
+                        <i class="ri-user-line"></i>
+                        <div class="user__name ms-3">ADMIN</div>
+                    </div>
                 </div>
-            </a>
             </div>
         </div>
 
