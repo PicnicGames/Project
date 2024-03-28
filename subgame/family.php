@@ -111,7 +111,7 @@ if ($name_email != "") {
 
             <li class="nav__item">
                 <a class="nav__link" href="contact.php">
-                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                    <i class="ri-contacts-line"></i> <span>Contact Us</span>
                 </a>
             </li>
             </ul>
@@ -147,7 +147,7 @@ if ($name_email != "") {
 
                 for ($j = 0; $j < 2; $j++) {
                     echo "
-                        <div class='row my-3'>
+                        <div class='row mb-3'>
                     ";
                     for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
                         $row = $all_game[$i];
@@ -179,7 +179,7 @@ if ($name_email != "") {
 
                 for ($j = 2; $j < ceil(count($all_game) / 4); $j++) {
                     echo "
-                        <div class='row my-3 hide__content'>
+                        <div class='row mb-3 hide__content'>
                     ";
                     for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
                         $row = $all_game[$i];
@@ -277,7 +277,7 @@ if ($name_email != "") {
     </div>
 
     <!--=============== FOOTER  ===============-->
-    <footer class="footer mt-5" id="footer">
+    <footer class="footer">
         <div class="footer__container">
             <div class="footer__content">
                 <h3 class="website-logo">Name</h3>

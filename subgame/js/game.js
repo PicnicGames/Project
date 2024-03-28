@@ -98,15 +98,11 @@ const blog_main = document.getElementById('blog-main'),
 
 /* USER */
 function displayProfile() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
    profile.style.display = 'block';
    password.style.display = 'none';
 }
 
 function displayPassword() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
    profile.style.display = 'none';
    password.style.display = 'block';
 }

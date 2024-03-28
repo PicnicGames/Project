@@ -118,7 +118,7 @@ if (isset($_SESSION['loggedin'])) {
 
             <li class="nav__item">
                 <a class="nav__link" href="contact.php">
-                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                    <i class="ri-contacts-line"></i> <span>Contact Us</span>
                 </a>
             </li>
             </ul>
@@ -146,7 +146,7 @@ if (isset($_SESSION['loggedin'])) {
     <!--=============== USER  ===============-->
     <main class="main" id="user">
         <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / User</span></h1>
-        <div class="row user m-5">
+        <div class="row user mx-5">
             <div class="col-sm-3 user__nav pt-5">
                 <div class="user__infor">
                     <img src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg" alt="" class="user__img">
@@ -222,7 +222,7 @@ if (isset($_SESSION['loggedin'])) {
     </main>
 
     <!--=============== FOOTER  ===============-->
-    <footer class="footer mt-5" id="footer">
+    <footer class="footer">
         <div class="footer__container">
             <div class="footer__content">
             <h3 class="website-logo">Name</h3>

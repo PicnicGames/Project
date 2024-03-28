@@ -30,7 +30,8 @@
 
   /*========== z index ==========*/
   --z-tooltip: 10;
-  --z-fixed: 100;
+  --z-fixed: 50;
+  --z-footer: 80;
   --z-login: 100;
 }
 
@@ -385,7 +386,7 @@ img {
   font-weight: bold;
   text-decoration: none;
   text-align: left;
-  margin-bottom: .75rem;
+  margin-bottom: 1.5rem;
 }
 
 #home .page__link {
@@ -409,6 +410,7 @@ img {
 }
 
 .card__link {
+  width: 100%;
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -416,6 +418,7 @@ img {
 }
 
 .card__img {
+  width: 100%;
   height: 360px;
   border-radius: 1rem;
 }
@@ -665,8 +668,9 @@ img {
 }
 
 .blog__main__bg {
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
 }
 
@@ -1137,7 +1141,7 @@ img {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   background-color: hsla(0, 0%, 0%, .2);
-  z-index: 1;
+  margin-top: 3rem;
 }
 
 .footer__container {
@@ -1148,7 +1152,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: auto;
+  margin-left: 285px;
 }
 
 .copyright__container {
@@ -1271,6 +1275,18 @@ footer .website-logo {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 767px) {
+  .col-sm-3 {
+    margin: 1rem 0;
+  }
+
+  .col-sm-3:first-child {
+    margin-top: 0;
+  }
+
+  .col-sm-3:last-child {
+    margin-bottom: 0;
+  }
+
   .header {
     display: block;
     height: 15vh;
@@ -1278,6 +1294,7 @@ footer .website-logo {
 
   .main {
     margin-inline: 1rem;
+    padding-block: 10rem 5rem !important;
   }
   
   .header__logo {
@@ -1288,12 +1305,12 @@ footer .website-logo {
     width: unset;
   }
 
-  .col-sm {
-    display: flex;
-    justify-content: space-around;
+  .banner {
+    height: 400px;
   }
 
-  .banner__img {
+  .banner__card, .banner__img {
+    height: 400px;
     border-radius: 1rem;
   }
 
@@ -1305,11 +1322,13 @@ footer .website-logo {
     display: flex;
     flex-direction: column;
     padding: 0;
+    margin-top: 0;
   }
 
   .footer__container {
     display: block;
     padding: 0;
+    margin: auto;
   }
 
   .footer__container > .footer__content:first-child {
@@ -1343,6 +1362,10 @@ footer .website-logo {
 
   .blog {
     width: 100%;
+  }
+
+  .blog__img {
+    height: 200px;
   }
   
   .user__nav {
@@ -1472,6 +1495,11 @@ footer .website-logo {
     padding: 3rem 5rem;
   }
 
+  .footer__container {
+    width: 100%;
+    padding: 3rem 0;
+  }
+
   .footer__contact {
     width: 300px;
   }
@@ -1489,7 +1517,7 @@ footer .website-logo {
   }
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1024px) {
   .header {
     left: 0;
     width: 100vw;
