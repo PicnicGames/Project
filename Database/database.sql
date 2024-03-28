@@ -1,5 +1,5 @@
 CREATE TABLE `game` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255),
   `player` varchar(255),
   `place` varchar(255),
@@ -17,14 +17,14 @@ CREATE TABLE `favourite` (
 );
 
 CREATE TABLE `user` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(255),
   `email` varchar(255),
   `password` varchar(255)
 );
 
 CREATE TABLE `blog` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255),
   `img` varchar(255),
   `content` text,
@@ -32,7 +32,7 @@ CREATE TABLE `blog` (
 );
 
 CREATE TABLE `contact` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(255),
   `last_name` varchar(255),
   `email` varchar(255),
