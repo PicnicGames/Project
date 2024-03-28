@@ -1,7 +1,7 @@
 <?php
 require_once "utils.php";
 
-$title = "";
+$title = $player = $place = $vimg = $himg = $vid = $desc = $cont = "";
 
 $title = get_post('title');
 $player = get_post('player');
@@ -11,10 +11,31 @@ $himg = get_post('horizontal_img');
 $vid = get_post('vid');
 $desc = get_post('desc');
 $cont = get_post('cont');
+$id_edit_game = get_post('id_edit_game');
 
 if ($title != "") {
-    $sql = "insert into game (title, player, place, vertical_img, horizontal_img, video, description, content, favourite) values ('$title','$player','$place','$vimg','$himg','$vid','$desc','$cont',0)";
-    sql_query($sql);
+    sql_query("update game set title = '$title' where id = $id_edit_game");
+}
+if ($player != "") {
+    sql_query("update game set player = '$player' where id = $id_edit_game");
+}
+if ($place != "") {
+    sql_query("update game set place = '$place' where id = $id_edit_game");
+}
+if ($vimg != "") {
+    sql_query("update game set vertical_img = '$vimg' where id = $id_edit_game");
+}
+if ($himg != "") {
+    sql_query("update game set horizontal_img = '$himg' where id = $id_edit_game");
+}
+if ($vid != "") {
+    sql_query("update game set video = '$vid' where id = $id_edit_game");
+}
+if ($desc != "") {
+    sql_query("update game set description = '$desc' where id = $id_edit_game");
+}
+if ($cont != "") {
+    sql_query("update game set content = '$cont' where id = $id_edit_game");
 }
 
 ?>
@@ -35,7 +56,11 @@ if ($title != "") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>ADD GAMES</title>
+    <title>EDIT GAME
+        <?php
+        echo $id_edit_game;
+        ?>
+    </title>
 </head>
 <body id="body">
     <div class="bg__image" style="background-color:#333"></div>
@@ -95,39 +120,39 @@ if ($title != "") {
 
     <main class="main">
         <section class="add__game">
-            <h1 class="mb-5">Add game</h1>
+            <h1 class="mb-5">Edit game</h1>
             <form method="post">
                 <div class="row">
                     <div class="col-sm">
-                        <input required type="text" name="title" placeholder="Name">
+                        <input type="text" name="title" placeholder="Name">
                     </div>
                     <div class="col-sm">
-                        <input required type="text" name="player" placeholder="Player">
+                        <input type="text" name="player" placeholder="Player">
                     </div>
                     <div class="col-sm">
-                        <input required type="text" name="place" placeholder="Place">
+                        <input type="text" name="place" placeholder="Place">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm">
-                        <input required type="text" name="vimg" placeholder="Vertical Image">
+                        <input type="text" name="vimg" placeholder="Vertical Image">
                     </div>
                     <div class="col-sm">
-                        <input required type="text" name="himg" placeholder="Horizontal Image">
+                        <input type="text" name="himg" placeholder="Horizontal Image">
                     </div>
                     <div class="col-sm">
-                        <input required type="text" name="vid" placeholder="Video">
+                        <input type="text" name="vid" placeholder="Video">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm-4">
-                        <textarea required name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
                     </div>
                     <div class="col-sm-8">
-                        <textarea required name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                        <textarea name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>
                     </div>
                 </div>
-                <button class="mt-3" type="submit">Add</button>
+                <button class="mt-3" type="submit">Edit</button>
             </form>
         </section>
     </main>

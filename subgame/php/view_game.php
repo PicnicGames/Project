@@ -119,8 +119,8 @@ if ($id != '') {
                             <td>".$row['content']."</td>
                             <td>".$num['num']."</td>
                             <td>
-                                <form method='post' action='add_game.php'>
-                                    <input type='hidden' name='id' value='" . $id . "'>
+                                <form method='post' action='edit_game.php'>
+                                    <input type='hidden' name='id_edit_game' value='" . $id . "'>
                                     <button type='submit' class='btn btn-warning'>Edit</button>
                                 </form>
                             </td>
