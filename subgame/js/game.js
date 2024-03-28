@@ -5,7 +5,7 @@ function show() {
    var contents = document.querySelectorAll('.hide__content');
 
    for(var i = 0; i < contents.length; i++) {
-      var windowHeight = window.innerHeight / 5 * 4.5;
+      var windowHeight = window.innerHeight;
       var showTop = contents[i].getBoundingClientRect().top;
 
       if(showTop < windowHeight) {
