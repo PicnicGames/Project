@@ -1,3 +1,34 @@
+<?php
+require_once "php/utils.php";
+session_start();
+
+$name = $name_email = "";
+$name = get_post('name');
+$email = get_post('email');
+$pwd = get_post('pwd');
+$name_email = get_post('name_email');
+
+if ($name != '') {
+   $pwd = hash_pwd($pwd);
+   $cur_time = date('Y-m-d H:i:s');
+   sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+}
+
+if ($name_email != "") {
+   $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+   if (count($db_user) != 1) {
+      $_SESSION['loggedin'] = false;
+   } else {
+      if (password_verify($pwd, $db_user[0]['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id_user'] = $db_user[0]['id'];
+      } else {
+            $_SESSION['loggedin'] = false;
+      }
+   }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,145 +155,41 @@
             <button type="submit" value="Family" class="card__title">Trending</button>
         </form>
 
-        <div class="row">
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
+        <?php
+            $top_game = res_sql_query("select * from game order by favourite, id desc");
 
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
+            for ($j = 0; $j <= count($top_game) / 4; $j++) {
+                echo "
+                    <div class='row hide__content mb-5'>
+                ";
+                for ($i = 0; $i < min(count($top_game), 4); $i++) {
+                    $row = $top_game[$i];
+                    $id = $row["id"];
+                    $row_img = $row["vertical_img"];
+                    echo "
+                    <article class='col-sm mb-5'>
+                        <form action='' method='post'>
+                            <input type='hidden' value='$id' name='game_choose'>
+                            <button type='submit' class='card__link'>
+                                <img src='$row_img' alt='image' class='card__img'>
+                                <div class='card__shadow'></div>
+                                
+                                <div class='card__data'>
+                                    <h3 class='card__name'>".$row['title']."</h3>
+                                    <span class='card__category'>".$row['player']."</span>
+                                    <span class='card__category'>".$row['place']."</span>
+                                </div>
+                                
+                                <i class='ri-heart-3-line card__like'></i>
+                            </button>
+                        </form>
+                    </article>";
+                };
+                echo "
                     </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-        </div>
-
-        <div class="row">
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-
-            <article class="col-sm mb-5">
-            <form action="" method="post">
-                <input type="hidden">
-                <button class="card__link">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                    <div class="card__shadow"></div>
-                    
-                    <div class="card__data">
-                        <h3 class="card__name">Chess</h3>
-                        <span class="card__category">Tactic</span>
-                    </div>
-                    
-                    <i class="ri-heart-3-line card__like"></i>
-                </button>
-            </form>
-            </article>
-        </div>
+                ";
+            }
+        ?>
     </section>
 </main>
 

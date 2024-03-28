@@ -143,7 +143,7 @@ if ($name_email != "") {
       <!--==================== BANNER ====================-->
       <section class="banner">
          <article class="banner__card">
-            <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1222911284706672730/image0.jpg?ex=6617efe2&is=66057ae2&hm=c300b652a415e319cb4936fc7f5b1d250be84072c7d74b7746f6299834ee7311&" alt="image" class="banner__img">
+            <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1222911284706672730/image0.jpg?ex=6617efe2&is=66057ae2&hm=c300b652a415e319cb4936fc7f5b1d250be84072c7d74b7746f6299834ee7311&" alt="image" class="banner__img" id="banner-img">
             <div class="banner__shadow"></div>
 
             <div class="banner__data">
@@ -154,7 +154,7 @@ if ($name_email != "") {
       </section>
 
       <!--==================== TRENDING ====================-->
-      <section class="main__content">
+      <section class="main__content hide__content show__content">
          <form action="" method="post">
             <button type="submit" value="Trending" class="card__title">Trending</button>
          </form>
@@ -194,7 +194,7 @@ if ($name_email != "") {
       </section>
 
       <!--==================== GAMES ====================-->
-      <section class="main__content">
+      <section class="main__content hide__content">
          <form action="" method="post">
             <button type="submit" value="Family" class="card__title">Family</button>
          </form>
@@ -230,7 +230,7 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content">
+      <section class="main__content hide__content">
          <form action="" method="post">
             <button type="submit" value="kid" class="card__title">Kid</button>
          </form>
@@ -266,7 +266,7 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content">
+      <section class="main__content hide__content">
          <form action="" method="post">
             <button type="submit" value="male" class="card__title">Male</button>
          </form>
@@ -302,7 +302,7 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content">
+      <section class="main__content hide__content">
          <form action="" method="post">
             <button type="submit" value="female" class="card__title">Female</button>
          </form>
@@ -445,17 +445,6 @@ if ($name_email != "") {
 
    <!--=============== JS ===============-->
    <script src="js/game.js"></script>
-
-   <script>
-      const register = document.getElementById('register'),
-         registered = document.getElementById('registered'),
-         logout = document.getElementById('logout');
-
-      function logIn() {
-            register.style.display = "none";
-         registered.style.display = "block";
-      logout.style.display = "block";
-      }
    </script>
 </body>
 </html>

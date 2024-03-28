@@ -89,6 +89,18 @@ img {
 }
 
 /*=============== LAYOUT ===============*/
+.hide__content {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.hide__content.show__content {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
 .main {
   position: relative;
   display: grid;
