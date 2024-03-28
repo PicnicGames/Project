@@ -32,17 +32,13 @@ if (isset($_SESSION['loggedin'])) {
 
     if ($name_email != "") {
         $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-        if (count($db_user) != 1) {
-            $_SESSION['loggedin'] = false;
+        if (password_verify($pwd, $db_user[0]['password'])) {
+           $_SESSION['loggedin'] = true;
+           $_SESSION['id_user'] = $db_user[0]['id'];
         } else {
-            if (password_verify($pwd, $db_user[0]['password'])) {
-                    $_SESSION['loggedin'] = true;
-                    $_SESSION['id_user'] = $db_user[0]['id'];
-            } else {
-                    $_SESSION['loggedin'] = false;
-            }
+           $_SESSION['loggedin'] = false;
         }
-    }
+     }
 }
 ?>
 
