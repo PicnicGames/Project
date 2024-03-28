@@ -1,34 +1,16 @@
 <?php
 require_once "php/utils.php";
-session_start();
 
-$name = $name_email = $uname = "";
-$name = get_post('name');
+$fname = $lname = $email = $msg = "";
+$fname = get_post('fname');
+$lname = get_post('lname');
 $email = get_post('email');
-$pwd = get_post('pwd');
-$name_email = get_post('name_email');
+$msg = get_post('msg');
 
-if (isset($_SESSION['id_user'])) {
-   $id = $_SESSION['id_user'];
-   $user = res_sql_query("select * from user where id = $id");
-   $uname = $user[0]['username'];
+if ($email != "") {
+    sql_query("insert into contact (first_name, last_name, email, content) values ('$fname','$lname','$email','$msg')");
 }
 
-if ($name != '') {
-   $pwd = hash_pwd($pwd);
-   $cur_time = date('Y-m-d H:i:s');
-   sql_query("insert into user (username, email, password) values ('$name', '$email', '$pwd')");
-}
-
-if ($name_email != "") {
-   $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-   if (password_verify($pwd, $db_user[0]['password'])) {
-      $_SESSION['loggedin'] = true;
-      $_SESSION['id_user'] = $db_user[0]['id'];
-   } else {
-      $_SESSION['loggedin'] = false;
-   }
-}
 ?>
 
 <!DOCTYPE html>
@@ -44,23 +26,18 @@ if ($name_email != "") {
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>GAMES</title>
+    <title>CONTACT</title>
 </head>
 <body id="body">
-<<<<<<< HEAD
-    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" class="bg__image"></img>
+    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
     <div class="bg__blur"></div>
-=======
-<img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
-<div class="bg__blur"></div>
->>>>>>> 19c391732d5668abd35c0e4d3932d8edcf37d41c
-
+    
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <div class="header__content">
@@ -68,13 +45,13 @@ if ($name_email != "") {
 
             <!-- NONE -->
             <div class="header__user">
-                <div class="header__login" id="register">
+            <div class="header__login" id="register">
                 <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
-                </div>
+            </div>
 
-                <div class="header__menu" id="header-menu">
+            <div class="header__menu" id="header-menu">
                 <i class="ri-menu-fill"></i>
-                </div>
+            </div>
             </div>
         </div>
 
@@ -87,35 +64,35 @@ if ($name_email != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="home.php" class="nav__logo">Picnic Play</a>
+            <a href="index.html" class="nav__logo">Picnic Play</a>
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__link" href="home.php">
+                <a class="nav__button" href="index.html">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__link active" href="allgames.php" id="button">
+                <a class="nav__button" href="allgames.html" id="button">
                     <i class="ri-gamepad-line"></i> <span>All Games</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__link" href="favourite.php">
-                    <i class="ri-heart-3-line"></i> <span>Favourites</span>
+                <a class="nav__button" href="favorite.html">
+                    <i class="ri-heart-3-line"></i> <span>Favorites</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__link" href="blog.php">
+                <a class="nav__button" href="blog.html">
                     <i class="ri-blogger-line"></i> <span>Blog</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__link" href="contact.php">
+                <a class="nav__button active" href="contact.html">
                     <i class="ri-contacts-line"></i> <span>Contact</span>
                 </a>
             </li>
@@ -123,16 +100,16 @@ if ($name_email != "") {
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__link" href="user.php">
+            <a class="nav__button" href="user.html">
                 <div class="user__container">
-                    <i class="ri-user-line"></i>
-                    <div class="user__name ms-3"></div>
+                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
+                    <div class="user__name">ADMIN</div>
                 </div>
             </a>
             </div>
         </div>
 
-        <button class="nav__link" id="logout" onclick="logOut()" style="display: none;">
+        <button class="nav__button" id="logout" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
         </button>
 
@@ -141,79 +118,45 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== FAVOURITE PAGE ====================-->
-    <main class="main" id="all-games">
-        <!--==================== GAMES ====================-->
-        <section class="main__content">
-            <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / All Games</span></h1>
+    <!--==================== CONTACT ====================-->
+    <main class="main" id="contact">
+        <section class="contact__container">
+            <div class="contact__map me-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.920264509758!2d105.82973073919662!3d21.003055517035317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1711421403758!5m2!1svi!2s" width="500" height="550" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
 
-            <?php
-                $all_game = res_sql_query("select * from game order by favourite, id desc");
+            <div class="contact__content">
+            <div class="contact__header">
+                    <h1 class="contact__heading">contact us</h1>
+            </div>
 
-                for ($j = 0; $j < 2; $j++) {
-                    echo "
-                        <div class='row my-3'>
-                    ";
-                    for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
-                        $row = $all_game[$i];
-                        $id = $row["id"];
-                        $row_img = $row["vertical_img"];
-                        echo "
-                        <article class='col-sm-3'>
-                            <form action='' method='post'>
-                                <input type='hidden' value='$id' name='game_choose'>
-                                <button type='submit' class='card__link'>
-                                    <img src='$row_img' alt='image' class='card__img'>
-                                    <div class='card__shadow'></div>
-                                    
-                                    <div class='card__data'>
-                                        <h3 class='card__name'>".$row['title']."</h3>
-                                        <span class='card__category'>".$row['player']."</span>
-                                        <span class='card__category'>".$row['place']."</span>
-                                    </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
-                                </button>
-                            </form>
-                        </article>";
-                    };
-                    echo "
-                        </div>
-                    ";
-                }
-
-                for ($j = 2; $j < ceil(count($all_game) / 4); $j++) {
-                    echo "
-                        <div class='row my-3 hide__content'>
-                    ";
-                    for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
-                        $row = $all_game[$i];
-                        $id = $row["id"];
-                        $row_img = $row["vertical_img"];
-                        echo "
-                        <article class='col-sm-3'>
-                            <form action='' method='post'>
-                                <input type='hidden' value='$id' name='game_choose'>
-                                <button type='submit' class='card__link'>
-                                    <img src='$row_img' alt='image' class='card__img'>
-                                    <div class='card__shadow'></div>
-                                    
-                                    <div class='card__data'>
-                                        <h3 class='card__name'>".$row['title']."</h3>
-                                        <span class='card__category'>".$row['player']."</span>
-                                        <span class='card__category'>".$row['place']."</span>
-                                    </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
-                                </button>
-                            </form>
-                        </article>";
-                    };
-                    echo "
-                        </div>
-                    ";
-                }
-            ?>
+            <form method="post">
+                <div class="contact__body">
+                    <div class="row my-3">
+                    <div class="col px-0 me-3 contact__input">
+                            <input required name="fname" type="text" placeholder="First Name">
+                            <i class="ri-id-card-line"></i>
+                    </div>
+                    <div class="col px-0 contact__input">
+                            <input required name="lname" type="text" placeholder="Last Name">
+                            <i class="ri-id-card-line"></i>
+                    </div>
+                    </div>
+                    <div class="row my-3 contact__input">
+                    <input required name="email" type="email" placeholder="Email">
+                    <span><i class="ri-mail-line"></i></span>
+                    </div>
+                    <div class="row my-3 contact__input">
+                    <textarea required name="msg" name="" id="" cols="30" rows="8" placeholder="Message"></textarea>
+                    <span><i class="ri-inbox-line"></i></span>
+                    </div>
+                </div>
+                
+                <div class="contact__footer row">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+            </div>
         </section>
     </main>
 
@@ -222,10 +165,10 @@ if ($name_email != "") {
         <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
         <div class="modal__container" id="modal-container">
             <button class="close__button" onclick="closeModal()">
-                <i class="ri-close-line" id="modal-close"></i>
+            <i class="ri-close-line" id="modal-close"></i>
             </button>
             <div class="form__container signup__container" id="signup">
-                <form action="#">
+            <form action="#">
                 <h2>Create Account</h2>
                 <div class="social__container">
                     <a href="#" class="social">
@@ -241,17 +184,17 @@ if ($name_email != "") {
                 <input type="password" placeholder="Password">
                 <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
                 <button>Sign Up</button>
-                </form>
+            </form>
             </div>
             <div class="form__container signin__container" id="signin">
-                <form action="#">
+            <form action="#">
                     <h2>Sign In</h2>
                     <div class="social__container">
                         <a href="#" class="social">
-                            <i class="ri-facebook-fill"></i>
+                        <i class="ri-facebook-fill"></i>
                         </a>
                         <a href="#" class="social">
-                            <i class="ri-google-fill"></i>
+                        <i class="ri-google-fill"></i>
                         </a>
                     </div>
                     <span>or use your account</span>
@@ -260,10 +203,10 @@ if ($name_email != "") {
                     <a href="#">Forgot your password?</a>
                     <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
                     <button onclick="logIn()">Sign In</button>
-                </form>
+            </form>
             </div>
             <div class="overlay__container">
-                <div class="overlay">
+            <div class="overlay">
                 <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
                 <div class="overlay__panel overlay__left">
                     <h1>Welcome to registration</h1>
@@ -276,7 +219,7 @@ if ($name_email != "") {
                     <p class="italic">Don't have an account?</p>
                     <button class="ghost" id="signUp" onclick="signUp()">Sign Up</button>
                 </div>
-                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -285,33 +228,33 @@ if ($name_email != "") {
     <footer class="footer mt-5" id="footer">
         <div class="footer__container">
             <div class="footer__content">
-                <h3 class="website-logo">Name</h3>
-                <span class="footer-info">123414254614</span>
-                <span class="footer-info">ajsdhf@loaishgfow.com</span>
+            <h3 class="website-logo">Name</h3>
+            <span class="footer-info">123414254614</span>
+            <span class="footer-info">ajsdhf@loaishgfow.com</span>
             </div>
             <div class="footer__menu">
-                <div class="footer__content">
+            <div class="footer__content">
                 <span class="menu__title">Menu</span>
                 <a href="#" class="menu__item">Home</a>
                 <a href="#" class="menu__item">Course</a>
                 <a href="#" class="menu__item">Testimonials</a>
-                </div>
-                <div class="footer__content">
+            </div>
+            <div class="footer__content">
                 <span class="menu__title">legal</span>
                 <a href="#" class="menu__item">Primary Policy</a>
                 <a href="#" class="menu__item">Cookies</a>
                 <a href="#" class="menu__item">Terms & Conditions</a>
-                </div>
+            </div>
             </div>
 
             <div class="footer__content">
-                <span class="menu__title">follow us</span>
-                <div class="social-container">
+            <span class="menu__title">follow us</span>
+            <div class="social-container">
                 <a href="#" class="social__link"><i class="ri-facebook-circle-fill"></i></a>
                 <a href="#" class="social__link"><i class="ri-instagram-fill"></i></a>
                 <a href="#" class="social__link"><i class="ri-youtube-fill"></i></a>
                 <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></i></a>
-                </div>
+            </div>
             </div>
         </div>
         <div class="copyright__container">
@@ -324,5 +267,17 @@ if ($name_email != "") {
 
     <!--=============== JS ===============-->
     <script src="js/game.js"></script>
+
+    <script>
+        const register = document.getElementById('register'),
+            registered = document.getElementById('registered'),
+            logout = document.getElementById('logout');
+
+        function logIn() {
+            register.style.display = "none";
+            registered.style.display = "block";
+        logout.style.display = "block";
+        }
+    </script>
 </body>
 </html>
