@@ -53,13 +53,8 @@ if ($name_email != "") {
     <title>GAMES</title>
 </head>
 <body id="body">
-<<<<<<< HEAD
     <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" class="bg__image"></img>
     <div class="bg__blur"></div>
-=======
-<img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
-<div class="bg__blur"></div>
->>>>>>> 19c391732d5668abd35c0e4d3932d8edcf37d41c
 
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
