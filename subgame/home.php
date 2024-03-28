@@ -53,7 +53,7 @@ if ($name_email != "") {
    <title>PICNIC PLAY</title>
 </head>
 <body id="body">
-   <div class="bg__image" id="bg-image"></div>
+   <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" class="bg__image"></img>
    <div class="bg__blur"></div>
    
    <!--==================== HEADER ====================-->
@@ -101,7 +101,7 @@ if ($name_email != "") {
 
          <li class="nav__item">
             <a class="nav__link" href="favourite.php">
-                  <i class="ri-heart-3-line"></i> <span>Favorites</span>
+                  <i class="ri-heart-3-line"></i> <span>Favourites</span>
             </a>
          </li>
 
@@ -148,10 +148,8 @@ if ($name_email != "") {
       </section>
 
       <!--==================== TRENDING ====================-->
-      <section class="main__content hide__content show__content">
-         <form action="" method="post">
-            <button type="submit" value="Trending" class="card__title">Trending</button>
-         </form>
+      <section class="main__content mb-3 hide__content show__content">
+         <a href="trending.php" class="page__link">Trending</a>
 
          <div class="new__swiper swiper">
             <div class="swiper-wrapper">
@@ -188,10 +186,8 @@ if ($name_email != "") {
       </section>
 
       <!--==================== GAMES ====================-->
-      <section class="main__content hide__content">
-         <form action="" method="post">
-            <button type="submit" value="Family" class="card__title">Family</button>
-         </form>
+      <section class="main__content mb-3 hide__content">
+         <a href="family.php" class="page__link">Family</a>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
@@ -224,10 +220,8 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content hide__content">
-         <form action="" method="post">
-            <button type="submit" value="kid" class="card__title">Kid</button>
-         </form>
+      <section class="main__content mb-3 hide__content">
+         <a href="kid.php" class="page__link">Kid</a>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
@@ -260,10 +254,8 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content hide__content">
-         <form action="" method="post">
-            <button type="submit" value="male" class="card__title">Male</button>
-         </form>
+      <section class="main__content mb-3 hide__content">
+         <a href="male.php" class="page__link">Male</a>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
@@ -296,15 +288,13 @@ if ($name_email != "") {
          </div>
       </section>
 
-      <section class="main__content hide__content">
-         <form action="" method="post">
-            <button type="submit" value="female" class="card__title">Female</button>
-         </form>
+      <section class="main__content mb-3 hide__content">
+         <a href="female.php" class="page__link">Female</a>
 
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game where player = 'famale' or player = 'everyone' order by id desc");
+                  $top_game = res_sql_query("select * from game where player = 'female' or player = 'everyone' order by id desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];

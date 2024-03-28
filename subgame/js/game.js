@@ -10,8 +10,6 @@ function show() {
 
       if(showTop < windowHeight) {
          contents[i].classList.add('show__content');
-      } else {
-         contents[i].classList.remove('show__content');
       }
    }
 }
@@ -98,24 +96,10 @@ const blog_main = document.getElementById('blog-main'),
       })
    })
 
-/* BLOG */
-function displayBlogMain() {
-   blog_main.style.display = "block";
-   bg_image.style.background = "#111";
-   document.body.style.overflow = "hidden";
-}
-
-function closeBlogMain() {
-   blog_main.style.display = "none";
-   bg_image.style.background = "#000";
-   document.body.style.overflow = "unset";
-}
-
 /* USER */
 function displayProfile() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   // document.body.style.overflow = "unset";
    profile.style.display = 'block';
    password.style.display = 'none';
 }
@@ -123,7 +107,6 @@ function displayProfile() {
 function displayPassword() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   // document.body.style.overflow = "unset";
    profile.style.display = 'none';
    password.style.display = 'block';
 }

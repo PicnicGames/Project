@@ -98,8 +98,8 @@ if ($name_email != "") {
             </li>
 
             <li class="nav__item">
-                <a class="nav__link active" href="favourite.php">
-                    <i class="ri-heart-3-line"></i> <span>Favourites</span>
+                <a class="nav__link" href="favourite.php">
+                    <i class="ri-heart-3-line"></i> <span>Favourite</span>
                 </a>
             </li>
 
@@ -140,10 +140,10 @@ if ($name_email != "") {
     <main class="main" id="all-games">
         <!--==================== GAMES ====================-->
         <section class="main__content">
-            <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / Family Games</span></h1>
+            <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / Female Games</span></h1>
 
             <?php
-                $all_game = res_sql_query("select * from favourite order by id_game desc");
+                $all_game = res_sql_query("select * from game where player = 'female' or player = 'everyone' order by id desc");
 
                 for ($j = 0; $j < 2; $j++) {
                     echo "

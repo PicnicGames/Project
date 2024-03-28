@@ -64,7 +64,7 @@ if (isset($_SESSION['loggedin'])) {
     <title>USER</title>
 </head>
 <body>
-    <div class="bg__image" id="bg-image"></div>
+    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" class="bg__image"></img>
     <div class="bg__blur"></div>
     
     <!--==================== HEADER ====================-->
@@ -106,7 +106,7 @@ if (isset($_SESSION['loggedin'])) {
 
             <li class="nav__item">
                 <a class="nav__link" href="favourite.php">
-                    <i class="ri-heart-3-line"></i> <span>Favourite</span>
+                    <i class="ri-heart-3-line"></i> <span>Favourites</span>
                 </a>
             </li>
 
@@ -145,6 +145,7 @@ if (isset($_SESSION['loggedin'])) {
 
     <!--=============== USER  ===============-->
     <main class="main" id="user">
+        <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / User</span></h1>
         <div class="row user m-5">
             <div class="col-sm-3 user__nav pt-5">
                 <div class="user__infor">
