@@ -1,12 +1,23 @@
 <?php
 require_once "php/utils.php";
 $name = $email = "";
+session_start();
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+if (isset($_SESSION['loggedin'])) {
     $id = $_SESSION['id_user'];
     $user = res_sql_query("select * from user where id = $id");
-    $name = $user[0]['name'];
+    $name = $user[0]['username'];
     $email = $user[0]['email'];
+
+    $old_pwd = $new_pwd = $conf_pwd = "";
+    $old_pwd = get_post("old_pwd");
+    $new_pwd = get_post("new_pwd");
+    $conf_pwd = get_post("conf_pwd");
+    if (password_verify($old_pwd, $user[0]['password'])) {
+        header('Location: admin.php');
+        $pwd = hash_pwd($new_pwd);
+        sql_query("update user set password = '$pwd' where id = $id");
+    }
 } else {
     $name = $name_email = "";
     $name = get_post('name');
@@ -16,24 +27,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 
     if ($name != '') {
     $pwd = hash_pwd($pwd);
-    $cur_time = date('Y-m-d H:i:s');
-    sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+    sql_query("insert into user (username, email, password) values ('$name', '$email', '$pwd')");
     }
 
     if ($name_email != "") {
-    $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-    if (count($db_user) != 1) {
-        $_SESSION['loggedin'] = false;
-    } else {
-        if (password_verify($pwd, $db_user[0]['password'])) {
-                $_SESSION['loggedin'] = true;
-                $_SESSION['id_user'] = $db_user[0]['id'];
+        $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+        if (count($db_user) != 1) {
+            $_SESSION['loggedin'] = false;
         } else {
-                $_SESSION['loggedin'] = false;
+            if (password_verify($pwd, $db_user[0]['password'])) {
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['id_user'] = $db_user[0]['id'];
+            } else {
+                    $_SESSION['loggedin'] = false;
+            }
         }
     }
-    }
-    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +68,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
     <title>USER</title>
 </head>
 <body id="body">
-    <img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg" alt="image" class="bg__image" id="bg-image">
+    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
     <div class="bg__blur"></div>
     
     <!--==================== HEADER ====================-->
@@ -91,7 +101,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__button" href="index.html">
+                <a class="nav__button" href="home.php">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
@@ -125,8 +135,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
             <div class="nav__user pt-3" id="registered">
             <a class="nav__button" href="user.html">
                 <div class="user__container">
-                    <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
-                    <div class="user__name">ADMIN</div>
+                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
+                    <div class="user__name"><?php echo "$name";?></div>
                 </div>
             </a>
             </div>
@@ -146,8 +156,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
         <div class="row user m-5">
             <div class="col-sm-3 user__nav pt-5">
             <div class="user__infor">
-                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img">
-                    <h2 class="user__name my-3">ADMIN</h2>
+                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img">
+                    <h2 class="user__name my-3"><?php echo "$name";?></h2>
             </div>
             <ul class="nav__list ms-auto">
                 <li class="nav__item">
@@ -179,20 +189,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
                                     <p><?php echo "$email";?></p>
                                 </div>
                             </div>
-                            <button class="form__button mt-3">Edit Profile</button>
                         </form>
                     </div>
             </div>
             <div class="user__password" id="password" style="display: none;">
                     <h2 class="my-3">Password</h2>
                     <div class="user__form mt-5">
-                        <form action="">
+                        <form method="post">
                             <div class="row mt-3">
                                 <div class="col-sm-3">
                                     <label>Old password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input required name="old_pwd" type="text">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -200,7 +209,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
                                     <label>New password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input required name="new_pwd" type="text">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -208,7 +217,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
                                     <label>Confirm password:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text">
+                                    <input required name="conf_pwd" type="text">
                                 </div>
                             </div>
                             <button class="form__button mt-5">Change Password</button>

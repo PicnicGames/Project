@@ -2,16 +2,22 @@
 require_once "php/utils.php";
 session_start();
 
-$name = $name_email = "";
+$name = $name_email = $uname = "";
 $name = get_post('name');
 $email = get_post('email');
 $pwd = get_post('pwd');
 $name_email = get_post('name_email');
 
+if (isset($_SESSION['id_user'])) {
+   $id = $_SESSION['id_user'];
+   $user = res_sql_query("select * from user where id = $id");
+   $uname = $user[0]['username'];
+}
+
 if ($name != '') {
    $pwd = hash_pwd($pwd);
    $cur_time = date('Y-m-d H:i:s');
-   sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+   sql_query("insert into user (username, email, password) values ('$name', '$email', '$pwd')");
 }
 
 if ($name_email != "") {
@@ -121,7 +127,7 @@ if ($name_email != "") {
          <a class="nav__button" href="user.php">
             <div class="user__container">
                   <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
-                  <div class="user__name">ADMIN</div>
+                  <div class="user__name"><?php echo "$uname";?></div>
             </div>
          </a>
          </div>
@@ -200,7 +206,7 @@ if ($name_email != "") {
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game where player = 'family' order by id desc");
+                  $top_game = res_sql_query("select * from game where player = 'family' or player = 'everyone' order by id desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
@@ -236,7 +242,7 @@ if ($name_email != "") {
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game where player = 'kid' order by id desc");
+                  $top_game = res_sql_query("select * from game where player = 'kid' or player = 'everyone' order by id desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
@@ -272,7 +278,7 @@ if ($name_email != "") {
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game where player = 'male' order by id desc");
+                  $top_game = res_sql_query("select * from game where player = 'male' or player = 'everyone' order by id desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
@@ -308,7 +314,7 @@ if ($name_email != "") {
          <div class="movie__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game where player = 'famale' order by id desc");
+                  $top_game = res_sql_query("select * from game where player = 'famale' or player = 'everyone' order by id desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
