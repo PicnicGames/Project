@@ -1,32 +1,32 @@
 <?php
-    require_once "php/utils.php";
-    session_start();
+require_once "php/utils.php";
+session_start();
 
-    $name = $name_email = "";
-    $name = get_post('name');
-    $email = get_post('email');
-    $pwd = get_post('pwd');
-    $name_email = get_post('name_email');
+$name = $name_email = "";
+$name = get_post('name');
+$email = get_post('email');
+$pwd = get_post('pwd');
+$name_email = get_post('name_email');
 
-    if ($name != '') {
-        $pwd = hash_pwd($pwd);
-        $cur_time = date('Y-m-d H:i:s');
-        sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
-    }
+if ($name != '') {
+   $pwd = hash_pwd($pwd);
+   $cur_time = date('Y-m-d H:i:s');
+   sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+}
 
-    if ($name_email != "") {
-        $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-        if (count($db_user) != 1) {
+if ($name_email != "") {
+   $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+   if (count($db_user) != 1) {
+      $_SESSION['loggedin'] = false;
+   } else {
+      if (password_verify($pwd, $db_user[0]['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id_user'] = $db_user[0]['id'];
+      } else {
             $_SESSION['loggedin'] = false;
-        } else {
-            if (password_verify($pwd, $db_user[0]['password'])) {
-                $_SESSION['loggedin'] = true;
-                $_SESSION['id_user'] = $db_user[0]['id'];
-            } else {
-                $_SESSION['loggedin'] = false;
-            }
-        }
-    }
+      }
+   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -361,8 +361,6 @@
                <input name="pwd" type="password" placeholder="Password">
                <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
                <button type="submit">Sign Up</button>
-            
-               
             </div>
             <div class="form__container signin__container" id="signin">
                <form method="post">
@@ -371,7 +369,6 @@
                      <a href="#" class="social">
                         <i class="ri-facebook-fill"></i>
                      </a>
-                  </form>
                      <a href="#" class="social">
                         <i class="ri-google-fill"></i>
                      </a>
@@ -382,8 +379,7 @@
                   <a href="#">Forgot your password?</a>
                   <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
                   <button type="submit" onclick="logIn()">Sign In</button>
-            
-                  
+               </form>
                </div>
                <div class="overlay__container">
                   <div class="overlay">
