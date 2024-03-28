@@ -22,15 +22,11 @@ if ($name != '') {
 
 if ($name_email != "") {
    $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-   if (count($db_user) != 1) {
-      $_SESSION['loggedin'] = false;
+   if (password_verify($pwd, $db_user[0]['password'])) {
+      $_SESSION['loggedin'] = true;
+      $_SESSION['id_user'] = $db_user[0]['id'];
    } else {
-      if (password_verify($pwd, $db_user[0]['password'])) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id_user'] = $db_user[0]['id'];
-      } else {
-            $_SESSION['loggedin'] = false;
-      }
+      $_SESSION['loggedin'] = false;
    }
 }
 ?>
@@ -54,7 +50,7 @@ if ($name_email != "") {
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-   <title>GAMES</title>
+   <title>PICNIC PLAY</title>
 </head>
 <body id="body">
    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
