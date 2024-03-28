@@ -113,7 +113,7 @@ if ($name_email != "") {
 
          <li class="nav__item">
             <a class="nav__link" href="contact.php">
-                  <i class="ri-contacts-line"></i> <span>Contact</span>
+                  <i class="ri-contacts-line"></i> <span>Contact Us</span>
             </a>
          </li>
          </ul>
@@ -387,7 +387,7 @@ if ($name_email != "") {
    </div>
 
    <!--=============== FOOTER  ===============-->
-   <footer class="footer mt-5" id="footer">
+   <footer class="footer">
       <div class="footer__container">
          <div class="footer__content">
             <h3 class="website-logo">Name</h3>

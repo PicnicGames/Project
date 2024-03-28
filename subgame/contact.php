@@ -64,52 +64,52 @@ if ($email != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="index.html" class="nav__logo">Picnic Play</a>
+            <a href="home.php" class="nav__logo">Picnic Play</a>
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__button" href="index.html">
+                <a class="nav__link" href="home.php">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="allgames.html" id="button">
+                <a class="nav__link" href="allgames.php" id="button">
                     <i class="ri-gamepad-line"></i> <span>All Games</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="favorite.html">
-                    <i class="ri-heart-3-line"></i> <span>Favorites</span>
+                <a class="nav__link" href="favourite.php">
+                    <i class="ri-heart-3-line"></i> <span>Favourites</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="blog.html">
+                <a class="nav__link" href="blog.php">
                     <i class="ri-blogger-line"></i> <span>Blog</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button active" href="contact.html">
-                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                <a class="nav__link active" href="contact.php">
+                    <i class="ri-contacts-line"></i> <span>Contact Us</span>
                 </a>
             </li>
             </ul>
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__button" href="user.html">
+            <a class="nav__link" href="user.php">
                 <div class="user__container">
-                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
-                    <div class="user__name">ADMIN</div>
+                    <i class="ri-user-line"></i>
+                    <div class="user__name ms-3"></div>
                 </div>
             </a>
             </div>
         </div>
 
-        <button class="nav__button" id="logout" onclick="logOut()" style="display: none;">
+        <button class="nav__link" id="logout" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
         </button>
 
@@ -120,6 +120,7 @@ if ($email != "") {
 
     <!--==================== CONTACT ====================-->
     <main class="main" id="contact">
+        <h1 class="page__title"><a href="home.php" class="page__link">Home</a><span> / Contact Us</span></h1>
         <section class="contact__container">
             <div class="contact__map me-5">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.920264509758!2d105.82973073919662!3d21.003055517035317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0xb7d4993d5b02357e!2sAptech%20Computer%20Education!5e0!3m2!1svi!2s!4v1711421403758!5m2!1svi!2s" width="500" height="550" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

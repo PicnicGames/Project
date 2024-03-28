@@ -111,7 +111,7 @@ if ($name_email != "") {
 
                 <li class="nav__item">
                     <a class="nav__link" href="contact.php">
-                        <i class="ri-contacts-line"></i> <span>Contact</span>
+                        <i class="ri-contacts-line"></i> <span>Contact Us</span>
                     </a>
                 </li>
             </ul>
