@@ -47,7 +47,7 @@ if ($name_email != "") {
     <title>GAMES</title>
 </head>
 <body id="body">
-<img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg" alt="image" class="bg__image" id="bg-image">
+<img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
 <div class="bg__blur"></div>
 
 <!--==================== HEADER ====================-->
@@ -163,7 +163,7 @@ if ($name_email != "") {
                     $id = $row["id"];
                     $row_img = $row["vertical_img"];
                     echo "
-                    <article class='col-sm mb-5'>
+                    <article class='col-sm-3 mb-5'>
                         <form action='' method='post'>
                             <input type='hidden' value='$id' name='game_choose'>
                             <button type='submit' class='card__link'>
