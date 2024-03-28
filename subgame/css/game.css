@@ -1059,6 +1059,7 @@ img {
 .modal__container.right-panel__active {
   & .signin__container {
       transform: translateY(100%);
+      opacity: 0;
   }
 
   & .overlay__container {

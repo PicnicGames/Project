@@ -361,35 +361,34 @@ if ($name_email != "") {
                <input name="pwd" type="password" placeholder="Password">
                <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
                <button type="submit">Sign Up</button>
-            </div>
-            <div class="form__container signin__container" id="signin">
-               <form method="post">
-                  <h2>Sign In</h2>
-                  <div class="social__container">
-                     <a href="#" class="social">
-                        <i class="ri-facebook-fill"></i>
-                     </a>
-                     <a href="#" class="social">
-                        <i class="ri-google-fill"></i>
-                     </a>
-                  </div>
-                  <span>or use your account</span>
-                  <input name="name_email" type="text" placeholder="Username or Email">
-                  <input name="pwd" type="password" placeholder="Password">
-                  <a href="#">Forgot your password?</a>
-                  <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
-                  <button type="submit" onclick="logIn()">Sign In</button>
-               </form>
+            </form>
+         </div>
+         <div class="form__container signin__container" id="signin">
+            <form method="post">
+               <h2>Sign In</h2>
+               <div class="social__container">
+                  <a href="#" class="social">
+                     <i class="ri-facebook-fill"></i>
+                  </a>
+                  <a href="#" class="social">
+                     <i class="ri-google-fill"></i>
+                  </a>
                </div>
-               <div class="overlay__container">
-                  <div class="overlay">
-                     <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
-                     <div class="overlay__panel overlay__left">
-                        <h1>Welcome to registration</h1>
-                        <p class="italic">Already have an account</p>
-                        <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
-                     </form>
-
+               <span>or use your account</span>
+               <input name="name_email" type="text" placeholder="Username or Email">
+               <input name="pwd" type="password" placeholder="Password">
+               <a href="#">Forgot your password?</a>
+               <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
+               <button type="submit" onclick="logIn()">Sign In</button>
+            </form>
+         </div>
+         <div class="overlay__container">
+            <div class="overlay">
+               <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
+               <div class="overlay__panel overlay__left">
+                  <h1>Welcome to registration</h1>
+                  <p class="italic">Already have an account</p>
+                  <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
                </div>
                <div class="overlay__panel overlay__right">
                   <h1>Welcome</h1>
