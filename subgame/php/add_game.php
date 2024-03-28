@@ -26,7 +26,7 @@ if ($name != "") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="../css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@ if ($name != "") {
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__button" href="/project/subgame/admin.php">
+                    <a class="nav__button" href="../admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
