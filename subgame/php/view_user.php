@@ -26,7 +26,7 @@ if ($id != '') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>ADD GAMES</title>
+    <title>USERS</title>
 </head>
 <body id="body">
     <div class="bg__image" style="background-color:#333"></div>
@@ -58,6 +58,12 @@ if ($id != '') {
                 <li class="nav__item">
                     <a class="nav__button" href="view_user.php">
                         <i class="ri-blogger-line"></i> <span>View Users</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a class="nav__button" href="view_feedback.php">
+                        <i class="ri-blogger-line"></i> <span>View Feedback</span>
                     </a>
                 </li>
             </ul>

@@ -20,13 +20,13 @@ if ($id != '') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="../css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>ADD GAMES</title>
+    <title>FEEDBACK</title>
 </head>
 <body id="body">
     <div class="bg__image" style="background-color:#333"></div>
@@ -38,7 +38,7 @@ if ($id != '') {
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__button" href="/project/subgame/admin.php">
+                    <a class="nav__button" href="../admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
@@ -58,6 +58,12 @@ if ($id != '') {
                 <li class="nav__item">
                     <a class="nav__button" href="view_user.php">
                         <i class="ri-blogger-line"></i> <span>View Users</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a class="nav__button" href="view_feedback.php">
+                        <i class="ri-blogger-line"></i> <span>View Feedback</span>
                     </a>
                 </li>
             </ul>

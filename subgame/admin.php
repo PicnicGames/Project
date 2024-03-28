@@ -48,6 +48,12 @@
                         <i class="ri-blogger-line"></i> <span>View Users</span>
                     </a>
                 </li>
+
+                <li class="nav__item">
+                    <a class="nav__button" href="php/view_feedback.php">
+                        <i class="ri-blogger-line"></i> <span>View Feedback</span>
+                    </a>
+                </li>
             </ul>
 
             <!-- USER -->
