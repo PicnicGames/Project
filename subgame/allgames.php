@@ -154,11 +154,11 @@ if ($name_email != "") {
         <?php
             $top_game = res_sql_query("select * from game order by favourite, id desc");
 
-            for ($j = 0; $j <= count($top_game) / 4; $j++) {
+            for ($j = 0; $j < ceil(count($top_game) / 4); $j++) {
                 echo "
                     <div class='row mb-5'>
                 ";
-                for ($i = 0; $i < min(count($top_game), 4); $i++) {
+                for ($i = $j*4; $i < min(count($top_game), $j*4+4); $i++) {
                     $row = $top_game[$i];
                     $id = $row["id"];
                     $row_img = $row["vertical_img"];
