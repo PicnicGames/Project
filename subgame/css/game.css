@@ -130,6 +130,7 @@ img {
 .bg__image {
   object-fit: cover;
   object-position: center;
+  background: url(https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg);
 }
 
 .bg__blur {
@@ -292,7 +293,7 @@ img {
   width: 70%;
 }
 
-.nav__button, .login__button {
+.nav__link, .login__button {
   display: inline-flex;
   color: var(--white-color);
   column-gap: .75rem;
@@ -300,7 +301,7 @@ img {
   text-decoration: none;
 }
 
-.nav__button i {
+.nav__link i {
   font-size: 1.5rem;
 }
 
@@ -326,13 +327,6 @@ img {
   width: max-content;
   display: flex;
   align-items: center;
-}
-
-.user__img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
 .nav__close {

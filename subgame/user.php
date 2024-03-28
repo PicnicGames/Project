@@ -63,8 +63,8 @@ if (isset($_SESSION['loggedin'])) {
 
     <title>USER</title>
 </head>
-<body id="body">
-    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
+<body>
+    <div class="bg__image" id="bg-image"></div>
     <div class="bg__blur"></div>
     
     <!--==================== HEADER ====================-->
@@ -74,13 +74,9 @@ if (isset($_SESSION['loggedin'])) {
 
             <!-- NONE -->
             <div class="header__user">
-            <div class="header__login" id="register">
-                <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
-            </div>
-
-            <div class="header__menu" id="header-menu">
-                <i class="ri-menu-fill"></i>
-            </div>
+                <div class="header__menu" id="header-menu">
+                    <i class="ri-menu-fill"></i>
+                </div>
             </div>
         </div>
 
@@ -93,35 +89,35 @@ if (isset($_SESSION['loggedin'])) {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="index.html" class="nav__logo">Picnic Play</a>
+            <a href="home.php" class="nav__logo">Picnic Play</a>
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__button" href="home.php">
+                <a class="nav__link" href="home.php">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="allgames.html" id="button">
+                <a class="nav__link" href="allgames.php">
                     <i class="ri-gamepad-line"></i> <span>All Games</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="favorite.html">
-                    <i class="ri-heart-3-line"></i> <span>Favorites</span>
+                <a class="nav__link" href="favourite.php">
+                    <i class="ri-heart-3-line"></i> <span>Favourite</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="blog.html">
+                <a class="nav__link" href="blog.php">
                     <i class="ri-blogger-line"></i> <span>Blog</span>
                 </a>
             </li>
 
             <li class="nav__item">
-                <a class="nav__button" href="contact.html">
+                <a class="nav__link" href="contact.php">
                     <i class="ri-contacts-line"></i> <span>Contact</span>
                 </a>
             </li>
@@ -129,16 +125,16 @@ if (isset($_SESSION['loggedin'])) {
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__button" href="user.html">
-                <div class="user__container">
-                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
-                    <div class="user__name"><?php echo "$name";?></div>
-                </div>
-            </a>
+                <a class="nav__link" href="user.php">
+                    <div class="user__container">
+                        <i class="ri-user-line"></i>
+                        <div class="user__name ms-3"><?php echo "$name";?></div>
+                    </div>
+                </a>
             </div>
         </div>
 
-        <button class="nav__button" id="logout" onclick="logOut()" style="display: none;">
+        <button class="nav__link" id="logout" onclick="logOut()" style="display: none;">
             <i class="ri-logout-box-line"></i> <span>Log Out</span>
         </button>
 
@@ -151,44 +147,44 @@ if (isset($_SESSION['loggedin'])) {
     <main class="main" id="user">
         <div class="row user m-5">
             <div class="col-sm-3 user__nav pt-5">
-            <div class="user__infor">
-                    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img">
+                <div class="user__infor">
+                    <img src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg" alt="" class="user__img">
                     <h2 class="user__name my-3"><?php echo "$name";?></h2>
-            </div>
-            <ul class="nav__list ms-auto">
-                <li class="nav__item">
-                    <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
-                </li>
-                <li class="nav__item">
-                    <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
-                </li>
-            </ul>
+                </div>
+                <ul class="nav__list ms-auto">
+                    <li class="nav__item">
+                        <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
+                    </li>
+                    <li class="nav__item">
+                        <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
+                    </li>
+                </ul>
             </div>
             <div class="col-sm-7 user__content mx-auto pb-5">
-            <div class="user__profile" id="profile">
-                    <h2 class="my-3">Profile</h2>
-                    <div class="user__form mt-5">
-                        <form action="">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <label>User Name:</label>
+                <div class="user__profile" id="profile">
+                        <h2 class="my-3">Profile</h2>
+                        <div class="user__form mt-5">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <label>User Name:</label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <p><?php echo "$name";?></p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-7">
-                                    <p><?php echo "$name";?></p>
+                                <div class="row mt-3">
+                                    <div class="col-sm-5">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <p><?php echo "$email";?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <label>Email:</label>
-                                </div>
-                                <div class="col-sm-7">
-                                    <p><?php echo "$email";?></p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-            </div>
-            <div class="user__password" id="password" style="display: none;">
+                            </form>
+                        </div>
+                </div>
+                <div class="user__password" id="password" style="display: none;">
                     <h2 class="my-3">Password</h2>
                     <div class="user__form mt-5">
                         <form method="post">
@@ -219,74 +215,10 @@ if (isset($_SESSION['loggedin'])) {
                             <button class="form__button mt-5">Change Password</button>
                         </form>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </main>
-
-    <!--=============== SIGNIN SIGNUP ===============-->
-    <div class="user__modal" id="user-modal">
-        <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
-        <div class="modal__container" id="modal-container">
-            <button class="close__button" onclick="closeModal()">
-            <i class="ri-close-line" id="modal-close"></i>
-            </button>
-            <div class="form__container signup__container" id="signup">
-            <form action="#">
-                <h2>Create Account</h2>
-                <div class="social__container">
-                    <a href="#" class="social">
-                        <i class="ri-facebook-fill"></i>
-                    </a>
-                    <a href="#" class="social">
-                        <i class="ri-google-fill"></i>
-                    </a>
-                </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
-                <button>Sign Up</button>
-            </form>
-            </div>
-            <div class="form__container signin__container" id="signin">
-            <form action="#">
-                    <h2>Sign In</h2>
-                    <div class="social__container">
-                        <a href="#" class="social">
-                        <i class="ri-facebook-fill"></i>
-                        </a>
-                        <a href="#" class="social">
-                        <i class="ri-google-fill"></i>
-                        </a>
-                    </div>
-                    <span>or use your account</span>
-                    <input type="text" placeholder="Username or Email">
-                    <input type="password" placeholder="Password">
-                    <a href="#">Forgot your password?</a>
-                    <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
-                    <button onclick="logIn()">Sign In</button>
-            </form>
-            </div>
-            <div class="overlay__container">
-            <div class="overlay">
-                <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
-                <div class="overlay__panel overlay__left">
-                    <h1>Welcome to registration</h1>
-                    <p class="italic">Already have an account</p>
-                    <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
-
-                </div>
-                <div class="overlay__panel overlay__right">
-                    <h1>Welcome</h1>
-                    <p class="italic">Don't have an account?</p>
-                    <button class="ghost" id="signUp" onclick="signUp()">Sign Up</button>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
 
     <!--=============== FOOTER  ===============-->
     <footer class="footer mt-5" id="footer">
@@ -331,17 +263,5 @@ if (isset($_SESSION['loggedin'])) {
 
     <!--=============== JS ===============-->
     <script src="js/game.js"></script>
-
-    <script>
-        const register = document.getElementById('register'),
-            registered = document.getElementById('registered'),
-            logout = document.getElementById('logout');
-
-        function logIn() {
-            register.style.display = "none";
-            registered.style.display = "block";
-        logout.style.display = "block";
-        }
-    </script>
 </body>
 </html>

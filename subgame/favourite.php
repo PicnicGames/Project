@@ -1,30 +1,3 @@
-<?php
-require_once "php/utils.php";
-session_start();
-
-$name = $name_email = "";
-$name = get_post('name');
-$email = get_post('email');
-$pwd = get_post('pwd');
-$name_email = get_post('name_email');
-
-if ($name != '') {
-   $pwd = hash_pwd($pwd);
-   $cur_time = date('Y-m-d H:i:s');
-   sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
-}
-
-if ($name_email != "") {
-    $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-    if (password_verify($pwd, $db_user[0]['password'])) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['id_user'] = $db_user[0]['id'];
-    } else {
-        $_SESSION['loggedin'] = false;
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,45 +52,45 @@ if ($name_email != "") {
             <a href="home.php" class="nav__logo">Picnic Play</a>
 
             <ul class="nav__list">
-                <li class="nav__item">
-                    <a class="nav__link" href="home.php">
-                        <i class="ri-home-5-line"></i> <span>Home</span>
-                    </a>
-                </li>
+            <li class="nav__item">
+                <a class="nav__link" href="home.php">
+                    <i class="ri-home-5-line"></i> <span>Home</span>
+                </a>
+            </li>
 
-                <li class="nav__item">
-                    <a class="nav__link active" href="allgames.php">
-                        <i class="ri-gamepad-line"></i> <span>All Games</span>
-                    </a>
-                </li>
+            <li class="nav__item">
+                <a class="nav__link" href="allgames.php" id="button">
+                    <i class="ri-gamepad-line"></i> <span>All Games</span>
+                </a>
+            </li>
 
-                <li class="nav__item">
-                    <a class="nav__link" href="favourite.php">
-                        <i class="ri-heart-3-line"></i> <span>Favourite</span>
-                    </a>
-                </li>
+            <li class="nav__item">
+                <a class="nav__link active" href="favourite.php">
+                    <i class="ri-heart-3-line"></i> <span>Favourite</span>
+                </a>
+            </li>
 
-                <li class="nav__item">
-                    <a class="nav__link" href="blog.php">
-                        <i class="ri-blogger-line"></i> <span>Blog</span>
-                    </a>
-                </li>
+            <li class="nav__item">
+                <a class="nav__link" href="blog.php">
+                    <i class="ri-blogger-line"></i> <span>Blog</span>
+                </a>
+            </li>
 
-                <li class="nav__item">
-                    <a class="nav__link" href="contact.php">
-                        <i class="ri-contacts-line"></i> <span>Contact</span>
-                    </a>
-                </li>
+            <li class="nav__item">
+                <a class="nav__link" href="contact.php">
+                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                </a>
+            </li>
             </ul>
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-                <a class="nav__link" href="user.php">
-                    <div class="user__container">
-                        <i class="ri-user-line"></i>
-                        <div class="user__name ms-3"></div>
-                    </div>
-                </a>
+            <a class="nav__link" href="user.php">
+                <div class="user__container">
+                    <i class="ri-user-line"></i>
+                    <div class="user__name ms-3"></div>
+                </div>
+            </a>
             </div>
         </div>
 
@@ -130,7 +103,7 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== ALL GAMES PAGE ====================-->
+    <!--==================== FAVOURITE PAGE ====================-->
     <main class="main" id="all-games">
         <!--==================== BANNER ====================-->
         <section class="banner">
@@ -139,8 +112,8 @@ if ($name_email != "") {
                 <div class="banner__shadow"></div>
 
                 <div class="banner__data">
-                <h2 class="banner__title">Trending</h2>
-                <span class="banner__category">Treding games right now!</span>
+                <h2 class="banner__title">Favorite</h2>
+                <span class="banner__category">Your favorite games!</span>
                 </div>
             </article>
         </section>
@@ -152,14 +125,14 @@ if ($name_email != "") {
             </form>
 
             <?php
-                $top_game = res_sql_query("select * from game order by favourite, id desc");
+                $favourite_game = res_sql_query("select * from favourite order by id_game desc");
 
-                for ($j = 0; $j < ceil(count($top_game) / 4); $j++) {
+                for ($j = 0; $j < ceil(count($favourite_game) / 4); $j++) {
                     echo "
                         <div class='row mb-5 hide__content'>
                     ";
-                    for ($i = $j*4; $i < min(count($top_game), $j*4+4); $i++) {
-                        $row = $top_game[$i];
+                    for ($i = $j*4; $i < min(count($favourite_game), $j*4+4); $i++) {
+                        $row = $favourite_game[$i];
                         $id = $row["id"];
                         $row_img = $row["vertical_img"];
                         echo "
@@ -296,5 +269,6 @@ if ($name_email != "") {
 
     <!--=============== JS ===============-->
     <script src="js/game.js"></script>
+</script>
 </body>
 </html>

@@ -115,7 +115,7 @@ function closeBlogMain() {
 function displayProfile() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
+   // document.body.style.overflow = "unset";
    profile.style.display = 'block';
    password.style.display = 'none';
 }
@@ -123,7 +123,7 @@ function displayProfile() {
 function displayPassword() {
    document.body.scrollTop = 0;
    document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
+   // document.body.style.overflow = "unset";
    profile.style.display = 'none';
    password.style.display = 'block';
 }

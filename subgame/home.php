@@ -53,7 +53,7 @@ if ($name_email != "") {
    <title>PICNIC PLAY</title>
 </head>
 <body id="body">
-   <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
+   <div class="bg__image" id="bg-image"></div>
    <div class="bg__blur"></div>
    
    <!--==================== HEADER ====================-->
@@ -88,31 +88,31 @@ if ($name_email != "") {
             <ul class="nav__list">
             </form>
          <li class="nav__item">
-            <a class="nav__button active" href="home.php">
+            <a class="nav__link active" href="home.php">
                   <i class="ri-home-5-line"></i> <span>Home</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="allgames.php">
+            <a class="nav__link" href="allgames.php">
                   <i class="ri-gamepad-line"></i> <span>All Games</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="favorite.php">
+            <a class="nav__link" href="favourite.php">
                   <i class="ri-heart-3-line"></i> <span>Favorites</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="blog.php">
+            <a class="nav__link" href="blog.php">
                   <i class="ri-blogger-line"></i> <span>Blog</span>
             </a>
          </li>
 
          <li class="nav__item">
-            <a class="nav__button" href="contact.php">
+            <a class="nav__link" href="contact.php">
                   <i class="ri-contacts-line"></i> <span>Contact</span>
             </a>
          </li>
@@ -120,16 +120,16 @@ if ($name_email != "") {
 
          <!-- USER -->
          <div class="nav__user pt-3" id="registered">
-         <a class="nav__button" href="user.php">
-            <div class="user__container">
-                  <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
-                  <div class="user__name"><?php echo "$uname";?></div>
-            </div>
-         </a>
+            <a class="nav__link" href="user.php">
+               <div class="user__container">
+                  <i class="ri-user-line"></i>
+                  <div class="user__name ms-3"><?php echo "$uname";?></div>
+               </div>
+            </a>
          </div>
       </div>
 
-      <button class="nav__button" id="logout" onclick="logOut()">
+      <button class="nav__link" id="logout" onclick="logOut()">
          <i class="ri-logout-box-line"></i> <span>Log Out</span>
       </button>
 
@@ -144,12 +144,6 @@ if ($name_email != "") {
       <section class="banner">
          <article class="banner__card">
             <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1222911284706672730/image0.jpg?ex=6617efe2&is=66057ae2&hm=c300b652a415e319cb4936fc7f5b1d250be84072c7d74b7746f6299834ee7311&" alt="image" class="banner__img" id="banner-img">
-            <div class="banner__shadow"></div>
-
-            <div class="banner__data">
-               <h2 class="banner__title"></h2>
-               <span class="banner__category"></span>
-               </div>
          </article>
       </section>
 
