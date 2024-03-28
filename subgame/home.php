@@ -51,7 +51,7 @@
    <title>GAMES</title>
 </head>
 <body id="body">
-   <img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg alt="image" class="bg__image" id="bg-image">
+   <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="bg__image" id="bg-image">
    <div class="bg__blur"></div>
    
    <!--==================== HEADER ====================-->
@@ -120,7 +120,7 @@
          <div class="nav__user pt-3" id="registered">
          <a class="nav__button" href="user.php">
             <div class="user__container">
-                  <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
+                  <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="" class="user__img me-3">
                   <div class="user__name">ADMIN</div>
             </div>
          </a>
@@ -141,12 +141,12 @@
       <!--==================== BANNER ====================-->
       <section class="banner">
          <article class="banner__card">
-            <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="image" class="banner__img">
+            <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="banner__img">
             <div class="banner__shadow"></div>
 
             <div class="banner__data">
-               <h2 class="banner__title">Chess</h2>
-               <span class="banner__category">Tactic</span>
+               <h2 class="banner__title"></h2>
+               <span class="banner__category"></span>
                </div>
          </article>
       </section>
@@ -230,7 +230,7 @@
 
       <section class="main__content">
          <form action="" method="post">
-            <button type="submit" value="Kid" class="card__title">Kid</button>
+            <button type="submit" value="kid" class="card__title">Kid</button>
          </form>
 
          <div class="movie__swiper swiper">
