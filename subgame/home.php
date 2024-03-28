@@ -141,7 +141,7 @@
       <!--==================== BANNER ====================-->
       <section class="banner">
          <article class="banner__card">
-            <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" alt="image" class="banner__img">
+            <img src="https://cdn.discordapp.com/attachments/1209868463586414653/1222911284706672730/image0.jpg?ex=6617efe2&is=66057ae2&hm=c300b652a415e319cb4936fc7f5b1d250be84072c7d74b7746f6299834ee7311&" alt="image" class="banner__img">
             <div class="banner__shadow"></div>
 
             <div class="banner__data">
@@ -162,7 +162,7 @@
                <?php
                   $top_game = res_sql_query("select * from game order by favourite, id desc");
 
-                  for ($i = 0; $i < 6; $i++) {
+                  for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
                      $id = $row["id"];
                      $row_img = $row["vertical_img"];
@@ -202,7 +202,7 @@
                <?php
                   $top_game = res_sql_query("select * from game where player = 'family' order by id desc");
 
-                  for ($i = 0; $i < 6; $i++) {
+                  for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
                      $id = $row["id"];
                      $row_img = $row["vertical_img"];
@@ -238,7 +238,7 @@
                <?php
                   $top_game = res_sql_query("select * from game where player = 'kid' order by id desc");
 
-                  for ($i = 0; $i < 6; $i++) {
+                  for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
                      $id = $row["id"];
                      $row_img = $row["vertical_img"];
@@ -274,7 +274,7 @@
                <?php
                   $top_game = res_sql_query("select * from game where player = 'male' order by id desc");
 
-                  for ($i = 0; $i < 6; $i++) {
+                  for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
                      $id = $row["id"];
                      $row_img = $row["vertical_img"];
@@ -310,7 +310,7 @@
                <?php
                   $top_game = res_sql_query("select * from game where player = 'famale' order by id desc");
 
-                  for ($i = 0; $i < 6; $i++) {
+                  for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
                      $id = $row["id"];
                      $row_img = $row["vertical_img"];
