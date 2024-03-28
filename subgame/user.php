@@ -1,3 +1,41 @@
+<?php
+require_once "php/utils.php";
+$name = $email = "";
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+    $id = $_SESSION['id_user'];
+    $user = res_sql_query("select * from user where id = $id");
+    $name = $user[0]['name'];
+    $email = $user[0]['email'];
+} else {
+    $name = $name_email = "";
+    $name = get_post('name');
+    $email = get_post('email');
+    $pwd = get_post('pwd');
+    $name_email = get_post('name_email');
+
+    if ($name != '') {
+    $pwd = hash_pwd($pwd);
+    $cur_time = date('Y-m-d H:i:s');
+    sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+    }
+
+    if ($name_email != "") {
+    $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+    if (count($db_user) != 1) {
+        $_SESSION['loggedin'] = false;
+    } else {
+        if (password_verify($pwd, $db_user[0]['password'])) {
+                $_SESSION['loggedin'] = true;
+                $_SESSION['id_user'] = $db_user[0]['id'];
+        } else {
+                $_SESSION['loggedin'] = false;
+        }
+    }
+    }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +49,17 @@
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>GAMES</title>
+    <title>USER</title>
 </head>
 <body id="body">
-    <div class="bg__image" style="background-color: #000;"></div>
+    <img src="/Assets/background_img/_3fa7c2cc-6397-44bd-abf5-74fb81d07c23.jpg" alt="image" class="bg__image" id="bg-image">
+    <div class="bg__blur"></div>
     
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
@@ -70,7 +109,7 @@
             </li>
 
             <li class="nav__item">
-                <a class="nav__button active" href="blog.html">
+                <a class="nav__button" href="blog.html">
                     <i class="ri-blogger-line"></i> <span>Blog</span>
                 </a>
             </li>
@@ -102,74 +141,82 @@
         </div>
     </nav>
 
-    <!--=============== BLOG  ===============-->
-    <main class="main" id="blog">
-        <section class="blog">
-            <div class="blog__header mt-3">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img me-3">
-                <div class="blog__user">
-                <h3 class="user__name">ADMIN</h3>
-                <span class="user__timestamp">18:00 20/03/2024</span>
-                </div>
+    <!--=============== USER  ===============-->
+    <main class="main" id="user">
+        <div class="row user m-5">
+            <div class="col-sm-3 user__nav pt-5">
+            <div class="user__infor">
+                    <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img">
+                    <h2 class="user__name my-3">ADMIN</h2>
             </div>
-            <div class="blog__body mt-3">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="blog__img">
-                <div class="blog__content mt-2">Announcement</div>
+            <ul class="nav__list ms-auto">
+                <li class="nav__item">
+                    <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
+                </li>
+                <li class="nav__item">
+                    <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
+                </li>
+            </ul>
             </div>
-            <div class="blog__footer mt-3">
-                <button onclick="displayBlogMain()">See more<i class="ri-arrow-right-s-line"></i></button>
+            <div class="col-sm-7 user__content mx-auto pb-5">
+            <div class="user__profile" id="profile">
+                    <h2 class="my-3">Profile</h2>
+                    <div class="user__form mt-5">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label>User Name:</label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <p><?php echo "$name";?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label>Email:</label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <p><?php echo "$email";?></p>
+                                </div>
+                            </div>
+                            <button class="form__button mt-3">Edit Profile</button>
+                        </form>
+                    </div>
             </div>
-        </section>
-
-        <section class="blog">
-            <div class="blog__header mt-3">
-            <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img me-3">
-            <div class="blog__user">
-                <h3 class="user__name">ADMIN</h3>
-                <span class="user__timestamp">18:00 20/03/2024</span>
+            <div class="user__password" id="password" style="display: none;">
+                    <h2 class="my-3">Password</h2>
+                    <div class="user__form mt-5">
+                        <form action="">
+                            <div class="row mt-3">
+                                <div class="col-sm-3">
+                                    <label>Old password:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-3">
+                                    <label>New password:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-3">
+                                    <label>Confirm password:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <button class="form__button mt-5">Change Password</button>
+                        </form>
+                    </div>
             </div>
             </div>
-            <div class="blog__body mt-3">
-            <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="blog__img">
-            <div class="blog__content mt-2">Announcement</div>
-            </div>
-            <div class="blog__footer mt-3">
-            <button onclick="displayBlogMain()">See more<i class="ri-arrow-right-s-line"></i></button>
-            </div>
-        </section>
-
-        <section class="blog">
-            <div class="blog__header mt-3">
-            <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img me-3">
-            <div class="blog__user">
-                <h3 class="user__name">ADMIN</h3>
-                <span class="user__timestamp">18:00 20/03/2024</span>
-            </div>
-            </div>
-            <div class="blog__body mt-3">
-            <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="blog__img">
-            <div class="blog__content mt-2">Announcement</div>
-            </div>
-            <div class="blog__footer mt-3">
-            <button onclick="displayBlogMain()">See more<i class="ri-arrow-right-s-line"></i></button>
-            </div>
-        </section>
-        
-        <div class="blog__main__bg" onclick="closeBlogMain()"></div>
-        <section class="blog__main" id="blog-main" style="display: none;">
-            <button onclick="closeBlogMain()"><i class="ri-close-line"></i></button>
-            <div class="blog__header mt-3">
-            <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="" class="user__img me-3">
-            <div class="blog__user">
-                <h3 class="user__name">ADMIN</h3>
-                <span class="user__timestamp">18:00 20/03/2024</span>
-            </div>
-            </div>
-            <div class="blog__body mt-3">
-            <h1 class="blog__heading mt-2">Announcement</h1>
-            <div class="blog__content mt-3">Chess is a two-player game with the goal of checkmating the opponent's king. It has roots in 7th-century India and modern rules were standardized in the 19th century. It's globally popular and also known as international or Western chess to differentiate it from similar games like xiangqi and shogi.</div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <!--=============== SIGNIN SIGNUP ===============-->
@@ -235,6 +282,44 @@
             </div>
         </div>
     </div>
+
+    <!--=============== FOOTER  ===============-->
+    <footer class="footer mt-5" id="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+            <h3 class="website-logo">Name</h3>
+            <span class="footer-info">123414254614</span>
+            <span class="footer-info">ajsdhf@loaishgfow.com</span>
+            </div>
+            <div class="footer__menu">
+            <div class="footer__content">
+                <span class="menu__title">Menu</span>
+                <a href="#" class="menu__item">Home</a>
+                <a href="#" class="menu__item">Course</a>
+                <a href="#" class="menu__item">Testimonials</a>
+            </div>
+            <div class="footer__content">
+                <span class="menu__title">legal</span>
+                <a href="#" class="menu__item">Primary Policy</a>
+                <a href="#" class="menu__item">Cookies</a>
+                <a href="#" class="menu__item">Terms & Conditions</a>
+            </div>
+            </div>
+
+            <div class="footer__content">
+            <span class="menu__title">follow us</span>
+            <div class="social-container">
+                <a href="#" class="social__link"><i class="ri-facebook-circle-fill"></i></a>
+                <a href="#" class="social__link"><i class="ri-instagram-fill"></i></a>
+                <a href="#" class="social__link"><i class="ri-youtube-fill"></i></a>
+                <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></i></a>
+            </div>
+            </div>
+        </div>
+        <div class="copyright__container">
+            <span class="copyright">&copy;2024, aksdfbo.com.</span>
+        </div>
+    </footer>
 
     <!--=============== SWIPER JS ===============-->
     <script src="js/swiper-bundle.min.js"></script>

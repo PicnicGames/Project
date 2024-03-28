@@ -1,3 +1,34 @@
+<?php
+require_once "php/utils.php";
+session_start();
+
+$name = $name_email = "";
+$name = get_post('name');
+$email = get_post('email');
+$pwd = get_post('pwd');
+$name_email = get_post('name_email');
+
+if ($name != '') {
+   $pwd = hash_pwd($pwd);
+   $cur_time = date('Y-m-d H:i:s');
+   sql_query("insert into user (username, email, password, created_at) values ('$name', '$email', '$pwd', '$cur_time')");
+}
+
+if ($name_email != "") {
+   $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+   if (count($db_user) != 1) {
+      $_SESSION['loggedin'] = false;
+   } else {
+      if (password_verify($pwd, $db_user[0]['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id_user'] = $db_user[0]['id'];
+      } else {
+            $_SESSION['loggedin'] = false;
+      }
+   }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,48 +80,48 @@
 <!--==================== NAV ====================-->
 <nav class="navigation" id="navigation">
     <div class="nav__menu">
-        <a href="index.html" class="nav__logo">Picnic Play</a>
+        <a href="home.php" class="nav__logo">Picnic Play</a>
 
         <ul class="nav__list">
-        <li class="nav__item">
-            <a class="nav__button" href="index.html">
-                <i class="ri-home-5-line"></i> <span>Home</span>
-            </a>
-        </li>
+            <li class="nav__item">
+                <a class="nav__button" href="home.php">
+                    <i class="ri-home-5-line"></i> <span>Home</span>
+                </a>
+            </li>
 
-        <li class="nav__item">
-            <a class="nav__button active" href="allgames.html">
-                <i class="ri-gamepad-line"></i> <span>All Games</span>
-            </a>
-        </li>
+            <li class="nav__item">
+                <a class="nav__button active" href="allgames.php">
+                    <i class="ri-gamepad-line"></i> <span>All Games</span>
+                </a>
+            </li>
 
-        <li class="nav__item">
-            <a class="nav__button" href="favorite.html">
-                <i class="ri-heart-3-line"></i> <span>Favorites</span>
-            </a>
-        </li>
+            <li class="nav__item">
+                <a class="nav__button" href="favorite.php">
+                    <i class="ri-heart-3-line"></i> <span>Favorites</span>
+                </a>
+            </li>
 
-        <li class="nav__item">
-            <a class="nav__button" href="blog.html">
-                <i class="ri-blogger-line"></i> <span>Blog</span>
-            </a>
-        </li>
+            <li class="nav__item">
+                <a class="nav__button" href="blog.php">
+                    <i class="ri-blogger-line"></i> <span>Blog</span>
+                </a>
+            </li>
 
-        <li class="nav__item">
-            <a class="nav__button" href="contact.html">
-                <i class="ri-contacts-line"></i> <span>Contact</span>
-            </a>
-        </li>
+            <li class="nav__item">
+                <a class="nav__button" href="contact.php">
+                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                </a>
+            </li>
         </ul>
 
         <!-- USER -->
         <div class="nav__user pt-3" id="registered">
-        <a class="nav__button" href="user.html">
-            <div class="user__container">
-                <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
-                <div class="user__name">ADMIN</div>
-            </div>
-        </a>
+            <a class="nav__button" href="user.html">
+                <div class="user__container">
+                    <img src="https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7" alt="" class="user__img me-3">
+                    <div class="user__name">ADMIN</div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -120,123 +151,45 @@
 
     <!--==================== GAMES ====================-->
     <section class="main__content">
-        <button type="submit" value="Family" class="card__title" onclick="displayAllGames()">Trending</button>
+        <form action="" method="post">
+            <button type="submit" value="Family" class="card__title">Trending</button>
+        </form>
 
-        <div class="row">
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
+        <?php
+            $top_game = res_sql_query("select * from game order by favourite, id desc");
 
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-        </div>
-
-        <div class="row">
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-
-            <article class="col-sm mb-5">
-            <button class="card__link" onclick="displayGame()">
-                <img src="https://i.pinimg.com/236x/fe/c7/d0/fec7d04fae1856e2eb2b6d594695c336.jpg" alt="image" class="card__img">
-                <div class="card__shadow"></div>
-
-                <div class="card__data">
-                    <h3 class="card__name">Chess</h3>
-                    <span class="card__category">Tactic</span>
-                </div>
-
-                <i class="ri-heart-3-line card__like"></i>
-            </button>
-            </article>
-        </div>
+            for ($j = 0; $j <= count($top_game) / 4; $j++) {
+                echo "
+                    <div class='row hide__content mb-5'>
+                ";
+                for ($i = $j*4; $i < min(count($top_game), 4); $i++) {
+                    $row = $top_game[$i];
+                    $id = $row["id"];
+                    $row_img = $row["vertical_img"];
+                    echo "
+                    <article class='col-sm mb-5'>
+                        <form action='' method='post'>
+                            <input type='hidden' value='$id' name='game_choose'>
+                            <button type='submit' class='card__link'>
+                                <img src='$row_img' alt='image' class='card__img'>
+                                <div class='card__shadow'></div>
+                                
+                                <div class='card__data'>
+                                    <h3 class='card__name'>".$row['title']."</h3>
+                                    <span class='card__category'>".$row['player']."</span>
+                                    <span class='card__category'>".$row['place']."</span>
+                                </div>
+                                
+                                <i class='ri-heart-3-line card__like'></i>
+                            </button>
+                        </form>
+                    </article>";
+                };
+                echo "
+                    </div>
+                ";
+            }
+        ?>
     </section>
 </main>
 

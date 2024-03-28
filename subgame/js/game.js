@@ -1,4 +1,20 @@
 /*=============== MAINPAGE ===============*/
+window.addEventListener('scroll', show);
+console.log(window.innerHeight);
+function show() {  
+   var contents = document.querySelectorAll('.hide__content');
+
+   for(var i = 0; i < contents.length; i++) {
+      var windowHeight = window.innerHeight;
+      var showTop = contents[i].getBoundingClientRect().top;
+
+      if(showTop < windowHeight) {
+         contents[i].classList.add('show__content');
+      } else {
+         contents[i].classList.remove('show__content');
+      }
+   }
+}
 
 /*=============== SHOW MENU ===============*/
 const nav = document.getElementById('navigation'),

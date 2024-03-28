@@ -89,6 +89,18 @@ img {
 }
 
 /*=============== LAYOUT ===============*/
+.hide__content {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.hide__content.show__content {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
 .main {
   position: relative;
   display: grid;
@@ -567,6 +579,7 @@ img {
 .blog {
   width: 40%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
   padding: 1rem 2rem 5rem 2rem;
   margin: auto;
   z-index: 1;
@@ -709,10 +722,6 @@ img {
   padding: 3rem 0;
 }
 
-.user .user__heading {
-  
-}
-
 .user__form {
   font-size: var(--h3-font-size);
 }
@@ -771,12 +780,8 @@ img {
   border-radius: 1rem;
 }
 
-.contact__body textarea:focus-visible {
-  outline: none;
-}
-
 .contact__body input:focus-visible, .contact__body textarea:focus-visible {
-  border: 2px solid #333;
+  border: 3px solid #333;
 }
 
 .contact__body .row:first-child {
@@ -1066,6 +1071,7 @@ img {
 .modal__container.right-panel__active {
   & .signin__container {
       transform: translateY(100%);
+      opacity: 0;
   }
 
   & .overlay__container {
@@ -1187,6 +1193,48 @@ footer .website-logo {
 
 .social__link:hover {
   opacity: 0.7;
+}
+
+/*=============== ADMIN ===============*/
+.admin {
+  font-size: var(--h1-font-size);
+  font-weight: var(--big-font-size);
+  text-transform: uppercase;
+}
+
+/* ADD GAME */
+.add__game {
+  width: 80%;
+  margin: auto;
+}
+
+.add__game h1 {
+  font-size: var(--h1-font-size);
+  text-transform: uppercase;
+}
+
+.add__game input, .add__game textarea {
+  color: #000;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--white-color-light);
+}
+
+.add__game input:focus-visible, .add__game textarea:focus-visible {
+  border: 3px solid #000;
+}
+
+.add__game button {
+  color: #000;
+  background-color: var(--white-color-light);
+  padding: 1rem 2rem;
+  border: 1px solid var(--white-color);
+  border-radius: 1rem;
+}
+
+.add__game button:hover {
+  background-color: #ccc;
 }
 
 /*=============== BREAKPOINTS ===============*/
