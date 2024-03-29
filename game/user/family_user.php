@@ -151,7 +151,7 @@ if ($name_email != "") {
                         $row_img = $row["vertical_img"];
                         echo "
                         <article class='col-sm-3'>
-                            <form action='' method='post'>
+                            <form action='game_user.php' method='post'>
                                 <input type='hidden' value='$id' name='game_choose'>
                                 <button type='submit' class='card__link'>
                                     <img src='$row_img' alt='image' class='card__img'>
@@ -183,7 +183,7 @@ if ($name_email != "") {
                         $row_img = $row["vertical_img"];
                         echo "
                         <article class='col-sm-3'>
-                            <form action='' method='post'>
+                            <form action='game_user.php' method='post'>
                                 <input type='hidden' value='$id' name='game_choose'>
                                 <button type='submit' class='card__link'>
                                     <img src='$row_img' alt='image' class='card__img'>
