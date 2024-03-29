@@ -181,16 +181,16 @@ if ($add_fav != "") {
                         ?>
                     </div>
                     <div class="game__catagory">
-                        <button class="mx-auto">
+                        <span class="mx-auto">
                             <?php
                             echo $game[0]['player'];
                             ?>
-                        </button>
-                        <button class="mx-auto">
+                        </span>
+                        <span class="mx-auto">
                             <?php
                             echo $game[0]['place'];
                             ?>
-                        </button>
+                        </span>
                     </div>
                     <div class="game__rating">
                         <h3 class="mt-3">Favorite: <?php
