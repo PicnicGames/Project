@@ -34,7 +34,7 @@ if ($id != '') {
     <!--==================== HEADER ====================-->
     <header class="header admin__header" id="header">
         <div class="header__content">
-            <a href="index.html" class="header__logo">Picnic Play</a>
+            <a href="admin.php" class="header__logo">Picnic Play</a>
 
             <!-- NONE -->
             <div class="header__user">
@@ -52,7 +52,7 @@ if ($id != '') {
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="/project/subgame/admin.php">
+                    <a class="nav__link" href="admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
