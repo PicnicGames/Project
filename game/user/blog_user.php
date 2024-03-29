@@ -68,7 +68,7 @@ if ($name_email != "") {
             </div>
         </div>
 
-        <form action="" class="header__search">
+        <form action="search_user.php" class="header__search">
             <i class="ri-search-line"></i>
             <input type="search" placeholder="Search games or places . . ." class="header__input">
         </form>
