@@ -16,7 +16,6 @@ if (isset($_SESSION['id_user'])) {
 
 if ($name != '') {
    $pwd = hash_pwd($pwd);
-   $cur_time = date('Y-m-d H:i:s');
    sql_query("insert into user (username, email, password) values ('$name', '$email', '$pwd')");
 }
 

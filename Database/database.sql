@@ -42,3 +42,7 @@ CREATE TABLE `contact` (
 ALTER TABLE `favourite` ADD FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 ALTER TABLE `favourite` ADD FOREIGN KEY (`id_game`) REFERENCES `game` (`id`);
+
+ALTER TABLE `user` ADD UNIQUE(`username`);
+ALTER TABLE `user` ADD UNIQUE(`email`);
+ALTER TABLE `contact` ADD UNIQUE(`email`);

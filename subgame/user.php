@@ -13,10 +13,12 @@ if (isset($_SESSION['loggedin'])) {
     $old_pwd = get_post("old_pwd");
     $new_pwd = get_post("new_pwd");
     $conf_pwd = get_post("conf_pwd");
-    if (password_verify($old_pwd, $user[0]['password'])) {
-        header('Location: admin.php');
-        $pwd = hash_pwd($new_pwd);
-        sql_query("update user set password = '$pwd' where id = $id");
+    if ($old_pwd != "") {
+        if (password_verify($old_pwd, $user[0]['password'])) {
+            header('Location: admin.php');
+            $pwd = hash_pwd($new_pwd);
+            sql_query("update user set password = '$pwd' where id = $id");
+        }
     }
 } else {
     $name = $name_email = "";
