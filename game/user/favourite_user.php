@@ -158,8 +158,8 @@ if ($name_email != "") {
                                     <div class='col-sm-7 fav__data'>
                                         <h3 class='fav__title'>".$row['title']."</h3>
                                         <div class='fav__content'>".$row['description']."</div>
-                                        <a href='home_user.php #family'><span class='fav__catagory'>".$row['player']."</span></a>
-                                        <a href=''><span class='fav__catagory'>".$row['place']."</span></a>
+                                        <span class='fav__catagory'>".$row['player']."</span>
+                                        <span class='fav__catagory'>".$row['place']."</span>
                                     </div>
                                 </div>
                             </button>
@@ -184,8 +184,8 @@ if ($name_email != "") {
                                     <div class='col-sm-7 fav__data'>
                                         <h3 class='fav__title'>".$row['title']."</h3>
                                         <div class='fav__content'>".$row['description']."</div>
-                                        <a href='home_user.php #family'><span class='fav__catagory'>".$row['player']."</span></a>
-                                        <a href=''><span class='fav__catagory'>".$row['place']."</span></a>
+                                        <span class='fav__catagory'>".$row['player']."</span>
+                                        <span class='fav__catagory'>".$row['place']."</span>
                                     </div>
                                 </div>
                             </button>
