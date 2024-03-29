@@ -50,6 +50,12 @@ if ($id != '') {
                 </li>
 
                 <li class="nav__item">
+                    <a class="nav__link" href="add_blog.php">
+                        <i class="ri-blogger-line"></i> <span>Add Blog</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
                     <a class="nav__link active" href="view_game.php">
                         <i class="ri-heart-3-line"></i> <span>View Games</span>
                     </a>

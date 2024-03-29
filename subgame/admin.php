@@ -32,25 +32,31 @@
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link" href="add_game.php">
+                    <a class="nav__link" href="php/add_game.php">
                         <i class="ri-gamepad-line"></i> <span>Add Game</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link" href="view_game.php">
+                    <a class="nav__link" href="php/add_blog.php">
+                        <i class="ri-blogger-line"></i> <span>Add Blog</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a class="nav__link" href="php/view_game.php">
                         <i class="ri-heart-3-line"></i> <span>View Games</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link" href="view_user.php">
+                    <a class="nav__link" href="php/view_user.php">
                         <i class="ri-blogger-line"></i> <span>View Users</span>
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link" href="view_feedback.php">
+                    <a class="nav__link" href="php/view_feedback.php">
                         <i class="ri-blogger-line"></i> <span>View Feedback</span>
                     </a>
                 </li>
