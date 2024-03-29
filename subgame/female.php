@@ -44,7 +44,7 @@ if ($name_email != "") {
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
     <!--=============== GAME CSS ===============-->
-    <link rel="stylesheet" href="/project/subgame/css/game.css">
+    <link rel="stylesheet" href="css/game.css">
 
     <!--=============== BOOTSTRAP ===============-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
