@@ -131,14 +131,13 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== FAVOURITE PAGE ====================-->
+    <!--==================== ALL GAMES ====================-->
     <main class="main" id="all-games">
-        <!--==================== GAMES ====================-->
         <section class="main__content">
             <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / All Games</span></h1>
 
             <?php
-                $all_game = res_sql_query("select * from game order by favourite, id desc");
+                $all_game = res_sql_query("select * from game order by id desc");
 
                 for ($j = 0; $j < 2; $j++) {
                     echo "

@@ -132,9 +132,8 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== FAVOURITE PAGE ====================-->
+    <!--==================== FAMILY GAMES ====================-->
     <main class="main" id="all-games">
-        <!--==================== GAMES ====================-->
         <section class="main__content">
             <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Family Games</span></h1>
 

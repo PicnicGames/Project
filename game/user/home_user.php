@@ -179,7 +179,7 @@ if ($name_email != "") {
          <div class="new__swiper swiper">
             <div class="swiper-wrapper">
                <?php
-                  $top_game = res_sql_query("select * from game order by favourite, id desc");
+                  $top_game = res_sql_query("select * from game order by favourite desc");
 
                   for ($i = 0; $i < min(count($top_game), 6); $i++) {
                      $row = $top_game[$i];
@@ -210,7 +210,7 @@ if ($name_email != "") {
          <div class="swiper-pagination"></div>
       </section>
 
-      <!--==================== GAMES ====================-->
+      <!--==================== FAMILY ====================-->
       <section class="main__content mb-3 hide__content" id="family">
          <a href="family_user.php" class="page__link">Family</a>
 
@@ -245,6 +245,7 @@ if ($name_email != "") {
          </div>
       </section>
 
+      <!--==================== KID ====================-->
       <section class="main__content mb-3 hide__content">
          <a href="kid_user.php" class="page__link">Kid</a>
 
@@ -279,6 +280,7 @@ if ($name_email != "") {
          </div>
       </section>
 
+      <!--==================== MALE ====================-->
       <section class="main__content mb-3 hide__content">
          <a href="male_user.php" class="page__link">Male</a>
 
@@ -313,6 +315,7 @@ if ($name_email != "") {
          </div>
       </section>
 
+      <!--==================== FEMALE ====================-->
       <section class="main__content mb-3 hide__content">
          <a href="female_user.php" class="page__link">Female</a>
 
