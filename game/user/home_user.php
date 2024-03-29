@@ -211,7 +211,7 @@ if ($name_email != "") {
       </section>
 
       <!--==================== GAMES ====================-->
-      <section class="main__content mb-3 hide__content">
+      <section class="main__content mb-3 hide__content" id="family">
          <a href="family_user.php" class="page__link">Family</a>
 
          <div class="movie__swiper swiper">
