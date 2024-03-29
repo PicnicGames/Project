@@ -36,15 +36,14 @@ $title = $game[0]['title'];
 
 $add_fav = "";
 $add_fav = get_post('add_fav');
-$_SESSION["$title"] = 'notclicked';
-if ($add_fav != "" && $_SESSION["$title"] != 'clicked') {
-    $user_id = $_SESSION['id_user'];
-    sql_query("insert into favourite (id_user, id_game) values ($user_id, $id)");
-    sql_query("update game set favourite = favourite + 1 where id = $id");
-    $_SESSION["$title"] = 'clicked';
-} else {
-    $_SESSION["$title"] = 'notclicked';
-    sql_query("update game set favourite = favourite - 1 where id = $id");
+if ($add_fav != "") {
+    $id_user = $_SESSION['id_user'];
+    $res = res_sql_query("select count(id_user) 'num' from favourite where id_game = $id and id_user = $id_user");
+    if ($res[0]['num'] != 0) {
+        sql_query("delete from favourite where id_game = $id and id_user = $id_user");
+    } else {
+        sql_query("insert into favourite (id_user, id_game) values ($id_user, $id)");
+    }
 }
 ?>
 
@@ -183,7 +182,10 @@ if ($add_fav != "" && $_SESSION["$title"] != 'clicked') {
                         </button>
                     </div>
                     <div class="game__rating">
-                        <h3 class="mt-3">Favorite: <?php echo $game[0]['favourite'];?></h3>
+                        <h3 class="mt-3">Favorite: <?php
+                        $res = res_sql_query("select count(id_user) 'num' from favourite where id_game = $id");
+                        echo $res[0]['num'];
+                        ?></h3>
                     </div>
                     <form action="game_user.php" method="post">
                         <input type="hidden" name="add_fav" value="1">
