@@ -68,7 +68,7 @@ if ($name_email != "") {
             </div>
         </div>
 
-        <form action="" class="header__search">
+        <form action="search_user.php" class="header__search">
             <i class="ri-search-line"></i>
             <input type="search" placeholder="Search games or places . . ." class="header__input">
         </form>
@@ -160,8 +160,6 @@ if ($name_email != "") {
                                         <span class='card__category'>".$row['player']."</span>
                                         <span class='card__category'>".$row['place']."</span>
                                     </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
                                 </button>
                             </form>
                         </article>";
@@ -192,8 +190,6 @@ if ($name_email != "") {
                                         <span class='card__category'>".$row['player']."</span>
                                         <span class='card__category'>".$row['place']."</span>
                                     </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
                                 </button>
                             </form>
                         </article>";

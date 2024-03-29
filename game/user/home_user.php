@@ -1,6 +1,5 @@
 <?php
 require_once "../admin/utils.php";
-require "search_bar.php";
 session_start();
 
 $name = $name_email = $uname = "";
@@ -55,7 +54,7 @@ if ($name_email != "") {
 <body id="body">
    <img src="https://c8.alamy.com/compfr/eh9pfy/jeu-de-cartes-a-jouer-en-famille-au-picnic-eh9pfy.jpg" class="bg__image"></img>
    <div class="bg__blur"></div>
-   
+
    <!--==================== HEADER ====================-->
    <header class="header" id="header">
       <div class="header__content">
@@ -68,12 +67,11 @@ if ($name_email != "") {
          </div>
       </div>
 
-      <form action="" class="header__search">
+      <form action="search_user.php" method="post" class="header__search">
          <i class="ri-search-line"></i>
-         <input type="search" placeholder="Search games or places . . ." class="header__input">
-      
-         
-      </header>
+         <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
+      </form>
+   </header>
       
       <!--==================== NAV ====================-->
       <nav class="navigation" id="navigation">

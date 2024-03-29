@@ -669,7 +669,7 @@ img {
   padding-top: 1.25rem;
 }
 
-.like__btn {
+.like__button {
   width: 45%;
   position: absolute;
   bottom: 30px;
@@ -680,13 +680,13 @@ img {
   padding: 1rem;
 }
 
-.like__btn:hover, .like__btn:hover i {
+.like__button:hover, .like__button:hover i {
   background: var(--white-color);
   color: #000;
 }
 
 .game__content {
-  font-size: var(--font-regular);
+  font-size: var(--h3-font-size);
 }
 
 /*=============== FAVOURITE ===============*/
@@ -705,10 +705,18 @@ img {
 
 .fav__img {
   position: relative;
+  padding: 0 !important;
+  margin-left: 2rem;
+}
+
+.fav__img img {
+  width: 100%;
 }
 
 .fav__data {
   text-align: left;
+  padding: 0 !important;
+  margin-left: 2rem;
 }
 
 .fav__title {
@@ -1467,7 +1475,7 @@ footer .website-logo {
     border-radius: 1rem;
   }
 
-  .game__like__btn {
+  .like__button {
     width: 100%;
   }
 
@@ -1511,6 +1519,10 @@ footer .website-logo {
 
   .game__catagory {
     margin-bottom: 0;
+  }
+
+  .fav__game {
+    padding: 1.5rem;
   }
 
   .blog {
