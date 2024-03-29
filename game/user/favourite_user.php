@@ -137,74 +137,66 @@ if ($name_email != "") {
         <!--==================== GAMES ====================-->
         <section class="main__content">
             <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Family Games</span></h1>
-
+           
             <?php
-                $all_game = res_sql_query("select * from favourite order by id_game desc");
+                $all_game = res_sql_query("select * from game, favourite where id = id_game order by id_game desc");
 
-                for ($j = 0; $j < 2; $j++) {
-                    echo "
-                        <div class='row mb-3'>
-                    ";
-                    for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
-                        $row = $all_game[$i];
-                        $id = $row["id"];
-                        $row_img = $row["vertical_img"];
-                        echo "
-                        <article class='col-sm-3'>
+                for ($i = 0; $i < 2; $i++) {
+                    $row = $all_game[$i];
+                    $id = $row["id"];
+                    $row_img = $row["vertical_img"];
+                    echo 
+                    "<div class='row mb-5'>
+                        <article class='fav__game'>
                             <form action='' method='post'>
                                 <input type='hidden' value='$id' name='game_choose'>
-                                <button type='submit' class='card__link'>
-                                    <img src='$row_img' alt='image' class='card__img'>
-                                    <div class='card__shadow'></div>
-                                    
-                                    <div class='card__data'>
-                                        <h3 class='card__name'>".$row['title']."</h3>
-                                        <span class='card__category'>".$row['player']."</span>
-                                        <span class='card__category'>".$row['place']."</span>
+                                <button type='submit' class='fav__link'>
+                                    <div class='col-sm-4 fav__img me-5'>
+                                        <img src='$row_img' alt='image' class='card__img'>
+                                        <div class='card__shadow'></div>
                                     </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
+                                    <div class='col-sm-7'>
+                                        <div class='fav__data'>
+                                            <h3 class='fav__title'>".$row['title']."</h3>
+                                            <div class='fav__content'>".$row['description']."</div>
+                                            <a href='home_user.php #family'><span class='fav__catagory'>".$row['player']."</span></a>
+                                            <a href=''><span class='fav__catagory'>".$row['place']."</span></a>
+                                        </div>
+                                    </div>
                                 </button>
                             </form>
-                        </article>";
-                    };
-                    echo "
-                        </div>
-                    ";
+                        </article>
+                    </div>";
                 }
 
-                for ($j = 2; $j < ceil(count($all_game) / 4); $j++) {
-                    echo "
-                        <div class='row mb-3 hide__content'>
-                    ";
-                    for ($i = $j*4; $i < min(count($all_game), $j*4+4); $i++) {
-                        $row = $all_game[$i];
-                        $id = $row["id"];
-                        $row_img = $row["vertical_img"];
-                        echo "
-                        <article class='col-sm-3'>
+                for ($i = 2; $i < count($all_game); $i++) {
+                    $row = $all_game[$i];
+                    $id = $row["id"];
+                    $row_img = $row["vertical_img"];
+                    echo 
+                    "<div class='row mb-5'>
+                        <article class='fav__game'>
                             <form action='' method='post'>
                                 <input type='hidden' value='$id' name='game_choose'>
-                                <button type='submit' class='card__link'>
-                                    <img src='$row_img' alt='image' class='card__img'>
-                                    <div class='card__shadow'></div>
-                                    
-                                    <div class='card__data'>
-                                        <h3 class='card__name'>".$row['title']."</h3>
-                                        <span class='card__category'>".$row['player']."</span>
-                                        <span class='card__category'>".$row['place']."</span>
+                                <button type='submit' class='fav__link'>
+                                    <div class='col-sm-4 fav__img me-5'>
+                                        <img src='$row_img' alt='image' class='card__img'>
+                                        <div class='card__shadow'></div>
                                     </div>
-                                    
-                                    <i class='ri-heart-3-line card__like'></i>
+                                    <div class='col-sm-7'>
+                                        <div class='fav__data'>
+                                            <h3 class='fav__title'>".$row['title']."</h3>
+                                            <div class='fav__content'>".$row['description']."</div>
+                                            <a href='home_user.php #family'><span class='fav__catagory'>".$row['player']."</span></a>
+                                            <a href=''><span class='fav__catagory'>".$row['place']."</span></a>
+                                        </div>
+                                    </div>
                                 </button>
                             </form>
-                        </article>";
-                    };
-                    echo "
-                        </div>
-                    ";
+                        </article>
+                    </div>";
                 }
-            ?>
+            ?>    
         </section>
     </main>
 
