@@ -1,4 +1,4 @@
-<div?php
+<?php
 require_once "utils.php";
 
 $id_edit_game = $title = $player = $place = $vimg = $himg = $vid = $desc = $cont = "";

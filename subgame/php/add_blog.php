@@ -4,16 +4,11 @@ require_once "utils.php";
 $title = "";
 
 $title = get_post('title');
-$player = get_post('player');
-$place = get_post('place');
-$vimg = get_post('vimg');
-$himg = get_post('himg');
-$vid = get_post('vid');
-$desc = get_post('desc');
 $cont = get_post('cont');
 
 if ($title != "") {
-    $sql = "insert into game (title, player, place, vertical_img, horizontal_img, video, description, content, favourite) values ('$title','$player','$place','$vimg','$himg','$vid','$desc','$cont',0)";
+    $cur_time = date("Y-m-d H:i:s");
+    $sql = "insert into blog (title, content, created_at) values ('$title','$cont','$cur_time')";
     sql_query($sql);
 }
 
@@ -35,7 +30,7 @@ if ($title != "") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>ADD GAMES</title>
+    <title>ADD BLOG</title>
 </head>
 <body id="body">
     <div class="bg__image" style="background: #333"></div>
@@ -95,33 +90,11 @@ if ($title != "") {
 
     <main class="main">
         <section class="add__game">
-            <h1 class="mb-5">Add game</h1>
+            <h1 class="mb-5">Add blog</h1>
             <form method="post">
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-sm">
                         <input required type="text" name="title" placeholder="Name">
-                    </div>
-                    <div class="col-sm">
-                        <input required type="text" name="player" placeholder="Player">
-                    </div>
-                    <div class="col-sm">
-                        <input required type="text" name="place" placeholder="Place">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm">
-                        <input required type="text" name="vimg" placeholder="Vertical Image">
-                    </div>
-                    <div class="col-sm">
-                        <input required type="text" name="himg" placeholder="Horizontal Image">
-                    </div>
-                    <div class="col-sm">
-                        <input required type="text" name="vid" placeholder="Video">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm-4">
-                        <textarea required name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
                     </div>
                     <div class="col-sm-8">
                         <textarea required name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>

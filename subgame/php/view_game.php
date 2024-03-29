@@ -1,4 +1,4 @@
-<div?php
+<?php
 require_once "utils.php";
 $id = "";
 $id = get_post('id');
