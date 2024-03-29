@@ -168,13 +168,11 @@ if ($add_fav != "") {
                         ?>
                     </div>
                     <div class="game__catagory">
-                        <a href="home_none.php #family">
-                            <button class="mx-auto">
-                                <?php
-                                echo $game[0]['player'];
-                                ?>
-                            </button>
-                        </a>
+                        <button class="mx-auto">
+                            <?php
+                            echo $game[0]['player'];
+                            ?>
+                        </button>
                         <button class="mx-auto">
                             <?php
                             echo $game[0]['place'];
@@ -234,9 +232,9 @@ if ($add_fav != "") {
 
             <div class="footer__content">
                 <span class="menu__title">Menu</span>
-                <a href="#" class="menu__item">Home</a>
-                <a href="#" class="menu__item">Game</a>
-                <a href="#" class="menu__item">Contact Us</a>
+                <a href="home_none.php" class="menu__item">Home</a>
+                <a href="allgames_none.php" class="menu__item">Games</a>
+                <a href="contact_none.php" class="menu__item">Contact Us</a>
             </div>
 
             <div class="footer__content">

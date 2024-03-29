@@ -195,9 +195,9 @@ if ($name_email != "") {
 
             <div class="footer__content">
                 <span class="menu__title">Menu</span>
-                <a href="#" class="menu__item">Home</a>
-                <a href="#" class="menu__item">Game</a>
-                <a href="#" class="menu__item">Contact Us</a>
+                <a href="home_user.php" class="menu__item">Home</a>
+                <a href="allgames_user.php" class="menu__item">Games</a>
+                <a href="contact_user.php" class="menu__item">Contact Us</a>
             </div>
 
             <div class="footer__content">

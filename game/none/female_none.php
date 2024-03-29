@@ -267,23 +267,23 @@ if ($name_email != "") {
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__content">
-                <h3 class="website-logo">Name</h3>
+                <h3 class="website-logo">Picnic Play</h3>
                 <span class="footer-info">123414254614</span>
                 <span class="footer-info">ajsdhf@loaishgfow.com</span>
             </div>
-            <div class="footer__menu">
-                <div class="footer__content">
+
+            <div class="footer__content">
                 <span class="menu__title">Menu</span>
-                <a href="#" class="menu__item">Home</a>
-                <a href="#" class="menu__item">Course</a>
-                <a href="#" class="menu__item">Testimonials</a>
-                </div>
-                <div class="footer__content">
+                <a href="home_none.php" class="menu__item">Home</a>
+                <a href="allgames_none.php" class="menu__item">Games</a>
+                <a href="contact_none.php" class="menu__item">Contact Us</a>
+            </div>
+
+            <div class="footer__content">
                 <span class="menu__title">legal</span>
                 <a href="#" class="menu__item">Primary Policy</a>
                 <a href="#" class="menu__item">Cookies</a>
                 <a href="#" class="menu__item">Terms & Conditions</a>
-                </div>
             </div>
 
             <div class="footer__content">
@@ -292,7 +292,7 @@ if ($name_email != "") {
                 <a href="#" class="social__link"><i class="ri-facebook-circle-fill"></i></a>
                 <a href="#" class="social__link"><i class="ri-instagram-fill"></i></a>
                 <a href="#" class="social__link"><i class="ri-youtube-fill"></i></a>
-                <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></i></a>
+                <a href="#" class="social__link"><i class="ri-tiktok-fill"></i></a>
                 </div>
             </div>
         </div>
