@@ -97,7 +97,7 @@ if ($add_fav != "") {
 
             <ul class="nav__list">
             <li class="nav__item">
-                <a class="nav__link active" href="home_user.php">
+                <a class="nav__link" href="home_user.php">
                     <i class="ri-home-5-line"></i> <span>Home</span>
                 </a>
             </li>
@@ -109,8 +109,8 @@ if ($add_fav != "") {
             </li>
 
             <li class="nav__item">
-                <a class="nav__link" href="favorite_user.php">
-                    <i class="ri-heart-3-line"></i> <span>Favorites</span>
+                <a class="nav__link" href="favourite_user.php">
+                    <i class="ri-heart-3-line"></i> <span>Favourites</span>
                 </a>
             </li>
 
@@ -122,7 +122,7 @@ if ($add_fav != "") {
 
             <li class="nav__item">
                 <a class="nav__link" href="contact_user.php">
-                    <i class="ri-contacts-line"></i> <span>Contact</span>
+                    <i class="ri-contacts-line"></i> <span>Contact Us</span>
                 </a>
             </li>
             </ul>
@@ -147,10 +147,10 @@ if ($add_fav != "") {
         </div>
     </nav>
 
-    <!--==================== GAME PAGE ====================-->
+    <!--==================== GAME ====================-->
     <main class="main" id="game">
-        <!--==================== GAME ====================-->
-        <h1 class="game__tittle"><button onclick="displayHome()">Home</button><span> / </span><?php echo $game[0]['title'];?></h1>
+    <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / <?php echo $game[0]['title'];?></span></h1>
+        
         <section class="row">
             <article class="banner__card col-sm-7 mt-3">
             <?php
@@ -190,7 +190,7 @@ if ($add_fav != "") {
                     <form action="game_user.php" method="post">
                         <input type="hidden" name="add_fav" value="1">
                         <input type="hidden" name="game_choose" value='<?php echo $id;?>'>
-                        <button type="submit" class="game__like__btn mt-3" value="$">
+                        <button type="submit" class="like__btn mt-3" value="$">
                             Favourite
                             <i class="ri-heart-3-line"></i>
                         </button>

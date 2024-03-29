@@ -131,7 +131,7 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--=============== BLOG PAGE  ===============-->
+    <!--=============== BLOG ===============-->
     <main class="main" id="blog">
         <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Blog</span></h1>
         <?php

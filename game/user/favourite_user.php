@@ -21,13 +21,13 @@ if ($name != '') {
 }
 
 if ($name_email != "") {
-   $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
-   if (password_verify($pwd, $db_user[0]['password'])) {
-      $_SESSION['loggedin'] = true;
-      $_SESSION['id_user'] = $db_user[0]['id'];
-   } else {
-      $_SESSION['loggedin'] = false;
-   }
+    $db_user = res_sql_query("select * from user where username = '$name_email' or email = '$name_email'");
+    if (password_verify($pwd, $db_user[0]['password'])) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['id_user'] = $db_user[0]['id'];
+    } else {
+        $_SESSION['loggedin'] = false;
+    }
 }
 ?>
 
@@ -132,14 +132,14 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== FAVOURITE PAGE ====================-->
+    <!--==================== FAVOURITE GAMES ====================-->
     <main class="main" id="all-games">
-        <!--==================== GAMES ====================-->
         <section class="main__content">
-            <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Family Games</span></h1>
+            <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Favourite Games</span></h1>
            
             <?php
-                $all_game = res_sql_query("select * from game, favourite where id = id_game order by id_game desc");
+                $id_user = $_SESSION['id_user'];
+                $all_game = res_sql_query("select * from game, favourite where id_user = $id_user order by favourite desc");
 
                 for ($i = 0; $i < 2; $i++) {
                     $row = $all_game[$i];
@@ -174,7 +174,7 @@ if ($name_email != "") {
                     $id = $row["id"];
                     $row_img = $row["vertical_img"];
                     echo 
-                    "<div class='row mb-5'>
+                    "<div class='row mb-5 hide__content'>
                         <article class='fav__game'>
                             <form action='' method='post'>
                                 <input type='hidden' value='$id' name='game_choose'>
