@@ -36,7 +36,6 @@ if ($id != '') {
         <div class="header__content">
             <a href="admin.php" class="header__logo">Picnic Play</a>
 
-            <!-- NONE -->
             <div class="header__user">
                 <div class="header__menu" id="header-menu">
                     <i class="ri-menu-fill"></i>
@@ -95,7 +94,7 @@ if ($id != '') {
             </ul>
 
             <!-- USER -->
-            <div class="nav__user pt-3" id="registered">
+            <div class="nav__user pt-3">
                 <div class="nav__link">
                     <div class="user__container">
                         <i class="ri-user-fill"></i>
