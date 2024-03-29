@@ -57,11 +57,11 @@ if ($title != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="/project/subgame/admin.php" class="nav__logo">ADMIN PAGE</a>
+            <a href="admin.php" class="nav__logo">ADMIN PAGE</a>
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="/project/subgame/admin.php">
+                    <a class="nav__link" href="admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
@@ -104,7 +104,7 @@ if ($title != "") {
             </ul>
 
             <!-- USER -->
-            <div class="nav__user pt-3" id="registered">
+            <div class="nav__user pt-3">
                 <div class="nav__link">
                     <div class="user__container">
                         <i class="ri-user-fill"></i>
