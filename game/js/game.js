@@ -1,23 +1,85 @@
 /*=============== MAINPAGE ===============*/
+window.addEventListener('scroll', show);
+console.log(window.innerHeight);
+function show() {  
+   var contents = document.querySelectorAll('.hide__content');
+
+   for(var i = 0; i < contents.length; i++) {
+      var windowHeight = window.innerHeight;
+      var showTop = contents[i].getBoundingClientRect().top;
+
+      if(showTop < windowHeight) {
+         contents[i].classList.add('show__content');
+      }
+   }
+}
 
 /*=============== SHOW MENU ===============*/
 const nav = document.getElementById('navigation'),
       headerMenu = document.getElementById('header-menu'),
-      navClose = document.getElementById('nav-close')
+      navClose = document.getElementById('nav-close');
 
 /* Menu show */
 if(headerMenu){
    headerMenu.addEventListener('click', () =>{
-      nav.classList.add('show__menu')
+      nav.classList.add('show__menu');
    })
 }
 
 /* Menu hidden */
 if(navClose){
     navClose.addEventListener('click', () =>{
-      nav.classList.remove('show__menu')
+      nav.classList.remove('show__menu');
    })
 }
+
+/*=============== BANNER ===============*/
+let list = document.querySelector('.banner .banner__list'),
+   items = document.querySelectorAll('.banner .banner__list .banner__card'),
+   dots = document.querySelectorAll('.banner .banner__dots .dot'),
+   prev = document.getElementById('prev'),
+   next = document.getElementById('next');
+
+let active = 0;
+let lengthItems = items.length - 1;
+
+next.onclick = function() {
+   if(active + 1 > lengthItems) {
+      active = 0;
+   } else {
+      active = active + 1;
+   }
+   reloadSlider();
+}
+
+prev.onclick = function() {
+   if(active - 1 < 0) {
+      active = lengthItems;
+   } else {
+      active = active - 1;
+   }
+   reloadSlider();
+}
+
+let autoSlide = setInterval(() => {next.click()}, 5000);
+
+function reloadSlider() {
+   let checkLeft = items[active].offsetLeft;
+   list.style.left = -checkLeft + 'px';
+
+   let lastActiveDot = document.querySelector('.banner .banner__dots .dot__active');
+   lastActiveDot.classList.remove('dot__active');
+   dots[active].classList.add('dot__active');
+   clearInterval(autoSlide);
+   autoSlide = setInterval(() => {next.click()}, 5000);
+}
+
+dots.forEach((li, key) => {
+   li.addEventListener('click', function() {
+      active = key;
+      reloadSlider();
+   })
+})
 
 /*=============== SWIPER TRENDING ===============*/
 let swiperNew = new Swiper('.new__swiper', {
@@ -67,250 +129,76 @@ let swiperMovie = new Swiper('.movie__swiper', {
    },
 })
 
-/*=============== ADD BLUR HEADER ===============*/
-const blurHeader = () =>{
-   const header = document.getElementById('header')
-   // Add a class if the bottom offset is greater than 50 of the viewport
-   this.scrollY >= 50 ? header.classList.add('blur-header') 
-                      : header.classList.remove('blur-header')
-}
-window.addEventListener('scroll', blurHeader)
-
 /*=============== BUTTON ===============*/
-const home = document.getElementById('home'),
-   all_games = document.getElementById('all-games'),
-   game = document.getElementById('game'),
-   blog = document.getElementById('blog'),
-   blog_main = document.getElementById('blog-main'),
-   user = document.getElementById('user'),
-   contact = document.getElementById('contact'),
-   bg_image = document.getElementById('bg-image'),
-   banner_img = document.getElementById('banner-img'),
-   footer = document.getElementById('footer'),
-   profile = document.getElementById('profile'),
-   password = document.getElementById('password'),
-   nav_button = document.querySelectorAll('.nav__button'),
-   profile_button = document.getElementById('profile-button'),
-   password_button = document.getElementById('password-button'); 
+const blog_main = document.getElementById('blog-main'),
+      profile = document.getElementById('profile'),
+      password = document.getElementById('password'),
+      user_button = document.querySelectorAll('.user__button'),
+      profile_button = document.getElementById('profile-button'),
+      password_button = document.getElementById('password-button'); 
 
-      nav_button.forEach(nav_button => {
-         nav_button.addEventListener('click', () => {
-            document.querySelector('.active')?.classList.remove('active');
-            nav_button.classList.add('active');
-         })
+   user_button.forEach(user_button => {
+      user_button.addEventListener('click', () => {
+         document.querySelector('.active')?.classList.remove('active');
+         user_button.classList.add('active');
       })
-/* HOME */
-function displayHome() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "block";
-   all_games.style.display = "none";
-   game.style.display = "none";
-   blog.style.display = "none";
-   user.style.display = "none";
-   contact.style.display = "none";
-   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
-   banner_img.setAttribute('src', '');
-   nav.style.borderRight = "none";
-   nav.style.backgroundColor = "unset";
-   footer.style.display = "block";
-}
-
-/* ALL GAMES */
-function displayAllGames() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "none";
-   all_games.style.display = "grid";
-   game.style.display = "none";
-   blog.style.display = "none";
-   user.style.display = "none";
-   contact.style.display = "none";
-   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
-   banner_img.setAttribute('src', '');
-   nav.style.borderRight = "none";
-   nav.style.backgroundColor = "unset";
-   footer.style.display = "block";
-}
-
-/* GAME */
-function displayGame() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "none";
-   all_games.style.display = "none";
-   game.style.display = "grid";
-   blog.style.display = "none";
-   user.style.display = "none";
-   contact.style.display = "none";
-   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
-   banner_img.setAttribute('src', 'https://www.youtube.com/embed/fKxG8KjH1Qg?si=my98frxNpfHw-9QW');
-   nav.style.borderRight = "none";
-   nav.style.backgroundColor = "unset";
-   footer.style.display = "block";
-}
-
-/* BLOG */
-function displayBlog() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "none";
-   all_games.style.display = "none";
-   game.style.display = "none";
-   blog.style.display = "flex";
-   blog.style.flexDirection = "column";
-   blog.style.alignItems = "center";
-   blog_main.style.display = "none";
-   bg_image.style.background = "#000";
-   user.style.display = "none";
-   contact.style.display = "none";
-   bg_image.setAttribute("src", "");
-   bg_image.style.background = "#000";
-   banner_img.setAttribute("src", "");
-   nav.style.borderRight = "1px solid rgba(255, 255, 255, 0.3)";
-   nav.style.backgroundColor = "#000";
-   footer.style.display = "none";
-}
-
-function displayBlogMain() {
-   blog_main.style.display = "block";
-   bg_image.style.background = "#111";
-   document.body.style.overflow = "hidden";
-}
-
-function closeBlogMain() {
-   blog_main.style.display = "none";
-   bg_image.style.background = "#000";
-   document.body.style.overflow = "unset";
-}
+   })
 
 /* USER */
-function displayUser() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "none";
-   all_games.style.display = "none";
-   game.style.display = "none";
-   blog.style.display = "none";
-   user.style.display = "grid";
-   contact.style.display = "none";
-   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
-   banner_img.setAttribute('src', '');
-   nav.style.borderRight = "none";
-   nav.style.backgroundColor = "unset";
-   footer.style.display = "block";
-}
-
 function displayProfile() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
    profile.style.display = 'block';
    password.style.display = 'none';
-   profile_button.classList.add('active');
-   password_button.classList.remove('active');
 }
 
 function displayPassword() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
    profile.style.display = 'none';
    password.style.display = 'block';
-   profile_button.classList.remove('active');
-   password_button.classList.add('active');
 }
-
-/* CONTACT */
-function displayContact() {
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   document.body.style.overflow = "unset";
-   home.style.display = "none";
-   all_games.style.display = "none";
-   game.style.display = "none";
-   blog.style.display = "none";
-   user.style.display = "none";
-   contact.style.display = "block";
-   bg_image.setAttribute('src', 'https://th.bing.com/th/id/OIP.vqPUCfFje_g0fJY110w3pgHaE8?w=251&h=180&c=7&r=0&o=5&pid=1.7');
-   banner_img.setAttribute('src', '');
-   nav.style.borderRight = "none";
-   nav.style.backgroundColor = "unset";
-   footer.style.display = "block";
-}
-
-/*=============== GAME PAGE ===============*/
-/* GAME RATING */
-var str = document.getElementById('game-rating').textContent;
-str = str.replace(/(\d+)/g,function(a){return Array(+a+1).join('★')});
-document.getElementById('game-rating').innerHTML = str;
 
 /*=============== SIGNIN SIGNUP ===============*/
-const modal = document.getElementById('user-modal'),
-   bg_modal = document.getElementById('modal-background'),
-   user_modal = document.getElementById('modal-container'),
-   overlay_img = document.getElementById('overlay-image'),
-   modal_close = document.getElementById('modal-close'),
-   signin = document.getElementById('signin'),
-   signup = document.getElementById('signup');
 
 /* OPEN MODAL */
 function openModal() {
-   modal.style.zIndex = 'var(--z-login)'
-   bg_modal.style.display = 'block';
-   user_modal.classList.add('open-modal__container');
-   user_modal.classList.remove('close-modal__container');
+   document.getElementById('user-modal').style.zIndex = 'var(--z-login)';
+   document.getElementById('modal-background').style.display = 'block';
+   document.getElementById('modal-container').classList.add('open-modal__container');
+   document.getElementById('modal-container').classList.remove('close-modal__container');
 }
 
 /* CLOSE MODAL */
 function closeModal() {
-   modal.style.zIndex = '-2'
-   bg_modal.style.display = 'none';
-   user_modal.classList.remove('open-modal__container');
-   user_modal.classList.add('close-modal__container');
+   document.getElementById('user-modal').style.zIndex = '-2'
+   document.getElementById('modal-background').style.display = 'none';
+   document.getElementById('modal-container').classList.remove('open-modal__container');
+   document.getElementById('modal-container').classList.add('close-modal__container');
 }
 
 /* OPEN SIGNUP */
 function signUp() {
-   user_modal.classList.add('right-panel__active');
-   overlay_img.src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
-   modal_close.style.color = "#000";
+   document.getElementById('modal-container').classList.add('right-panel__active');
+   document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c0/99/ac/c099ac0bb14e3fd693285cd28938ca76.jpg';
+   document.getElementById('modal-close').style.color = "#000";
 };
 
 /* OPEN SIGNIN */
 function signIn() {
-   user_modal.classList.remove('right-panel__active');
-   overlay_img.src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
-   modal_close.style.color = "#fff";
+   document.getElementById('modal-container').classList.remove('right-panel__active');
+   document.getElementById('overlay-image').src = 'https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg';
+   document.getElementById('modal-close').style.color = "#fff";
 };
 
 /* OPEN SIGNUP MOBILE */
 function signUpMb() {
-   signin.style.opacity = "0";
-   signin.style.zIndex = "0";
-   signup.style.opacity = "1";
-   signup.style.zIndex = "1";
+   document.getElementById('signin').style.opacity = "0";
+   document.getElementById('signin').style.zIndex = "0";
+   document.getElementById('signup').style.opacity = "1";
+   document.getElementById('signup').style.zIndex = "1";
 };
 
 /* OPEN SIGNIN MOBILE*/
 function signInMb() {
-   signin.style.opacity = "1";
-   signin.style.opacity = "1";
-   signup.style.opacity = "0";
-   signup.style.zIndex = "0";
+   document.getElementById('signin').style.opacity = "1";
+   document.getElementById('signin').style.opacity = "1";
+   document.getElementById('signup').style.opacity = "0";
+   document.getElementById('signup').style.zIndex = "0";
 };
-
-const register = document.getElementById('register'),
-      registered = document.getElementById('registered'),
-      logout = document.getElementById('logout');
-
-function logIn() {
-   register.style.display = "block";
-   registered.style.display = "none";
-   logout.style.display = "none";
-}
