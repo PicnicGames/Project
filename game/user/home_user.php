@@ -1,5 +1,6 @@
 <?php
 require_once "../admin/utils.php";
+require "search_bar.php";
 session_start();
 
 $name = $name_email = $uname = "";
