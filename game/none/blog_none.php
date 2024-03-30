@@ -27,9 +27,8 @@ if ($name_email != "") {
       $_SESSION['id_user'] = $db_user[0]['id'];
       header('Location: ../user/home_user.php');
    } else {
-      $_SESSION['loggedin'] = false;
-      header('Location: ../user/home_user.php');
-        echo "<script>console.log('Wrong Information')</script>";
+       $_SESSION['loggedin'] = false;
+       echo"<script>alert('Wrong Information!!!');</script>";
    }
 }
 ?>
@@ -53,6 +52,9 @@ if ($name_email != "") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!--=============== GOOGLE API ===============-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <title>GAMES</title>
 </head>
 <body id="body">
@@ -64,7 +66,7 @@ if ($name_email != "") {
         <div class="header__content">
             <a href="home_none.php" class="header__logo">Picnic Play</a>
 
-            <div class="header__user">
+            <div class="header__nav">
                 <div class="header__login" id="register">
                     <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
                 </div>
@@ -75,9 +77,9 @@ if ($name_email != "") {
             </div>
         </div>
 
-        <form action="" class="header__search">
+        <form action="search_none.php" method="post" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -124,9 +126,10 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--=============== BLOG PAGE  ===============-->
+    <!--=============== BLOG ===============-->
     <main class="main" id="blog">
-        <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / Blog</span></h1>
+        <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Blog</span></h1>
+
         <?php
             $blog = res_sql_query("select * from blog order by id desc");
 
@@ -135,85 +138,41 @@ if ($name_email != "") {
             echo "
             <script>
                 function displayBlogMain0() {
-                    document.getElementById('blog-0').style.display = 'flex';
+                    document.getElementById('blog0').style.zIndex = 100;
+                    document.getElementById('mainblog-0').style.display = 'block';
+                    document.getElementById('blog-bg0').style.display = 'block';
                 }
                 function closeBlogMain0() {
-                    document.getElementById('blog-0').style.display = 'none';
+                    document.getElementById('blog0').style.zIndex = 'unset';
+                    document.getElementById('mainblog-0').style.display = 'none';
+                    document.getElementById('blog-bg0').style.display = 'none';
                     }                     
             </script>
-            <!--=============== MAIN BLOG ===============-->
-            <section class='blog'>
-                <div class='blog__header mt-3'>
-                    <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
-                    <div class='blog__user'>
-                        <h3 class='user__name'>ADMIN</h3>
-                        <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
-                    </div>
-                </div>
-                <div class='blog__body mt-3'>
-                    <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
-                    <div class='blog__content mt-2'>".$row['title']."</div>
-                </div>
-                <div class='blog__footer mt-3'>
-                    <button type='submit' onclick='displayBlogMain0()'>See more<i class='ri-arrow-right-s-line'></i></button>
-                </div>
-            </section>
-
-            <!--=============== MAIN BLOG ===============-->
-            <section class='blog__main' id='blog-0' style='display: none;'>
-                <div class='blog__main__bg' onclick='closeBlogMain0()'></div>
-                <div class='blog__container'>
-                    <button onclick='closeBlogMain0()'><i class='ri-close-line'></i></button>
-                    <div class='blog__header mt-3'>
-                        <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
-                        <div class='blog__user'>
-                            <h3 class='user__name'>ADMIN</h3>
-                            <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
+            <section class='blog hide__content' id='blog0'>
+                <!--=============== BLOG PREVIEW ===============-->
+                <div class='blog__preview'>
+                    <div class='blog__content mt-3'>
+                        <div class='blog__header mt-3'>
+                            <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
+                            <div class='blog__user'>
+                                <h3 class='user__name'>ADMIN</h3>
+                                <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
+                            </div>
+                            </div>
+                        <div class='blog__body mt-3'>
+                            <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
+                            <div class='blog__title mt-3'>".$row['title']."</div>
                         </div>
-                    </div>
-                    <div class='blog__body mt-3'>
-                        <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
-                        <h1 class='blog__heading my-3'>".$row['title']."</h1>
-                        <div class='blog__content'>".$row['content']."</div>
-                    </div>
-                 </div>
-            </section>";
-            
-            for ($i = 1; $i < count($blog); $i++) {
-                $row = $blog[$i];
-                $id = $row["id"];
-                $time = strtotime($row['created_at']);
-                echo "
-                <script>
-                    function displayBlogMain() {
-                        document.getElementById('blog-$id').style.display = 'flex';
-                    }
-                    function closeBlogMain() {
-                        document.getElementById('blog-$id').style.display = 'none';
-                     }                     
-                </script>
-                <!--=============== BLOG ===============-->
-                <section class='blog hide__content'>
-                    <div class='blog__header mt-3'>
-                        <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
-                        <div class='blog__user'>
-                            <h3 class='user__name'>ADMIN</h3>
-                            <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
-                        </div>
-                    </div>
-                    <div class='blog__body mt-3'>
-                        <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
-                        <div class='blog__content mt-2'>".$row['title']."</div>
                     </div>
                     <div class='blog__footer mt-3'>
-                        <button onclick='displayBlogMain()'>See more<i class='ri-arrow-right-s-line'></i></button>
+                        <button onclick='displayBlogMain0()'>See more<i class='ri-arrow-right-s-line'></i></button>
                     </div>
-                </section>
-
-                <section class='blog__main' id='blog-$id' style='display: none;'>
-                    <div class='blog__main__bg' onclick='closeBlogMain()'></div>
+                </div>
+            
+                <!--=============== MAIN BLOG ===============-->
+                <div class='blog__main' id='mainblog-0' style='display: none;'>
                     <div class='blog__container'>
-                        <button onclick='closeBlogMain()'><i class='ri-close-line'></i></button>
+                        <button onclick='closeBlogMain0()'><i class='ri-close-line'></i></button>
                         <div class='blog__header mt-3'>
                             <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
                             <div class='blog__user'>
@@ -227,10 +186,77 @@ if ($name_email != "") {
                             <div class='blog__content'>".$row['content']."</div>
                         </div>
                     </div>
-                </section>";
+                </div>
+            </section>";
+            
+            if(count($blog) > 1) {
+                for ($i = 1; $i < count($blog); $i++) {
+                    $row = $blog[$i];
+                    $id = $row["id"];
+                    $time = strtotime($row['created_at']);
+                    echo "
+                    <script>
+                        function displayBlogMain$id() {
+                            document.getElementById('blog$id').style.zIndex = 100;
+                            document.getElementById('mainblog-$id').style.display = 'block';
+                            document.getElementById('blog-bg$id').style.display = 'block';
+                        }
+                        function closeBlogMain$id() {
+                            document.getElementById('blog$id').style.zIndex = 'unset';
+                            document.getElementById('mainblog-$id').style.display = 'none';
+                            document.getElementById('blog-bg$id').style.display = 'none';
+                         }                     
+                    </script>
+                    <section class='blog hide__content' id='blog$id'>
+                        <!--=============== BLOG PREVIEW ===============-->
+                        <div class='blog__preview'>
+                            <div class='blog__content mt-3'>
+                                <div class='blog__header mt-3'>
+                                    <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
+                                    <div class='blog__user'>
+                                        <h3 class='user__name'>ADMIN</h3>
+                                        <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
+                                    </div>
+                                    </div>
+                                <div class='blog__body mt-3'>
+                                    <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
+                                    <div class='blog__title mt-3'>".$row['title']."</div>
+                                </div>
+                            </div>
+                            <div class='blog__footer mt-3'>
+                                <button onclick='displayBlogMain$id()'>See more<i class='ri-arrow-right-s-line'></i></button>
+                            </div>
+                        </div>
+                    
+                        <!--=============== MAIN BLOG ===============-->
+                        <div class='blog__main' id='mainblog-$id' style='display: none;'>
+                            <div class='blog__container'>
+                                <button onclick='closeBlogMain$id()'><i class='ri-close-line'></i></button>
+                                <div class='blog__header mt-3'>
+                                    <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg' class='user__img me-3'>
+                                    <div class='blog__user'>
+                                        <h3 class='user__name'>ADMIN</h3>
+                                        <span class='user__timestamp'>".date('h:i:s d/m/Y',$time)."</span>
+                                    </div>
+                                </div>
+                                <div class='blog__body mt-3'>
+                                    <img src='https://th.bing.com/th/id/OIP.qp5XTQBgsL0JbWw1bOsfDwHaC5?rs=1&pid=ImgDetMain' class='blog__img'>
+                                    <h1 class='blog__heading my-3'>".$row['title']."</h1>
+                                    <div class='blog__content'>".$row['content']."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>";
+                }
             }
         ?>
     </main>
+
+    <?php
+        for($i = 0; $i < count($blog); $i++) {
+            echo "<div class='blog__bg' id='blog-bg$i' onclick='closeBlogMain$i()' style='display: none;'></div>";
+        }
+    ?>
 
     <!--=============== SIGNIN SIGNUP ===============-->
     <div class="user__modal" id="user-modal">
@@ -242,14 +268,6 @@ if ($name_email != "") {
          <div class="form__container signup__container" id="signup">
             <form method="post">
                <h2>Create Account</h2>
-               <div class="social__container">
-                  <a href="#" class="social">
-                     <i class="ri-facebook-fill"></i>
-                  </a>
-                  <a href="#" class="social">
-                     <i class="ri-google-fill"></i>
-                  </a>
-               </div>
                <span>or use your email for registration</span>
                <input name="name" type="text" placeholder="Username">
                <input name="email" type="email" placeholder="Email">

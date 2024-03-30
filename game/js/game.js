@@ -130,33 +130,22 @@ let swiperMovie = new Swiper('.movie__swiper', {
 })
 
 /*=============== BUTTON ===============*/
-const blog_main = document.getElementById('blog-main'),
-      profile = document.getElementById('profile'),
-      password = document.getElementById('password'),
-      user_button = document.querySelectorAll('.user__button'),
-      profile_button = document.getElementById('profile-button'),
-      password_button = document.getElementById('password-button'); 
-
-   user_button.forEach(user_button => {
-      user_button.addEventListener('click', () => {
-         document.querySelector('.active')?.classList.remove('active');
-         user_button.classList.add('active');
-      })
-   })
-
 /* USER */
 function displayProfile() {
-   profile.style.display = 'block';
-   password.style.display = 'none';
+   document.getElementById('profile').style.display = 'block';
+   document.getElementById('password').style.display = 'none';
+   document.getElementById('profile-button').classList.add('active');
+   document.getElementById('password-button').classList.remove('active');
 }
 
 function displayPassword() {
-   profile.style.display = 'none';
-   password.style.display = 'block';
+   document.getElementById('profile').style.display = 'none';
+   document.getElementById('password').style.display = 'block';
+   document.getElementById('profile-button').classList.remove('active');
+   document.getElementById('password-button').classList.add('active');
 }
 
 /*=============== SIGNIN SIGNUP ===============*/
-
 /* OPEN MODAL */
 function openModal() {
    document.getElementById('user-modal').style.zIndex = 'var(--z-login)';

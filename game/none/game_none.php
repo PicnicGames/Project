@@ -1,6 +1,7 @@
 <?php
 require_once "../admin/utils.php";
 session_start();
+session_destroy();
 
 $name = $name_email = $uname = "";
 $name = get_post('name');
@@ -26,6 +27,7 @@ if ($name_email != "") {
       $_SESSION['id_user'] = $db_user[0]['id'];
    } else {
       $_SESSION['loggedin'] = false;
+      echo"<script>alert('Wrong Information!!!');</script>";
    }
 }
 
@@ -91,16 +93,16 @@ if ($add_fav != "") {
         <div class="header__content">
             <a href="home_none.php" class="header__logo">Picnic Play</a>
 
-            <div class="header__user">
+            <div class="header__nav">
                 <div class="header__menu" id="header-menu">
                     <i class="ri-menu-fill"></i>
                 </div>
             </div>
         </div>
 
-        <form action="search_none.php" class="header__search">
+        <form action="search_none.php" method="post" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -168,12 +170,12 @@ if ($add_fav != "") {
                         ?>
                     </div>
                     <div class="game__catagory">
-                        <span class="mx-auto">
+                        <span>
                             <?php
                             echo $game[0]['player'];
                             ?>
                         </span>
-                        <span class="mx-auto">
+                        <span>
                             <?php
                             echo $game[0]['place'];
                             ?>
@@ -189,17 +191,20 @@ if ($add_fav != "") {
                         <input type="hidden" name="add_fav" value="1">
                         <input type="hidden" name="game_choose" value='<?php echo $id;?>'>
                         <?php
-                            $game = res_sql_query("select * from favourite where id_user = $id_user and id_game = $game_choose");
-                            if(count($game) != 0) {
-                                echo"<button type='submit' class='like__button mt-3' id='like-button'>
-                                Favourited
-                                <i class='ri-heart-3-fill'></i>
-                            </button>";
-                            } else {
-                                echo"<button type='submit' class='like__button mt-3' id='like-button'>
-                                Favourite
-                                <i class='ri-heart-3-line'></i>
-                            </button>";
+                            if (isset($_SESSION['id_user']) && $_SESSION['id_user'] != "") {
+                                $id_user = $_SESSION['id_user'];
+                                $game = res_sql_query("select * from favourite where id_user = $id_user and id_game = $game_choose");
+                                if(count($game) != 0) {
+                                    echo"<button type='submit' class='like__button mt-3' id='like-button'>
+                                    Favourited
+                                    <i class='ri-heart-3-fill'></i>
+                                </button>";
+                                } else {
+                                    echo"<button type='submit' class='like__button mt-3' id='like-button'>
+                                    Favourite
+                                    <i class='ri-heart-3-line'></i>
+                                </button>";
+                                }
                             }
                         ?>
                     </form>
@@ -220,6 +225,61 @@ if ($add_fav != "") {
             </div>
         </section>
     </main>
+
+    <!--=============== SIGNIN SIGNUP ===============-->
+   <div class="user__modal" id="user-modal">
+      <div class="modal__background" id="modal-background" onclick="closeModal()" style="display: none;"></div>
+      <div class="modal__container close-modal__container" id="modal-container">
+         <button class="close__button" onclick="closeModal()">
+            <i class="ri-close-line" id="modal-close"></i>
+         </button>
+         <div class="form__container signup__container" id="signup">
+            <form method="post">
+               <h2>Create Account</h2>
+               <span>or use your email for registration</span>
+               <input name="name" type="text" placeholder="Username">
+               <input name="email" type="email" placeholder="Email">
+               <input name="pwd" type="password" placeholder="Password">
+               <span class="form__mobile mt-1" onclick="signInMb()">Already have an account? Sign In now!</span>
+               <button type="submit">Sign Up</button>
+            </form>
+         </div>
+         <div class="form__container signin__container" id="signin">
+            <form method="post">
+               <h2>Sign In</h2>
+               <div class="social__container">
+                  <a href="#" class="social">
+                     <i class="ri-facebook-fill"></i>
+                  </a>
+                  <a href="#" class="social">
+                     <i class="ri-google-fill"></i>
+                  </a>
+               </div>
+               <span>or use your account</span>
+               <input name="name_email" type="text" placeholder="Username or Email">
+               <input name="pwd" type="password" placeholder="Password">
+               <a href="#">Forgot your password?</a>
+               <span class="form__mobile mt-1" onclick="signUpMb()">Don't have an account? Sign Up now!</span>
+               <button type="submit">Sign In</button>
+            </form>
+         </div>
+         <div class="overlay__container">
+            <div class="overlay">
+               <img src="https://i.pinimg.com/564x/c1/6e/3c/c16e3c093406cf65f93fe527244cec63.jpg" alt="" class="overlay__image" id="overlay-image">
+               <div class="overlay__panel overlay__left">
+                  <h1>Welcome to registration</h1>
+                  <p class="italic">Already have an account</p>
+                  <button class="ghost" id="signIn" onclick="signIn()">Sign In</button>
+               </div>
+               <div class="overlay__panel overlay__right">
+                  <h1>Welcome</h1>
+                  <p class="italic">Don't have an account?</p>
+                  <button class="ghost" id="signUp" onclick="signUp()">Sign Up</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 
     <!--=============== FOOTER  ===============-->
     <footer class="footer">

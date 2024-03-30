@@ -90,16 +90,23 @@ if ($add_fav != "") {
         <div class="header__content">
             <a href="home_user.php" class="header__logo">Picnic Play</a>
 
-            <div class="header__user">
-                <div class="header__menu" id="header-menu">
-                    <i class="ri-menu-fill"></i>
-                </div>
+            <div class="header__nav">
+            <a class="nav__link" href="user_user.php">
+               <div class="header__user">
+                  <i class="ri-user-line"></i>
+                  <div class="user__name ms-3"><?php echo "$uname";?></div>
+               </div>
+            </a>
+
+            <div class="header__menu" id="header-menu">
+               <i class="ri-menu-fill"></i>
             </div>
+         </div>
         </div>
 
-        <form action="" class="header__search">
+        <form action="search_user.php" method="post" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -139,16 +146,6 @@ if ($add_fav != "") {
                 </a>
             </li>
             </ul>
-
-            <!-- USER -->
-            <div class="nav__user pt-3">
-            <a class="nav__link" href="user_user.php">
-                <div class="user__container">
-                    <i class="ri-user-line"></i>
-                    <div class="user__name ms-3"><?php echo "$uname";?></div>
-                </div>
-            </a>
-            </div>
         </div>
 
         <a href="../none/home_none.php" class="nav__link">
@@ -181,12 +178,12 @@ if ($add_fav != "") {
                         ?>
                     </div>
                     <div class="game__catagory">
-                        <span class="mx-auto">
+                        <span>
                             <?php
                             echo $game[0]['player'];
                             ?>
                         </span>
-                        <span class="mx-auto">
+                        <span>
                             <?php
                             echo $game[0]['place'];
                             ?>
@@ -202,14 +199,15 @@ if ($add_fav != "") {
                         <input type="hidden" name="add_fav" value="1">
                         <input type="hidden" name="game_choose" value='<?php echo $id;?>'>
                         <?php
-                            $game = res_sql_query("select * from favourite where id_user = $id_user and id_game = $game_choose");
-                            if(count($game) != 0) {
-                                echo"<button type='submit' class='like__button mt-3' id='like-button'>
+                            $id_user = $_SESSION['id_user'];
+                            $button = res_sql_query("select * from favourite where id_user = $id_user and id_game = $game_choose");
+                            if(count($button) != 0) {
+                                echo"<button type='submit' class='like__button mt-3'>
                                 Favourited
                                 <i class='ri-heart-3-fill'></i>
                             </button>";
                             } else {
-                                echo"<button type='submit' class='like__button mt-3' id='like-button'>
+                                echo"<button type='submit' class='like__button mt-3'>
                                 Favourite
                                 <i class='ri-heart-3-line'></i>
                             </button>";
@@ -226,7 +224,7 @@ if ($add_fav != "") {
             <div class="game__background">
                 <div class="game__content">
                     <?php
-                    $str = str_replace("\n", "<br>" ,$game[0]['content']);
+                    $str = str_replace("\n", "<br>" , $game[0]['content']);
                     echo $str;
                     ?>
                 </div>

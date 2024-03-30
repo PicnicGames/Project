@@ -43,9 +43,8 @@ if ($title != "") {
     <!--==================== HEADER ====================-->
     <header class="header admin__header" id="header">
         <div class="header__content">
-            <a href="index.html" class="header__logo">Picnic Play</a>
+            <a href="admin.php" class="header__logo">ADMIN PAGE</a>
 
-            <!-- NONE -->
             <div class="header__user">
                 <div class="header__menu" id="header-menu">
                     <i class="ri-menu-fill"></i>
@@ -57,7 +56,7 @@ if ($title != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="/project/subgame/admin.php" class="nav__logo">ADMIN PAGE</a>
+            <a href="admin.php" class="nav__logo">ADMIN PAGE</a>
 
             <ul class="nav__list">
                 <li class="nav__item">
@@ -119,7 +118,7 @@ if ($title != "") {
             <form method="post">
                 <div class="row">
                     <div class="col-sm">
-                        <input required type="text" name="title" placeholder="Name">
+                        <input required type="text" name="title" placeholder="Title">
                     </div>
                     <div class="col-sm">
                         <input required type="text" name="player" placeholder="Player">

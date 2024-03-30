@@ -60,7 +60,14 @@ if ($name_email != "") {
       <div class="header__content">
          <a href="home_user.php" class="header__logo">Picnic Play</a>
 
-         <div class="header__user">
+         <div class="header__nav">
+            <a class="nav__link" href="user_user.php">
+               <div class="header__user">
+                  <i class="ri-user-line"></i>
+                  <div class="user__name ms-3"><?php echo "$uname";?></div>
+               </div>
+            </a>
+
             <div class="header__menu" id="header-menu">
                <i class="ri-menu-fill"></i>
             </div>
@@ -68,58 +75,47 @@ if ($name_email != "") {
       </div>
 
       <form action="search_user.php" method="post" class="header__search">
-         <i class="ri-search-line"></i>
-         <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
-      </form>
+            <i class="ri-search-line"></i>
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
+        </form>
    </header>
       
-      <!--==================== NAV ====================-->
-      <nav class="navigation" id="navigation">
-         <div class="nav__menu">
-            <a href="home_user.php" class="nav__logo">Picnic Play</a>
-            
-            <ul class="nav__list">
-            </form>
-         <li class="nav__item">
-            <a class="nav__link active" href="home_user.php">
-                  <i class="ri-home-5-line"></i> <span>Home</span>
-            </a>
-         </li>
+   <!--==================== NAV ====================-->
+   <nav class="navigation" id="navigation">
+      <div class="nav__menu">
+         <a href="home_user.php" class="nav__logo">Picnic Play</a>
+         
+         <ul class="nav__list">
+            <li class="nav__item">
+               <a class="nav__link active" href="home_user.php">
+                     <i class="ri-home-5-line"></i> <span>Home</span>
+               </a>
+            </li>
 
-         <li class="nav__item">
-            <a class="nav__link" href="allgames_user.php">
-                  <i class="ri-gamepad-line"></i> <span>All Games</span>
-            </a>
-         </li>
+            <li class="nav__item">
+               <a class="nav__link" href="allgames_user.php">
+                     <i class="ri-gamepad-line"></i> <span>All Games</span>
+               </a>
+            </li>
 
-         <li class="nav__item">
-            <a class="nav__link" href="favourite_user.php">
-                  <i class="ri-heart-3-line"></i> <span>Favourites</span>
-            </a>
-         </li>
+            <li class="nav__item">
+               <a class="nav__link" href="favourite_user.php">
+                     <i class="ri-heart-3-line"></i> <span>Favourites</span>
+               </a>
+            </li>
 
-         <li class="nav__item">
-            <a class="nav__link" href="blog_user.php">
-                  <i class="ri-blogger-line"></i> <span>Blog</span>
-            </a>
-         </li>
+            <li class="nav__item">
+               <a class="nav__link" href="blog_user.php">
+                     <i class="ri-blogger-line"></i> <span>Blog</span>
+               </a>
+            </li>
 
-         <li class="nav__item">
-            <a class="nav__link" href="contact_user.php">
-                  <i class="ri-contacts-line"></i> <span>Contact Us</span>
-            </a>
-         </li>
+            <li class="nav__item">
+               <a class="nav__link" href="contact_user.php">
+                     <i class="ri-contacts-line"></i> <span>Contact Us</span>
+               </a>
+            </li>
          </ul>
-
-         <!-- USER -->
-         <div class="nav__user pt-3">
-            <a class="nav__link" href="user_user.php">
-               <div class="user__container">
-                  <i class="ri-user-line"></i>
-                  <div class="user__name ms-3"><?php echo "$uname";?></div>
-               </div>
-            </a>
-         </div>
       </div>
 
       <a href="../none/home_none.php" class="nav__link">
