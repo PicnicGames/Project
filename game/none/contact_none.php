@@ -38,8 +38,7 @@ if ($name_email != "") {
       header('Location: ../user/home_user.php');
    } else {
       $_SESSION['loggedin'] = false;
-      header('Location: ../user/home_user.php');
-        echo "<script>console.log('Wrong Information')</script>";
+      echo"<script>alert('Wrong Information!!!');</script>";
    }
 }
 ?>
@@ -74,7 +73,7 @@ if ($name_email != "") {
         <div class="header__content">
             <a href="home_none.php" class="header__logo">Picnic Play</a>
 
-            <div class="header__user">
+            <div class="header__nav">
                 <div class="header__login" id="register">
                     <button class="login__button" onclick="openModal()"><i class="ri-login-box-line"></i> <span>Log In</span></button>
                 </div>
@@ -84,9 +83,9 @@ if ($name_email != "") {
             </div>
         </div>
 
-        <form action="" class="header__search">
+        <form action="search_none.php" method="post" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -186,14 +185,6 @@ if ($name_email != "") {
          <div class="form__container signup__container" id="signup">
             <form method="post">
                <h2>Create Account</h2>
-               <div class="social__container">
-                  <a href="#" class="social">
-                     <i class="ri-facebook-fill"></i>
-                  </a>
-                  <a href="#" class="social">
-                     <i class="ri-google-fill"></i>
-                  </a>
-               </div>
                <span>or use your email for registration</span>
                <input name="name" type="text" placeholder="Username">
                <input name="email" type="email" placeholder="Email">

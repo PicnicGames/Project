@@ -74,16 +74,23 @@ if (isset($_SESSION['loggedin'])) {
         <div class="header__content">
             <a href="home_user.php" class="header__logo">Picnic Play</a>
 
-            <div class="header__user">
+            <div class="header__nav">
+                <a class="nav__link" href="user_user.php">
+                <div class="header__user">
+                    <i class="ri-user-line"></i>
+                    <div class="user__name ms-3"><?php echo "$name";?></div>
+                </div>
+                </a>
+
                 <div class="header__menu" id="header-menu">
-                    <i class="ri-menu-fill"></i>
+                <i class="ri-menu-fill"></i>
                 </div>
             </div>
         </div>
 
         <form action="search_user.php" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -123,16 +130,6 @@ if (isset($_SESSION['loggedin'])) {
                 </a>
             </li>
             </ul>
-
-            <!-- USER -->
-            <div class="nav__user pt-3">
-                <a class="nav__link" href="user_user.php">
-                    <div class="user__container">
-                        <i class="ri-user-line"></i>
-                        <div class="user__name ms-3"><?php echo "$name";?></div>
-                    </div>
-                </a>
-            </div>
         </div>
 
         <a href="../none/home_none.php" class="nav__link">

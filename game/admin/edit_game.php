@@ -40,6 +40,9 @@ if ($id_edit_game != "") {
         sql_query("update game set content = '$cont' where id = $id_edit_game");
     }
 }
+
+$res = res_sql_query("select * from game where id = $id_edit_game");
+$row = $res[0];
 ?>
 
 <!DOCTYPE html>
@@ -70,9 +73,8 @@ if ($id_edit_game != "") {
     <!--==================== HEADER ====================-->
     <header class="header admin__header" id="header">
         <div class="header__content">
-            <a href="index.html" class="header__logo">Picnic Play</a>
+            <a href="admin.php" class="header__logo">ADMIN PAGE</a>
 
-            <!-- NONE -->
             <div class="header__user">
                 <div class="header__menu" id="header-menu">
                     <i class="ri-menu-fill"></i>
@@ -84,11 +86,11 @@ if ($id_edit_game != "") {
     <!--==================== NAV ====================-->
     <nav class="navigation" id="navigation">
         <div class="nav__menu">
-            <a href="/project/subgame/admin.php" class="nav__logo">ADMIN PAGE</a>
+            <a href="admin.php" class="nav__logo">ADMIN PAGE</a>
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="/project/subgame/admin.php">
+                    <a class="nav__link" href="admin.php">
                         <i class="ri-home-5-line"></i> <span>Home</span>
                     </a>
                 </li>
@@ -146,32 +148,32 @@ if ($id_edit_game != "") {
             <form method="post">
                 <div class="row">
                     <div class="col-sm">
-                        <input type="text" name="title" placeholder="Name">
+                        <input type="text" name="title" placeholder="Title" value="<?php echo $row['title']?>">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="player" placeholder="Player">
+                        <input type="text" name="player" placeholder="Player" value="<?php echo $row['player']?>">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="place" placeholder="Place">
+                        <input type="text" name="place" placeholder="Place" value="<?php echo $row['place']?>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm">
-                        <input type="text" name="vimg" placeholder="Vertical Image">
+                        <input type="text" name="vimg" placeholder="Vertical Image" value="<?php echo $row['vertical_img']?>">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="himg" placeholder="Horizontal Image">
+                        <input type="text" name="himg" placeholder="Horizontal Image" value="<?php echo $row['horizontal_img']?>">
                     </div>
                     <div class="col-sm">
-                        <input type="text" name="vid" placeholder="Video">
+                        <input type="text" name="vid" placeholder="Video" value="<?php echo $row['video']?>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm-4">
-                        <textarea name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10" placeholder="Description"><?php echo $row['description']?></textarea>
                     </div>
                     <div class="col-sm-8">
-                        <textarea name="cont" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                        <textarea name="cont" id="" cols="30" rows="10" placeholder="Content"><?php echo $row['content']?></textarea>
                     </div>
                 </div>
                 <button class="mt-3" type="submit">Edit</button>

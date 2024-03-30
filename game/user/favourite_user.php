@@ -61,17 +61,23 @@ if ($name_email != "") {
         <div class="header__content">
             <a href="home_user.php" class="header__logo">Picnic Play</a>
 
-            <!-- NONE -->
-            <div class="header__user">
+            <div class="header__nav">
+                <a class="nav__link" href="user_user.php">
+                <div class="header__user">
+                    <i class="ri-user-line"></i>
+                    <div class="user__name ms-3"><?php echo "$uname";?></div>
+                </div>
+                </a>
+
                 <div class="header__menu" id="header-menu">
-                    <i class="ri-menu-fill"></i>
+                <i class="ri-menu-fill"></i>
                 </div>
             </div>
         </div>
 
-        <form action="search_user.php" class="header__search">
+        <form action="search_user.php" method="post" class="header__search">
             <i class="ri-search-line"></i>
-            <input type="search" placeholder="Search games or places . . ." class="header__input">
+            <input type="search" name="inp" placeholder="Search games . . ." class="header__input">
         </form>
     </header>
 
@@ -111,16 +117,6 @@ if ($name_email != "") {
                 </a>
             </li>
             </ul>
-
-            <!-- USER -->
-            <div class="nav__user pt-3">
-            <a class="nav__link" href="user_user.php">
-                <div class="user__container">
-                    <i class="ri-user-line"></i>
-                    <div class="user__name ms-3"><?php echo "$uname";?></div>
-                </div>
-            </a>
-            </div>
         </div>
 
         <a href="../none/home_none.php" class="nav__link">
@@ -141,13 +137,13 @@ if ($name_email != "") {
                 $id_user = $_SESSION['id_user'];
                 $all_game = res_sql_query("select * from game, favourite where id_user = $id_user and id_game = id order by favourite desc");
 
-                for ($i = 0; min(count($all_game), 2); $i++) {
+                for ($i = 0; $i < min(count($all_game), 2); $i++) {
                     $row = $all_game[$i];
                     $id = $row["id"];
                     $row_img = $row["vertical_img"];
                     echo 
                     "<article class='fav__game mb-5'>
-                        <form action='' method='post'>
+                        <form action='game_user.php' method='post'>
                             <input type='hidden' value='$id' name='game_choose'>
                             <button type='submit' class='fav__link'>
                                 <div class='row'>
@@ -167,31 +163,33 @@ if ($name_email != "") {
                     </article>";
                 }
 
-                for ($i = 2; $i < count($all_game); $i++) {
-                    $row = $all_game[$i];
-                    $id = $row["id"];
-                    $row_img = $row["vertical_img"];
-                    echo 
-                    "<article class='fav__game mb-5 hide__content'>
-                        <form action='' method='post'>
-                            <input type='hidden' value='$id' name='game_choose'>
-                            <button type='submit' class='fav__link'>
-                                <div class='row'>
-                                    <div class='col-sm-4 fav__img'>
-                                        <img src='$row_img' alt='image' class='card__img'>
-                                        <div class='card__shadow'></div>
+                if (count($all_game) > 2) {
+                    for ($i = 2; $i < count($all_game); $i++) {
+                        $row = $all_game[$i];
+                        $id = $row["id"];
+                        $row_img = $row["vertical_img"];
+                        echo 
+                        "<article class='fav__game mb-5 hide__content'>
+                            <form action='game_user.php' method='post'>
+                                <input type='hidden' value='$id' name='game_choose'>
+                                <button type='submit' class='fav__link'>
+                                    <div class='row'>
+                                        <div class='col-sm-4 fav__img'>
+                                            <img src='$row_img' alt='image' class='card__img'>
+                                            <div class='card__shadow'></div>
+                                        </div>
+                                        <div class='col-sm-7 fav__data'>
+                                            <h3 class='fav__title'>".$row['title']."</h3>
+                                            <div class='fav__content'>".$row['description']."</div>
+                                            <span class='fav__catagory'>".$row['player']."</span>
+                                            <span class='fav__catagory'>".$row['place']."</span>
+                                        </div>
                                     </div>
-                                    <div class='col-sm-7 fav__data'>
-                                        <h3 class='fav__title'>".$row['title']."</h3>
-                                        <div class='fav__content'>".$row['description']."</div>
-                                        <span class='fav__catagory'>".$row['player']."</span>
-                                        <span class='fav__catagory'>".$row['place']."</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </form>
-                    </article>";
-                }
+                                </button>
+                            </form>
+                        </article>";
+                    }
+                }  
             ?>    
         </section>
     </main>

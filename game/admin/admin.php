@@ -24,7 +24,6 @@
         <div class="header__content">
             <a href="admin.php" class="header__logo">Picnic Play</a>
 
-            <!-- NONE -->
             <div class="header__user">
                 <div class="header__menu" id="header-menu">
                     <i class="ri-menu-fill"></i>
