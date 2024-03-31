@@ -140,7 +140,7 @@ if ($name_email != "") {
             echo "
             <script>
                 function displayBlogMain0() {
-                    document.getElementById('blog0').style.zIndex = 100;
+                    document.getElementById('blog0').style.zIndex = 10;
                     document.getElementById('mainblog-0').style.display = 'block';
                     document.getElementById('blog-bg0').style.display = 'block';
                 }
@@ -199,7 +199,7 @@ if ($name_email != "") {
                     echo "
                     <script>
                         function displayBlogMain$id() {
-                            document.getElementById('blog$id').style.zIndex = 100;
+                            document.getElementById('blog$id').style.zIndex = 10;
                             document.getElementById('mainblog-$id').style.display = 'block';
                             document.getElementById('blog-bg$id').style.display = 'block';
                         }
