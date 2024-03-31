@@ -128,7 +128,7 @@ if ($name_email != "") {
 
     <!--=============== BLOG ===============-->
     <main class="main" id="blog">
-        <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Blog</span></h1>
+        <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / Blog</span></h1>
 
         <?php
             $blog = res_sql_query("select * from blog order by id desc");
@@ -148,7 +148,7 @@ if ($name_email != "") {
                     document.getElementById('blog-bg0').style.display = 'none';
                     }                     
             </script>
-            <section class='blog hide__content' id='blog0'>
+            <section class='blog' id='blog0'>
                 <!--=============== BLOG PREVIEW ===============-->
                 <div class='blog__preview'>
                     <div class='blog__content mt-3'>

@@ -150,7 +150,7 @@ if ($name_email != "") {
                     document.getElementById('blog-bg0').style.display = 'none';
                     }                     
             </script>
-            <section class='blog hide__content' id='blog0'>
+            <section class='blog' id='blog0'>
                 <!--=============== BLOG PREVIEW ===============-->
                 <div class='blog__preview'>
                     <div class='blog__content mt-3'>

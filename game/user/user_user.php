@@ -144,79 +144,82 @@ if (isset($_SESSION['loggedin'])) {
     <!--=============== USER  ===============-->
     <main class="main" id="user">
         <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / User</span></h1>
-        <div class="row user mx-5">
-            <div class="col-sm-3 user__nav pt-5">
-                <div class="user__infor">
-                    <img src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg" alt="" class="user__img">
-                    <h2 class="user__name my-3"><?php echo "$name";?></h2>
+        <section class="user">
+            <div class="row mx-5">
+                <div class="col-sm-3 user__nav pt-5">
+                    <div class="user__infor">
+                        <img src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg" alt="" class="user__img">
+                        <h2 class="user__name my-3"><?php echo "$name";?></h2>
+                    </div>
+                    <ul class="nav__list ms-auto">
+                        <li class="nav__item">
+                            <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
+                        </li>
+                        <li class="nav__item">
+                            <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav__list ms-auto">
-                    <li class="nav__item">
-                        <button class="user__button active" id="profile-button" onclick="displayProfile()">Profile</button>
-                    </li>
-                    <li class="nav__item">
-                        <button class="user__button" id="password-button" onclick="displayPassword()">Password</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-7 user__content mx-auto pb-5">
-                <div class="user__profile" id="profile">
-                        <h2 class="my-3">Profile</h2>
-                        <div class="user__form mt-5">
-                            <form action="">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <label>User Name:</label>
+                <div class="col-sm-7 user__content mx-auto pb-5">
+                    <div class="user__profile" id="profile">
+                            <h2 class="my-3">Profile</h2>
+                            <div class="user__form mt-5">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <label>User Name:</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <p><?php echo "$name";?></p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-7">
-                                        <p><?php echo "$name";?></p>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-5">
+                                            <label>Email:</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <p><?php echo "$email";?></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                    <div class="user__password" id="password" style="display: none;">
+                        <h2 class="my-3">Password</h2>
+                        
+                        <div class="user__form mt-5">
+                            <form method="post">
+                                <div class="row mt-3">
+                                    <div class="col-sm-3">
+                                        <label>Old password:</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input required name="old_pwd" type="text">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-sm-5">
-                                        <label>Email:</label>
+                                    <div class="col-sm-3">
+                                        <label>New password:</label>
                                     </div>
-                                    <div class="col-sm-7">
-                                        <p><?php echo "$email";?></p>
+                                    <div class="col-sm-5">
+                                        <input required name="new_pwd" type="text">
                                     </div>
                                 </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-3">
+                                        <label>Confirm password:</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input required name="conf_pwd" type="text">
+                                    </div>
+                                </div>
+                                <button class="form__button mt-5">Change Password</button>
                             </form>
                         </div>
-                </div>
-                <div class="user__password" id="password" style="display: none;">
-                    <h2 class="my-3">Password</h2>
-                    <div class="user__form mt-5">
-                        <form method="post">
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>Old password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input required name="old_pwd" type="text">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>New password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input required name="new_pwd" type="text">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-3">
-                                    <label>Confirm password:</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input required name="conf_pwd" type="text">
-                                </div>
-                            </div>
-                            <button class="form__button mt-5">Change Password</button>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!--=============== FOOTER  ===============-->

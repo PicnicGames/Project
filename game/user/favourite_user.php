@@ -130,9 +130,9 @@ if ($name_email != "") {
 
     <!--==================== FAVOURITE GAMES ====================-->
     <main class="main" id="all-games">
+        <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Favourite Games</span></h1>
+        
         <section class="main__content">
-            <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / Favourite Games</span></h1>
-           
             <?php
                 $id_user = $_SESSION['id_user'];
                 $all_game = res_sql_query("select * from game, favourite where id_user = $id_user and id_game = id order by favourite desc");

@@ -130,9 +130,9 @@ if ($name_email != "") {
 
     <!--==================== ALL GAMES ====================-->
     <main class="main" id="all-games">
+        <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / All Games</span></h1>
+        
         <section class="main__content">
-            <h1 class="page__title"><a href="home_user.php" class="page__link">Home</a><span> / All Games</span></h1>
-
             <?php
                 $all_game = res_sql_query("select * from game order by id desc");
 
