@@ -128,7 +128,7 @@ if ($name_email != "") {
             $inp = "";
             $inp = get_post('inp');
             if ($inp != '') {
-                echo "<h1 class='page__title'><a href='home_user.php' class='page__link'>Home</a><span> / Search: $inp</span></h1> 
+                echo "<h1 class='page__title'><a href='home_none.php' class='page__link'>Home</a><span> / Search: $inp</span></h1> 
                 <section class='main__content'>";
                 
                 $res = res_sql_query("select * from game where title like '%$inp%' or player like '%$inp%' or place like '%$inp%'");

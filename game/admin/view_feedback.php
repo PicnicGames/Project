@@ -81,6 +81,12 @@ if ($id != '') {
                 </li>
 
                 <li class="nav__item">
+                    <a class="nav__link" href="view_blog.php">
+                        <i class="ri-blogger-fill"></i> <span>View Blog</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
                     <a class="nav__link active" href="view_feedback.php">
                         <i class="ri-contacts-line"></i> <span>View Feedback</span>
                     </a>
@@ -109,9 +115,9 @@ if ($id != '') {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NAME</th>
-                        <th>EMAIL</th>
-                        <th>MESSAGE</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -122,10 +128,10 @@ if ($id != '') {
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
                         echo "<tr>
-                            <th>". $i+1 ."</th>
-                            <th>".$row['first_name'].$row['last_name']."</th>
-                            <th>".$row['email']."</th>
-                            <th>".$row['content']."</th>
+                            <td>". $i+1 ."</td>
+                            <td>".$row['first_name'].$row['last_name']."</td>
+                            <td>".$row['email']."</td>
+                            <td>".$row['content']."</td>
                         </tr>";
                     }
                     ?>

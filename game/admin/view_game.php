@@ -81,6 +81,12 @@ if ($id != '') {
                 </li>
 
                 <li class="nav__item">
+                    <a class="nav__link" href="view_blog.php">
+                        <i class="ri-blogger-fill"></i> <span>View Blog</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
                     <a class="nav__link" href="view_feedback.php">
                         <i class="ri-contacts-line"></i> <span>View Feedback</span>
                     </a>

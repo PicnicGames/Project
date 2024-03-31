@@ -741,7 +741,6 @@ img {
   width: 50%;
   height: 600px;
   position: relative;
-  z-index: var(--z-tooltip);
   margin: auto;
 }
 
@@ -828,7 +827,7 @@ img {
 
 .blog__container {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000;
   padding: 3rem;
   border-radius: 1rem;
   z-index: var(--z-fixed);
