@@ -130,12 +130,13 @@ if ($name_email != "") {
 
     <!--==================== SEARCH GAMES ====================-->
     <main class="main" id="search-games">
-        <section class="main__content">
             <?php
                 $inp = "";
                 $inp = get_post('inp');
                 if ($inp != '') {
-                    echo "<h1 class='page__title'><a href='home_user.php' class='page__link'>Home</a><span> / Search: $inp</span></h1>";
+                    echo "<h1 class='page__title'><a href='home_user.php' class='page__link'>Home</a><span> / Search: $inp</span></h1> 
+                    <section class='main__content'>";
+                    
                     $res = res_sql_query("select * from game where title like '%$inp%' or player like '%$inp%' or place like '%$inp%'");
                     for ($j = 0; $j < min(ceil(count($res)/4), 2); $j++) {
                         echo "
@@ -198,9 +199,9 @@ if ($name_email != "") {
                             ";
                         }
                     }
+                    echo "</section>";
                 }
             ?>
-        </section>
     </main>
 
     <!--=============== FOOTER  ===============-->

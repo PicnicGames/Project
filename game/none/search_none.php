@@ -124,16 +124,48 @@ if ($name_email != "") {
 
     <!--==================== SEARCH GAMES ====================-->
     <main class="main" id="search-games">
-        <section class="main__content">
-            <?php
-                $inp = "";
-                $inp = get_post('inp');
-                if ($inp != '') {
-                    echo "<h1 class='page__title'><a href='home_user.php' class='page__link'>Home</a><span> / Search: $inp</span></h1>";
-                    $res = res_sql_query("select * from game where title like '%$inp%' or player like '%$inp%' or place like '%$inp%'");
-                    for ($j = 0; $j < min(ceil(count($res)/4), 2); $j++) {
+        <?php
+            $inp = "";
+            $inp = get_post('inp');
+            if ($inp != '') {
+                echo "<h1 class='page__title'><a href='home_user.php' class='page__link'>Home</a><span> / Search: $inp</span></h1> 
+                <section class='main__content'>";
+                
+                $res = res_sql_query("select * from game where title like '%$inp%' or player like '%$inp%' or place like '%$inp%'");
+                for ($j = 0; $j < min(ceil(count($res)/4), 2); $j++) {
+                    echo "
+                        <div class='row mb-3'>
+                    ";
+                    for ($i = $j*4; $i < min(count($res), $j*4+4); $i++) {
+                        $row = $res[$i];
+                        $id = $row["id"];
+                        $row_img = $row["vertical_img"];
                         echo "
-                            <div class='row mb-3'>
+                        <article class='col-sm-3'>
+                            <form action='game_none.php' method='post'>
+                                <input type='hidden' value='$id' name='game_choose'>
+                                <button type='submit' class='card__link'>
+                                    <img src='$row_img' alt='image' class='card__img'>
+                                    <div class='card__shadow'></div>
+                                    
+                                    <div class='card__data'>
+                                        <h3 class='card__name'>".$row['title']."</h3>
+                                        <span class='card__category'>".$row['player']."</span>
+                                        <span class='card__category'>".$row['place']."</span>
+                                    </div>
+                                </button>
+                            </form>
+                        </article>";
+                    };
+                    echo "
+                        </div>
+                    ";
+                }
+
+                if (ceil(count($res) / 4) > 2) {
+                    for ($j = 2; $j < ceil(count($res) / 4); $j++) {
+                        echo "
+                            <div class='row mb-3 hide__content'>
                         ";
                         for ($i = $j*4; $i < min(count($res), $j*4+4); $i++) {
                             $row = $res[$i];
@@ -160,41 +192,10 @@ if ($name_email != "") {
                             </div>
                         ";
                     }
-    
-                    if (ceil(count($res) / 4) > 2) {
-                        for ($j = 2; $j < ceil(count($res) / 4); $j++) {
-                            echo "
-                                <div class='row mb-3 hide__content'>
-                            ";
-                            for ($i = $j*4; $i < min(count($res), $j*4+4); $i++) {
-                                $row = $res[$i];
-                                $id = $row["id"];
-                                $row_img = $row["vertical_img"];
-                                echo "
-                                <article class='col-sm-3'>
-                                    <form action='game_none.php' method='post'>
-                                        <input type='hidden' value='$id' name='game_choose'>
-                                        <button type='submit' class='card__link'>
-                                            <img src='$row_img' alt='image' class='card__img'>
-                                            <div class='card__shadow'></div>
-                                            
-                                            <div class='card__data'>
-                                                <h3 class='card__name'>".$row['title']."</h3>
-                                                <span class='card__category'>".$row['player']."</span>
-                                                <span class='card__category'>".$row['place']."</span>
-                                            </div>
-                                        </button>
-                                    </form>
-                                </article>";
-                            };
-                            echo "
-                                </div>
-                            ";
-                        }
-                    }
                 }
-            ?>
-        </section>
+                echo "</section>";
+            }
+        ?>
     </main>
 
     <!--=============== SIGNIN SIGNUP ===============-->

@@ -123,12 +123,11 @@ if ($name_email != "") {
         </div>
     </nav>
 
-    <!--==================== FAVOURITE PAGE ====================-->
+    <!--==================== FAMILY GAMES ====================-->
     <main class="main" id="all-games">
-        <!--==================== GAMES ====================-->
+        <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / Family Games</span></h1>
+        
         <section class="main__content">
-            <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / Family Games</span></h1>
-
             <?php
                 $all_game = res_sql_query("select * from game order by id desc");
 

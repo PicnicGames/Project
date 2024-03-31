@@ -151,7 +151,7 @@ if ($add_fav != "") {
 
     <!--==================== GAME ====================-->
     <main class="main" id="game">
-    <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / <?php echo $game[0]['title'];?></span></h1>
+        <h1 class="page__title"><a href="home_none.php" class="page__link">Home</a><span> / <?php echo $game[0]['title'];?></span></h1>
         
         <section class="row">
             <article class="banner__card col-sm-7 mt-3">
