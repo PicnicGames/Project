@@ -26,7 +26,7 @@ if ($id != '') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>USERS</title>
+    <title>FEEDBACK</title>
 </head>
 <body id="body">
     <div class="bg__image" style="background: #333"></div>
@@ -57,7 +57,7 @@ if ($id != '') {
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link active" href="view_user.php">
+                    <a class="nav__link" href="view_user.php">
                         <i class="ri-user-line"></i> <span>View Users</span>
                     </a>
                 </li>
@@ -70,7 +70,7 @@ if ($id != '') {
 
                 <li class="nav__item">
                     <a class="nav__link" href="view_game.php">
-                        <i class="ri-gamepad-line"></i><span>View Games</span>
+                        <i class="ri-gamepad-line"></i> <span>View Games</span>
                     </a>
                 </li>
 
@@ -81,7 +81,7 @@ if ($id != '') {
                 </li>
 
                 <li class="nav__item">
-                    <a class="nav__link" href="view_blog.php">
+                    <a class="nav__link active" href="view_blog.php">
                         <i class="ri-blogger-fill"></i> <span>View Blog</span>
                     </a>
                 </li>
@@ -95,12 +95,12 @@ if ($id != '') {
 
             <!-- USER -->
             <div class="nav__user pt-3" id="registered">
-            <a class="nav__link" href="user.html">
-                <div class="user__container">
-                    <i class="ri-user-fill"></i>
-                    <div class="user__name ms-3">ADMIN</div>
+                <div class="nav__link">
+                    <div class="user__container">
+                        <i class="ri-user-fill"></i>
+                        <div class="user__name ms-3">ADMIN</div>
+                    </div>
                 </div>
-            </a>
             </div>
         </div>
 
@@ -115,23 +115,24 @@ if ($id != '') {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     require_once "utils.php";
-                    $sql = "select * from user";
+                    $sql = "select * from blog";
                     $res = res_sql_query($sql);
                     for ($i = 0; $i < count($res); $i++) {
                         $row = $res[$i];
+                        $time = strtotime($row['created_at']);
                         echo "<tr>
-                            <th>". $i+1 ."</th>
-                            <th>".$row['username']."</th>
-                            <th>".$row['email']."</th>
-                            <th>".$row['password']."</th>
+                            <td>". $i+1 ."</td>
+                            <td>".$row['title']."</td>
+                            <td>".$row['content']."</td>
+                            <td>".date('h:i:s d/m/Y',$time)."</td>
                         </tr>";
                     }
                     ?>
